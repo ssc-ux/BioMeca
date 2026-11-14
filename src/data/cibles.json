@@ -1,0 +1,8 @@
+[
+  { "id": "il6r", "nom": "Récepteur de l'IL-6 (IL-6R)", "voieId": "il6", "ancre": { "elementId": "il6r", "x": 221, "y": 137, "angle": 0 } },
+  { "id": "il6", "nom": "Interleukine 6 (IL-6)", "voieId": "il6", "ancre": { "elementId": "il6", "x": 70, "y": 92, "angle": 0 } },
+  { "id": "tnf", "nom": "TNF", "voieId": "tnf", "ancre": { "elementId": "tnf", "x": 180, "y": 92, "angle": 0 } },
+  { "id": "cd20", "nom": "CD20", "voieId": "lb", "ancre": { "elementId": "cd20", "x": 330, "y": 137, "angle": 0 }, "aval": ["baffr", "survie", "noyau"] },
+  { "id": "baff", "nom": "BAFF (BLyS)", "voieId": "lb", "ancre": { "elementId": "baff", "x": 120, "y": 92, "angle": 0 } },
+  { "id": "jak", "nom": "Janus kinases (JAK)", "voieId": "jakstat", "ancre": { "elementId": "jak", "x": 269, "y": 242, "angle": 100 } }
+]

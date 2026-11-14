@@ -1,0 +1,90 @@
+[
+  {
+    "id": "il6", "nom": "Voie IL-6",
+    "scene": {
+      "viewBox": "0 0 520 380",
+      "elements": [
+        { "id": "membrane", "type": "membrane", "y": 170, "label": "Membrane plasmique", "dessus": "Milieu extracellulaire", "dessous": "Cytoplasme" },
+        { "id": "il6", "type": "cytokine", "x": 70, "y": 110, "label": "IL-6" },
+        { "id": "il6r", "type": "recepteur", "x": 221, "y": 170, "label": "IL-6R" },
+        { "id": "gp130", "type": "recepteur", "x": 300, "y": 170, "label": "gp130" },
+        { "id": "jak", "type": "kinase", "x": 300, "y": 242, "label": "JAK" },
+        { "id": "stat3", "type": "kinase", "x": 300, "y": 286, "label": "STAT3" },
+        { "id": "noyau", "type": "noyau", "x": 300, "y": 340, "label": "Noyau : gènes de la phase aiguë (CRP…)" }
+      ],
+      "liens": [["il6", "il6r"], ["il6r", "gp130"], ["gp130", "jak"], ["jak", "stat3"], ["stat3", "noyau"]]
+    },
+    "etapes": [
+      { "id": "liaison", "phase": "physiologie", "titre": "Liaison de l'IL-6 à son récepteur", "texte": "L'IL-6 se fixe sur son récepteur IL-6R, présent sous forme membranaire (signalisation classique) ou soluble (trans-signalisation).", "actifs": ["il6", "il6r"] },
+      { "id": "gp130", "phase": "physiologie", "titre": "Recrutement de gp130 et activation des JAK", "texte": "Le complexe IL-6/IL-6R s'associe à gp130, la sous-unité qui transmet le signal. Sa dimérisation active les kinases JAK qui lui sont associées.", "actifs": ["il6", "il6r", "gp130", "jak"] },
+      { "id": "stat3", "phase": "physiologie", "titre": "STAT3 et transcription", "texte": "Les JAK phosphorylent STAT3, qui se dimérise et migre dans le noyau : transcription des gènes cibles, dont ceux des protéines de la phase aiguë (CRP) dans l'hépatocyte." },
+      { "id": "fixation", "phase": "fixation", "titre": "Fixation du médicament", "texte": "Chaque médicament se fixe sur sa cible et empêche la formation du complexe IL-6/IL-6R/gp130." },
+      { "id": "aval", "phase": "aval", "titre": "Conséquences en aval", "texte": "Sans complexe actif, gp130 ne se dimérise plus : JAK et STAT3 ne sont plus activés et la transcription dépendante de l'IL-6 chute. La CRP baisse, même en cas d'infection." }
+    ]
+  },
+  {
+    "id": "tnf", "nom": "Voie TNF",
+    "scene": {
+      "viewBox": "0 0 520 380",
+      "elements": [
+        { "id": "membrane", "type": "membrane", "y": 170, "label": "Membrane plasmique", "dessus": "Milieu extracellulaire", "dessous": "Cytoplasme" },
+        { "id": "tnf", "type": "cytokine", "x": 180, "y": 110, "label": "TNF" },
+        { "id": "tnfr", "type": "recepteur", "x": 280, "y": 170, "label": "TNFR1 / TNFR2" },
+        { "id": "signal", "type": "kinase", "x": 280, "y": 264, "label": "NF-κB / MAP kinases" },
+        { "id": "noyau", "type": "noyau", "x": 280, "y": 340, "label": "Noyau : gènes pro-inflammatoires" }
+      ],
+      "liens": [["tnf", "tnfr"], ["tnfr", "signal"], ["signal", "noyau"]]
+    },
+    "etapes": [
+      { "id": "liaison", "phase": "physiologie", "titre": "Liaison du TNF à ses récepteurs", "texte": "Le TNF, trimère soluble ou membranaire produit surtout par les macrophages, se fixe sur ses récepteurs TNFR1 et TNFR2.", "actifs": ["tnf", "tnfr"] },
+      { "id": "signal", "phase": "physiologie", "titre": "Signalisation intracellulaire", "texte": "Les récepteurs activés déclenchent les voies NF-κB et MAP kinases.", "actifs": ["tnf", "tnfr", "signal"] },
+      { "id": "reponse", "phase": "physiologie", "titre": "Réponse inflammatoire", "texte": "Transcription de gènes pro-inflammatoires : cytokines (IL-1, IL-6), chimiokines, molécules d'adhésion. Le TNF contribue aussi à la formation et au maintien des granulomes." },
+      { "id": "fixation", "phase": "fixation", "titre": "Fixation du médicament", "texte": "Les anti-TNF captent le TNF avant qu'il n'atteigne ses récepteurs." },
+      { "id": "aval", "phase": "aval", "titre": "Conséquences en aval", "texte": "Les récepteurs ne sont plus stimulés : l'activation de NF-κB et la production des médiateurs de l'inflammation diminuent." }
+    ]
+  },
+  {
+    "id": "lb", "nom": "Lymphocyte B (CD20, BAFF)",
+    "scene": {
+      "viewBox": "0 0 520 380",
+      "elements": [
+        { "id": "membrane", "type": "membrane", "y": 170, "label": "Membrane du lymphocyte B", "dessus": "Milieu extracellulaire", "dessous": "Cytoplasme" },
+        { "id": "baff", "type": "cytokine", "x": 120, "y": 110, "label": "BAFF" },
+        { "id": "baffr", "type": "recepteur", "x": 200, "y": 170, "label": "BAFF-R" },
+        { "id": "cd20", "type": "recepteur", "x": 330, "y": 170, "label": "CD20" },
+        { "id": "survie", "type": "kinase", "x": 200, "y": 264, "label": "Signal de survie" },
+        { "id": "noyau", "type": "noyau", "x": 240, "y": 340, "label": "Noyau : survie et maturation" }
+      ],
+      "liens": [["baff", "baffr"], ["baffr", "survie"], ["survie", "noyau"]]
+    },
+    "etapes": [
+      { "id": "baff", "phase": "physiologie", "titre": "BAFF et ses récepteurs", "texte": "BAFF (BLyS), cytokine produite notamment par les cellules myéloïdes, se fixe sur ses récepteurs à la surface du lymphocyte B, principalement BAFF-R.", "actifs": ["baff", "baffr"] },
+      { "id": "survie", "phase": "physiologie", "titre": "Signal de survie", "texte": "Ce signal favorise la survie et la maturation des lymphocytes B.", "actifs": ["baff", "baffr", "survie", "noyau"] },
+      { "id": "cd20", "phase": "physiologie", "titre": "CD20, marqueur du lymphocyte B", "texte": "CD20 est une protéine membranaire exprimée du stade pré-B au lymphocyte B mature. Elle est absente des cellules souches et des plasmocytes.", "actifs": ["cd20"] },
+      { "id": "fixation", "phase": "fixation", "titre": "Fixation du médicament", "texte": "Chaque médicament se fixe sur sa cible : BAFF soluble ou CD20 membranaire." },
+      { "id": "aval", "phase": "aval", "titre": "Conséquences en aval", "texte": "Anti-BAFF : le lymphocyte B perd un signal de survie. Anti-CD20 : le lymphocyte B est détruit (déplétion B périphérique), alors que les plasmocytes déjà formés sont épargnés." }
+    ]
+  },
+  {
+    "id": "jakstat", "nom": "Voie JAK/STAT",
+    "scene": {
+      "viewBox": "0 0 520 380",
+      "elements": [
+        { "id": "membrane", "type": "membrane", "y": 170, "label": "Membrane plasmique", "dessus": "Milieu extracellulaire", "dessous": "Cytoplasme" },
+        { "id": "cytokine", "type": "cytokine", "x": 120, "y": 110, "label": "Cytokine" },
+        { "id": "recepteur", "type": "recepteur", "x": 240, "y": 170, "label": "Récepteur" },
+        { "id": "jak", "type": "kinase", "x": 240, "y": 242, "label": "JAK" },
+        { "id": "stat", "type": "kinase", "x": 240, "y": 286, "label": "STAT" },
+        { "id": "noyau", "type": "noyau", "x": 240, "y": 340, "label": "Noyau : transcription" }
+      ],
+      "liens": [["cytokine", "recepteur"], ["recepteur", "jak"], ["jak", "stat"], ["stat", "noyau"]]
+    },
+    "etapes": [
+      { "id": "liaison", "phase": "physiologie", "titre": "Liaison de la cytokine", "texte": "De nombreuses cytokines (interleukines, interférons, facteurs de croissance hématopoïétiques) se fixent sur des récepteurs dépourvus d'activité kinase propre.", "actifs": ["cytokine", "recepteur"] },
+      { "id": "jak", "phase": "physiologie", "titre": "Activation des JAK", "texte": "Ces récepteurs sont associés à des paires de Janus kinases (JAK1, JAK2, JAK3, TYK2) qui s'activent mutuellement par phosphorylation.", "actifs": ["cytokine", "recepteur", "jak"] },
+      { "id": "stat", "phase": "physiologie", "titre": "STAT et transcription", "texte": "Les JAK phosphorylent les STAT, qui se dimérisent, migrent dans le noyau et régulent la transcription." },
+      { "id": "fixation", "phase": "fixation", "titre": "Fixation du médicament", "texte": "Les inhibiteurs de JAK, petites molécules actives par voie orale, entrent dans la cellule et occupent le site de fixation de l'ATP des JAK." },
+      { "id": "aval", "phase": "aval", "titre": "Conséquences en aval", "texte": "Les STAT ne sont plus phosphorylés : le signal de plusieurs cytokines est interrompu en même temps, y compris celui de facteurs de croissance hématopoïétiques." }
+    ]
+  }
+]
