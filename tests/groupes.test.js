@@ -25,7 +25,9 @@ describe('comparaison', () => {
 
 describe('schéma', () => {
   it('calcule les éléments en aval de la cible', () => {
-    expect([...aval(voieParId.il6.scene.liens, ['il6r'])]).toEqual(['gp130', 'jak', 'stat3', 'noyau']);
+    const a = aval(voieParId.il6.scene.liens, ['il6r']);
+    for (const id of ['gp130', 'jak', 'stat3', 'noyau', 'e1']) expect(a.has(id), id).toBe(true);
+    for (const id of ['source', 'il6', 'il6r']) expect(a.has(id), id).toBe(false);
   });
   it('utilise la liste explicite de la cible quand elle existe', () => {
     expect([...bloquesPar([cibleParId.cd20], voieParId.lb.scene.liens)]).toEqual(cibleParId.cd20.aval);
@@ -45,18 +47,15 @@ describe('intégrité des données', () => {
       expect(cibleParId[m.cibleId].voieId).toBe(m.voieId);
     }
   });
-  it('ancres, liens, étapes et effets pointent sur des éléments existants de la scène', () => {
+  it('ancres, liens et étapes pointent sur des éléments existants de la scène', () => {
     const idsDe = (voieId) => voieParId[voieId].scene.elements.map((e) => e.id);
     for (const c of cibles) {
       expect(idsDe(c.voieId), c.id).toContain(c.ancre.elementId);
       for (const id of c.aval ?? []) expect(idsDe(c.voieId), c.id).toContain(id);
     }
     for (const v of voies) {
-      for (const l of v.scene.liens) for (const id of l) expect(idsDe(v.id), v.id).toContain(id);
+      for (const l of v.scene.liens) for (const id of l.slice(0, 2)) expect(idsDe(v.id), v.id).toContain(id);
       for (const e of v.etapes) for (const id of e.actifs ?? []) expect(idsDe(v.id), v.id).toContain(id);
-    }
-    for (const m of molecules) {
-      for (const e of m.effets) if (e.elementId) expect(idsDe(m.voieId), m.id).toContain(e.elementId);
     }
   });
 });

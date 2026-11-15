@@ -45,7 +45,7 @@
 {#if mols.length === 0}
   <section class="carte vide">
     <h2>Choisissez une ou plusieurs biothérapies</h2>
-    <p>Chaque voie s'affiche dans un schéma pas à pas : voie physiologique, fixation du médicament, puis conséquences en aval. Les molécules d'une même voie partagent le même schéma.</p>
+    <p>Chaque voie s'affiche dans un schéma pas à pas : voie physiologique détaillée, fixation du médicament, puis conséquences en aval. Les molécules d'une même voie partagent le même schéma, et un tableau les compare.</p>
     <ul class="suggestions">
       {#each molecules as m (m.id)}
         <li><button class="bouton" onclick={() => ajouter(m.id)}><span class="pastille" style:background={couleur(m.id)}></span>{m.dci}</button></li>
@@ -53,7 +53,7 @@
     </ul>
   </section>
 {:else}
-  <div class="disposition" class:multi={groupes.length > 1}>
+  <div class="disposition">
     <div class="panneaux">
       {#each groupes as g (g.voieId)}
         <PanneauVoie voie={voieParId[g.voieId]} mols={g.molecules} />
@@ -79,7 +79,5 @@
   .suggestions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
   .suggestions .bouton { display: inline-flex; align-items: center; gap: 8px; font-weight: 500; }
   .disposition { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; }
-  .multi :global(aside) { flex-basis: 100%; flex-direction: row; flex-wrap: wrap; }
-  .multi :global(aside > section) { flex: 1 1 320px; min-width: 0; }
-  .panneaux { flex: 999 1 560px; min-width: 0; display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; }
+  .panneaux { flex: 1 1 100%; min-width: 0; display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; }
 </style>

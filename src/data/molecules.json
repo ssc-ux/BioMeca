@@ -1,179 +1,215 @@
 [
   {
-    "id": "tocilizumab", "dci": "tocilizumab", "abreviation": "TCZ",
+    "id": "tocilizumab",
+    "dci": "tocilizumab",
+    "abreviation": "TCZ",
     "classe": "Anticorps monoclonal anti-récepteur de l'IL-6",
     "structure": "IgG1 humanisée",
-    "glyphe": "anticorps", "cibleId": "il6r", "voieId": "il6",
+    "glyphe": "anticorps",
+    "cibleId": "il6r",
+    "voieId": "il6",
     "mecanisme": "Se fixe sur les formes membranaire et soluble d'IL-6R et empêche l'IL-6 de s'y lier.",
     "administration": "Intraveineuse ou sous-cutanée",
-    "indications": ["Polyarthrite rhumatoïde", "Artérite à cellules géantes", "Arthrite juvénile idiopathique systémique et polyarticulaire", "Syndrome de relargage cytokinique induit par les CAR-T", "COVID-19 sévère sous corticoïdes et oxygène"],
-    "effets": [
-      { "effet": "Infections, parfois graves", "mecanisme": "L'IL-6 participe à la défense anti-infectieuse ; son blocage diminue cette réponse.", "elementId": "il6r" },
-      { "effet": "Syndrome inflammatoire masqué (CRP basse, fièvre atténuée)", "mecanisme": "La synthèse hépatique de CRP dépend de l'IL-6 : la CRP reste basse même en cas d'infection.", "elementId": "noyau" },
-      { "effet": "Neutropénie, thrombopénie", "mecanisme": "", "elementId": "il6r" },
-      { "effet": "Élévation des transaminases", "mecanisme": "", "elementId": "noyau" },
-      { "effet": "Élévation du cholestérol et des triglycérides", "mecanisme": "L'inflammation médiée par l'IL-6 abaisse les lipides ; son blocage les fait remonter.", "elementId": "noyau" },
-      { "effet": "Perforation digestive (surtout sur diverticulite)", "mecanisme": "", "elementId": "il6r" }
+    "indications": [
+      "Polyarthrite rhumatoïde",
+      "Artérite à cellules géantes",
+      "Arthrite juvénile idiopathique systémique et polyarticulaire",
+      "Syndrome de relargage cytokinique induit par les CAR-T",
+      "COVID-19 sévère sous corticoïdes et oxygène"
     ],
-    "source": "À confronter au RCP européen (EMA) de RoActemra", "dateMaj": "2026-11-14", "statut": "à relire"
+    "source": "À confronter au RCP européen (EMA) de RoActemra",
+    "dateMaj": "2026-11-14",
+    "statut": "à relire"
   },
   {
-    "id": "sarilumab", "dci": "sarilumab", "abreviation": "",
+    "id": "sarilumab",
+    "dci": "sarilumab",
+    "abreviation": "",
     "classe": "Anticorps monoclonal anti-récepteur de l'IL-6",
     "structure": "IgG1 humaine",
-    "glyphe": "anticorps", "cibleId": "il6r", "voieId": "il6",
+    "glyphe": "anticorps",
+    "cibleId": "il6r",
+    "voieId": "il6",
     "mecanisme": "Se fixe sur les formes membranaire et soluble d'IL-6R et empêche l'IL-6 de s'y lier.",
     "administration": "Sous-cutanée",
-    "indications": ["Polyarthrite rhumatoïde"],
-    "effets": [
-      { "effet": "Infections, parfois graves", "mecanisme": "L'IL-6 participe à la défense anti-infectieuse ; son blocage diminue cette réponse.", "elementId": "il6r" },
-      { "effet": "Syndrome inflammatoire masqué (CRP basse, fièvre atténuée)", "mecanisme": "La synthèse hépatique de CRP dépend de l'IL-6 : la CRP reste basse même en cas d'infection.", "elementId": "noyau" },
-      { "effet": "Neutropénie, thrombopénie", "mecanisme": "", "elementId": "il6r" },
-      { "effet": "Élévation des transaminases", "mecanisme": "", "elementId": "noyau" },
-      { "effet": "Élévation du cholestérol et des triglycérides", "mecanisme": "L'inflammation médiée par l'IL-6 abaisse les lipides ; son blocage les fait remonter.", "elementId": "noyau" },
-      { "effet": "Perforation digestive (surtout sur diverticulite)", "mecanisme": "", "elementId": "il6r" }
+    "indications": [
+      "Polyarthrite rhumatoïde"
     ],
-    "source": "À confronter au RCP européen (EMA) de Kevzara", "dateMaj": "2026-11-14", "statut": "à relire"
+    "source": "À confronter au RCP européen (EMA) de Kevzara",
+    "dateMaj": "2026-11-14",
+    "statut": "à relire"
   },
   {
-    "id": "siltuximab", "dci": "siltuximab", "abreviation": "",
+    "id": "siltuximab",
+    "dci": "siltuximab",
+    "abreviation": "",
     "classe": "Anticorps monoclonal anti-IL-6",
     "structure": "IgG1 chimérique",
-    "glyphe": "anticorps", "cibleId": "il6", "voieId": "il6",
+    "glyphe": "anticorps",
+    "cibleId": "il6",
+    "voieId": "il6",
     "mecanisme": "Capte l'IL-6 elle-même et l'empêche de se lier à IL-6R, membranaire ou soluble.",
     "administration": "Intraveineuse",
-    "indications": ["Maladie de Castleman multicentrique, VIH négatif et HHV-8 négatif"],
-    "effets": [
-      { "effet": "Infections", "mecanisme": "L'IL-6 participe à la défense anti-infectieuse ; sa neutralisation diminue cette réponse.", "elementId": "il6" },
-      { "effet": "Syndrome inflammatoire masqué (CRP basse, fièvre atténuée)", "mecanisme": "La synthèse hépatique de CRP dépend de l'IL-6 : la CRP reste basse même en cas d'infection.", "elementId": "noyau" },
-      { "effet": "Réactions liées à la perfusion, hypersensibilité", "mecanisme": "Anticorps chimérique, comportant une part de séquences murines.", "elementId": "il6" },
-      { "effet": "Neutropénie, thrombopénie", "mecanisme": "", "elementId": "il6" },
-      { "effet": "Hypertriglycéridémie", "mecanisme": "", "elementId": "noyau" }
+    "indications": [
+      "Maladie de Castleman multicentrique, VIH négatif et HHV-8 négatif"
     ],
-    "source": "À confronter au RCP européen (EMA) de Sylvant", "dateMaj": "2026-11-14", "statut": "à relire"
+    "source": "À confronter au RCP européen (EMA) de Sylvant",
+    "dateMaj": "2026-11-14",
+    "statut": "à relire"
   },
   {
-    "id": "infliximab", "dci": "infliximab", "abreviation": "IFX",
+    "id": "infliximab",
+    "dci": "infliximab",
+    "abreviation": "IFX",
     "classe": "Anticorps monoclonal anti-TNF",
     "structure": "IgG1 chimérique",
-    "glyphe": "anticorps", "cibleId": "tnf", "voieId": "tnf",
+    "glyphe": "anticorps",
+    "cibleId": "tnf",
+    "voieId": "tnf",
     "mecanisme": "Se fixe sur le TNF soluble et sur le TNF membranaire et l'empêche d'activer ses récepteurs.",
     "administration": "Intraveineuse (forme sous-cutanée pour certaines spécialités)",
-    "indications": ["Polyarthrite rhumatoïde", "Maladie de Crohn", "Rectocolite hémorragique", "Spondylarthrite ankylosante", "Rhumatisme psoriasique", "Psoriasis"],
-    "effets": [
-      { "effet": "Infections, dont réactivation d'une tuberculose latente", "mecanisme": "Le TNF est nécessaire à la formation et au maintien du granulome qui contient le bacille.", "elementId": "tnf" },
-      { "effet": "Réactivation d'une hépatite B", "mecanisme": "", "elementId": "tnf" },
-      { "effet": "Réactions liées à la perfusion, perte d'efficacité", "mecanisme": "Anticorps chimérique : apparition possible d'anticorps anti-médicament.", "elementId": "tnf" },
-      { "effet": "Aggravation d'une insuffisance cardiaque", "mecanisme": "", "elementId": "tnf" },
-      { "effet": "Atteintes démyélinisantes", "mecanisme": "", "elementId": "tnf" },
-      { "effet": "Auto-anticorps, syndrome lupique, réactions paradoxales (psoriasis)", "mecanisme": "", "elementId": "tnf" }
+    "indications": [
+      "Polyarthrite rhumatoïde",
+      "Maladie de Crohn",
+      "Rectocolite hémorragique",
+      "Spondylarthrite ankylosante",
+      "Rhumatisme psoriasique",
+      "Psoriasis"
     ],
-    "source": "À confronter au RCP européen (EMA) de Remicade", "dateMaj": "2026-11-14", "statut": "à relire"
+    "source": "À confronter au RCP européen (EMA) de Remicade",
+    "dateMaj": "2026-11-14",
+    "statut": "à relire"
   },
   {
-    "id": "adalimumab", "dci": "adalimumab", "abreviation": "ADA",
+    "id": "adalimumab",
+    "dci": "adalimumab",
+    "abreviation": "ADA",
     "classe": "Anticorps monoclonal anti-TNF",
     "structure": "IgG1 humaine",
-    "glyphe": "anticorps", "cibleId": "tnf", "voieId": "tnf",
+    "glyphe": "anticorps",
+    "cibleId": "tnf",
+    "voieId": "tnf",
     "mecanisme": "Se fixe sur le TNF soluble et sur le TNF membranaire et l'empêche d'activer ses récepteurs.",
     "administration": "Sous-cutanée",
-    "indications": ["Polyarthrite rhumatoïde", "Arthrite juvénile idiopathique", "Spondyloarthrite axiale", "Rhumatisme psoriasique", "Psoriasis", "Hidradénite suppurée", "Maladie de Crohn", "Rectocolite hémorragique", "Uvéite non infectieuse"],
-    "effets": [
-      { "effet": "Infections, dont réactivation d'une tuberculose latente", "mecanisme": "Le TNF est nécessaire à la formation et au maintien du granulome qui contient le bacille.", "elementId": "tnf" },
-      { "effet": "Réactivation d'une hépatite B", "mecanisme": "", "elementId": "tnf" },
-      { "effet": "Réactions au site d'injection", "mecanisme": "", "elementId": "tnf" },
-      { "effet": "Aggravation d'une insuffisance cardiaque", "mecanisme": "", "elementId": "tnf" },
-      { "effet": "Atteintes démyélinisantes", "mecanisme": "", "elementId": "tnf" },
-      { "effet": "Auto-anticorps, syndrome lupique, réactions paradoxales (psoriasis)", "mecanisme": "", "elementId": "tnf" }
+    "indications": [
+      "Polyarthrite rhumatoïde",
+      "Arthrite juvénile idiopathique",
+      "Spondyloarthrite axiale",
+      "Rhumatisme psoriasique",
+      "Psoriasis",
+      "Hidradénite suppurée",
+      "Maladie de Crohn",
+      "Rectocolite hémorragique",
+      "Uvéite non infectieuse"
     ],
-    "source": "À confronter au RCP européen (EMA) de Humira", "dateMaj": "2026-11-14", "statut": "à relire"
+    "source": "À confronter au RCP européen (EMA) de Humira",
+    "dateMaj": "2026-11-14",
+    "statut": "à relire"
   },
   {
-    "id": "etanercept", "dci": "étanercept", "abreviation": "ETN",
+    "id": "etanercept",
+    "dci": "étanercept",
+    "abreviation": "ETN",
     "classe": "Récepteur soluble du TNF (protéine de fusion)",
     "structure": "Domaine extracellulaire du récepteur p75 du TNF fusionné au fragment Fc d'une IgG1 humaine",
-    "glyphe": "fusion", "cibleId": "tnf", "voieId": "tnf",
+    "glyphe": "fusion",
+    "cibleId": "tnf",
+    "voieId": "tnf",
     "mecanisme": "Récepteur leurre : capte le TNF (et la lymphotoxine α) avant qu'il n'atteigne les récepteurs cellulaires.",
     "administration": "Sous-cutanée",
-    "indications": ["Polyarthrite rhumatoïde", "Arthrite juvénile idiopathique", "Rhumatisme psoriasique", "Spondyloarthrite axiale", "Psoriasis en plaques"],
-    "effets": [
-      { "effet": "Infections, dont réactivation d'une tuberculose latente", "mecanisme": "Le TNF est nécessaire à la formation et au maintien du granulome qui contient le bacille.", "elementId": "tnf" },
-      { "effet": "Réactions au site d'injection", "mecanisme": "", "elementId": "tnf" },
-      { "effet": "Aggravation d'une insuffisance cardiaque", "mecanisme": "", "elementId": "tnf" },
-      { "effet": "Atteintes démyélinisantes", "mecanisme": "", "elementId": "tnf" },
-      { "effet": "Auto-anticorps, syndrome lupique", "mecanisme": "", "elementId": "tnf" }
+    "indications": [
+      "Polyarthrite rhumatoïde",
+      "Arthrite juvénile idiopathique",
+      "Rhumatisme psoriasique",
+      "Spondyloarthrite axiale",
+      "Psoriasis en plaques"
     ],
-    "source": "À confronter au RCP européen (EMA) d'Enbrel", "dateMaj": "2026-11-14", "statut": "à relire"
+    "source": "À confronter au RCP européen (EMA) d'Enbrel",
+    "dateMaj": "2026-11-14",
+    "statut": "à relire"
   },
   {
-    "id": "rituximab", "dci": "rituximab", "abreviation": "RTX",
+    "id": "rituximab",
+    "dci": "rituximab",
+    "abreviation": "RTX",
     "classe": "Anticorps monoclonal anti-CD20",
     "structure": "IgG1 chimérique",
-    "glyphe": "anticorps", "cibleId": "cd20", "voieId": "lb",
+    "glyphe": "anticorps",
+    "cibleId": "cd20",
+    "voieId": "lb",
     "mecanisme": "Se fixe sur CD20 et détruit le lymphocyte B : cytotoxicité cellulaire dépendante des anticorps, activation du complément, apoptose.",
     "administration": "Intraveineuse (forme sous-cutanée en hématologie)",
-    "indications": ["Lymphomes non hodgkiniens B", "Leucémie lymphoïde chronique", "Polyarthrite rhumatoïde", "Granulomatose avec polyangéite et polyangéite microscopique", "Pemphigus vulgaire"],
-    "effets": [
-      { "effet": "Réactions liées à la perfusion", "mecanisme": "Libération de cytokines lors de la destruction des lymphocytes B, surtout à la première perfusion.", "elementId": "cd20" },
-      { "effet": "Infections", "mecanisme": "Déplétion prolongée en lymphocytes B.", "elementId": "cd20" },
-      { "effet": "Hypogammaglobulinémie", "mecanisme": "Les plasmocytes sont épargnés mais ne sont plus renouvelés à partir des lymphocytes B, surtout après cures répétées.", "elementId": "noyau" },
-      { "effet": "Réactivation d'une hépatite B", "mecanisme": "Perte du contrôle immunitaire du virus après déplétion B.", "elementId": "cd20" },
-      { "effet": "Leucoencéphalopathie multifocale progressive (rare)", "mecanisme": "Réactivation du virus JC sous immunodépression.", "elementId": "cd20" },
-      { "effet": "Neutropénie tardive", "mecanisme": "", "elementId": "cd20" },
-      { "effet": "Réponse vaccinale diminuée", "mecanisme": "Absence de lymphocytes B naïfs capables de répondre à un nouvel antigène.", "elementId": "cd20" }
+    "indications": [
+      "Lymphomes non hodgkiniens B",
+      "Leucémie lymphoïde chronique",
+      "Polyarthrite rhumatoïde",
+      "Granulomatose avec polyangéite et polyangéite microscopique",
+      "Pemphigus vulgaire"
     ],
-    "source": "À confronter au RCP européen (EMA) de MabThera", "dateMaj": "2026-11-14", "statut": "à relire"
+    "source": "À confronter au RCP européen (EMA) de MabThera",
+    "dateMaj": "2026-11-14",
+    "statut": "à relire"
   },
   {
-    "id": "belimumab", "dci": "bélimumab", "abreviation": "",
+    "id": "belimumab",
+    "dci": "bélimumab",
+    "abreviation": "",
     "classe": "Anticorps monoclonal anti-BAFF (BLyS)",
     "structure": "IgG1λ humaine",
-    "glyphe": "anticorps", "cibleId": "baff", "voieId": "lb",
+    "glyphe": "anticorps",
+    "cibleId": "baff",
+    "voieId": "lb",
     "mecanisme": "Capte BAFF soluble et l'empêche de se lier à ses récepteurs sur le lymphocyte B.",
     "administration": "Intraveineuse ou sous-cutanée",
-    "indications": ["Lupus systémique actif avec auto-anticorps, en association au traitement habituel", "Néphrite lupique active"],
-    "effets": [
-      { "effet": "Infections", "mecanisme": "Diminution de la survie des lymphocytes B.", "elementId": "baffr" },
-      { "effet": "Réactions liées à la perfusion ou à l'injection, hypersensibilité", "mecanisme": "", "elementId": "baff" },
-      { "effet": "Dépression, idées suicidaires", "mecanisme": "", "elementId": "baff" },
-      { "effet": "Leucoencéphalopathie multifocale progressive (rare)", "mecanisme": "Réactivation du virus JC sous immunodépression.", "elementId": "baff" }
+    "indications": [
+      "Lupus systémique actif avec auto-anticorps, en association au traitement habituel",
+      "Néphrite lupique active"
     ],
-    "source": "À confronter au RCP européen (EMA) de Benlysta", "dateMaj": "2026-11-14", "statut": "à relire"
+    "source": "À confronter au RCP européen (EMA) de Benlysta",
+    "dateMaj": "2026-11-14",
+    "statut": "à relire"
   },
   {
-    "id": "baricitinib", "dci": "baricitinib", "abreviation": "",
+    "id": "baricitinib",
+    "dci": "baricitinib",
+    "abreviation": "",
     "classe": "Inhibiteur de JAK",
     "structure": "Petite molécule de synthèse, inhibiteur sélectif et réversible de JAK1 et JAK2",
-    "glyphe": "inhibiteur", "cibleId": "jak", "voieId": "jakstat",
+    "glyphe": "inhibiteur",
+    "cibleId": "jak",
+    "voieId": "jakstat",
     "mecanisme": "Entre dans la cellule et occupe le site de l'ATP de JAK1 et JAK2 : les STAT ne sont plus phosphorylés.",
     "administration": "Orale",
-    "indications": ["Polyarthrite rhumatoïde", "Dermatite atopique", "Pelade sévère", "Arthrite juvénile idiopathique"],
-    "effets": [
-      { "effet": "Infections, dont zona", "mecanisme": "Les interférons, essentiels à la défense antivirale, signalent par les JAK.", "elementId": "jak" },
-      { "effet": "Anémie, neutropénie", "mecanisme": "Des facteurs de croissance hématopoïétiques, dont l'érythropoïétine, signalent par JAK2.", "elementId": "stat" },
-      { "effet": "Élévation du cholestérol", "mecanisme": "", "elementId": "noyau" },
-      { "effet": "Maladie thromboembolique veineuse", "mecanisme": "", "elementId": "jak" },
-      { "effet": "Événements cardiovasculaires majeurs et cancers (signal de classe, patients à risque)", "mecanisme": "", "elementId": "jak" },
-      { "effet": "Élévation des CPK et des transaminases", "mecanisme": "", "elementId": "jak" }
+    "indications": [
+      "Polyarthrite rhumatoïde",
+      "Dermatite atopique",
+      "Pelade sévère",
+      "Arthrite juvénile idiopathique"
     ],
-    "source": "À confronter au RCP européen (EMA) d'Olumiant", "dateMaj": "2026-11-14", "statut": "à relire"
+    "source": "À confronter au RCP européen (EMA) d'Olumiant",
+    "dateMaj": "2026-11-14",
+    "statut": "à relire"
   },
   {
-    "id": "tofacitinib", "dci": "tofacitinib", "abreviation": "",
+    "id": "tofacitinib",
+    "dci": "tofacitinib",
+    "abreviation": "",
     "classe": "Inhibiteur de JAK",
     "structure": "Petite molécule de synthèse, inhibiteur de JAK1 et JAK3 (JAK2 à un moindre degré)",
-    "glyphe": "inhibiteur", "cibleId": "jak", "voieId": "jakstat",
+    "glyphe": "inhibiteur",
+    "cibleId": "jak",
+    "voieId": "jakstat",
     "mecanisme": "Entre dans la cellule et occupe le site de l'ATP des JAK (surtout JAK1 et JAK3) : les STAT ne sont plus phosphorylés.",
     "administration": "Orale",
-    "indications": ["Polyarthrite rhumatoïde", "Rhumatisme psoriasique", "Rectocolite hémorragique", "Spondylarthrite ankylosante", "Arthrite juvénile idiopathique polyarticulaire"],
-    "effets": [
-      { "effet": "Infections, dont zona", "mecanisme": "Les interférons, essentiels à la défense antivirale, signalent par les JAK.", "elementId": "jak" },
-      { "effet": "Lymphopénie, anémie, neutropénie", "mecanisme": "Plusieurs cytokines de l'hématopoïèse et de l'homéostasie lymphocytaire signalent par les JAK.", "elementId": "stat" },
-      { "effet": "Élévation du cholestérol", "mecanisme": "", "elementId": "noyau" },
-      { "effet": "Maladie thromboembolique veineuse", "mecanisme": "", "elementId": "jak" },
-      { "effet": "Événements cardiovasculaires majeurs et cancers (patients à risque)", "mecanisme": "", "elementId": "jak" },
-      { "effet": "Élévation des CPK et des transaminases", "mecanisme": "", "elementId": "jak" }
+    "indications": [
+      "Polyarthrite rhumatoïde",
+      "Rhumatisme psoriasique",
+      "Rectocolite hémorragique",
+      "Spondylarthrite ankylosante",
+      "Arthrite juvénile idiopathique polyarticulaire"
     ],
-    "source": "À confronter au RCP européen (EMA) de Xeljanz", "dateMaj": "2026-11-14", "statut": "à relire"
+    "source": "À confronter au RCP européen (EMA) de Xeljanz",
+    "dateMaj": "2026-11-14",
+    "statut": "à relire"
   }
 ]

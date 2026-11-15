@@ -1,59 +1,107 @@
 <script>
-  import { champs, A_VALIDER } from '../lib/data.js';
+  import { champs, A_VALIDER, afficher } from '../lib/data.js';
   import { comparer } from '../lib/groupes.js';
   import { couleur } from '../lib/couleurs.js';
 
   let { mols } = $props();
   const comp = $derived(comparer(mols, champs));
   const seule = $derived(mols.length === 1);
+  const items = (v) => v.split(' ; ');
 </script>
 
-<aside aria-label="Comparaison">
-  <section class="carte">
-    <h2>{seule ? `Fiche : ${mols[0].dci}` : 'En commun'}</h2>
-    {#if comp.commun.length}
-      <dl>
-        {#each comp.commun as c}
-          <dt>{c.libelle}</dt>
-          <dd class:a-valider={c.valeur === A_VALIDER}>{c.valeur}</dd>
-        {/each}
-      </dl>
-    {:else}
-      <p class="rien">Aucun champ identique.</p>
-    {/if}
-  </section>
-
-  {#if !seule}
-    <section class="carte">
-      <h2>Différences</h2>
-      {#if comp.differences.length}
-        <dl>
-          {#each comp.differences as d}
-            <dt>{d.libelle}</dt>
-            {#each d.valeurs as v}
-              <dd class="ligne">
-                <span class="pastille" style:background={couleur(v.id)}></span>
-                <span><strong style:color={couleur(v.id)}>{v.dci}</strong> : <span class:a-valider={v.valeur === A_VALIDER}>{v.valeur}</span></span>
-              </dd>
-            {/each}
-          {/each}
-        </dl>
-      {:else}
-        <p class="rien">Aucune différence sur les champs renseignés.</p>
-      {/if}
-    </section>
+{#snippet valeur(v)}
+  {#if v === A_VALIDER}
+    <span class="a-valider">{v}</span>
+  {:else if items(v).length > 1}
+    <ul>{#each items(v) as x}<li>{x}</li>{/each}</ul>
+  {:else}
+    {v}
   {/if}
-</aside>
+{/snippet}
+
+<section class="carte" aria-labelledby="titre-comparaison">
+  <h2 id="titre-comparaison">{seule ? `Fiche : ${mols[0].dci}` : 'Comparaison des molécules'}</h2>
+  {#if !seule}
+    <p class="aide">Une ligne par caractéristique. Les points communs sont regroupés en haut, les différences sont détaillées molécule par molécule.</p>
+  {/if}
+
+  <div class="defilement">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col"><span class="sr-only">Caractéristique</span></th>
+          {#each mols as m (m.id)}
+            <th scope="col" style:border-top-color={couleur(m.id)} style:color={couleur(m.id)}>{m.dci}</th>
+          {/each}
+        </tr>
+      </thead>
+
+      {#if comp.commun.length}
+        <tbody>
+          {#if !seule}
+            <tr class="section"><th colspan={mols.length + 1} scope="rowgroup">Points communs</th></tr>
+          {/if}
+          {#each comp.commun as c}
+            <tr>
+              <th scope="row">{c.libelle}</th>
+              <td colspan={mols.length} class:commun={!seule}>{@render valeur(c.valeur)}</td>
+            </tr>
+          {/each}
+        </tbody>
+      {/if}
+
+      {#if comp.differences.length}
+        <tbody>
+          <tr class="section"><th colspan={mols.length + 1} scope="rowgroup">Différences</th></tr>
+          {#each comp.differences as d}
+            <tr>
+              <th scope="row">{d.libelle}</th>
+              {#each d.valeurs as v (v.id)}
+                <td>{@render valeur(v.valeur)}</td>
+              {/each}
+            </tr>
+          {/each}
+        </tbody>
+      {/if}
+
+      <tbody>
+        <tr class="source">
+          <th scope="row">Source</th>
+          {#each mols as m (m.id)}
+            <td>
+              <span class:a-valider={!m.source}>{afficher(m.source)}</span><br />
+              Mise à jour : <span class:a-valider={!m.dateMaj}>{afficher(m.dateMaj)}</span>
+              {#if m.statut}<span class="badge">{m.statut}</span>{/if}
+            </td>
+          {/each}
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 
 <style>
-  aside { flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
-  section { padding: 18px; }
-  h2 { font-size: 16px; margin-bottom: 10px; }
-  dl { margin: 0; font-size: 14px; }
-  dt { font-weight: 600; color: var(--encre-2); margin-top: 10px; }
-  dt:first-child { margin-top: 0; }
-  dd { margin: 2px 0 0; }
-  .ligne { display: flex; gap: 8px; align-items: baseline; margin-top: 4px; }
-  .ligne .pastille { position: relative; top: 1px; }
-  .rien { font-size: 14px; color: var(--encre-2); }
+  section { flex: 1 1 100%; min-width: 0; padding: 20px; }
+  h2 { font-size: 18px; }
+  .aide { margin-top: 4px; font-size: 14px; color: var(--encre-2); }
+  .defilement { margin-top: 14px; overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  thead th {
+    padding: 10px 12px; text-align: left; font-size: 15px;
+    border-top: 4px solid transparent; background: var(--fond); min-width: 170px;
+  }
+  thead th:first-child { min-width: 130px; background: none; }
+  tbody th[scope='row'] { width: 130px; padding: 10px 12px 10px 0; text-align: left; vertical-align: top; font-weight: 600; color: var(--encre-2); }
+  td { padding: 10px 12px; vertical-align: top; border-left: 1px solid var(--bord); }
+  tbody tr { border-top: 1px solid var(--bord); }
+  .section th {
+    padding: 14px 0 6px; text-align: left; font-size: 12px; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--accent);
+  }
+  tr.section { border-top: 0; }
+  td.commun { background: var(--accent-clair); text-align: center; font-weight: 500; }
+  td.commun ul { display: inline-block; text-align: left; }
+  td ul { display: flex; flex-direction: column; gap: 3px; padding-left: 16px; list-style: disc; }
+  .source td { font-size: 12px; color: var(--encre-2); }
+  .source .badge { margin-left: 4px; }
 </style>
