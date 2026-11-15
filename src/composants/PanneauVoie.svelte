@@ -45,12 +45,13 @@
             {#if k === i}
               <div class="texte" aria-live="polite">
                 <p class:a-valider={!e.texte}>{afficher(e.texte)}</p>
+                {#if e.ref}<p class="ref">Référence : {e.ref}</p>{/if}
                 {#if e.phase === 'fixation'}
                   <ul class="mecanismes">
                     {#each mols as m (m.id)}
                       <li>
                         <span class="pastille" style:background={couleur(m.id)}></span>
-                        <span><strong style:color={couleur(m.id)}>{m.dci}</strong> : <span class:a-valider={!m.mecanisme}>{afficher(m.mecanisme)}</span></span>
+                        <span><strong style:color={couleur(m.id)}>{m.dci}</strong> : <span class:a-valider={!m.mecanisme}>{afficher(m.mecanisme)}</span>{#if m.refMecanisme} <span class="ref">({m.refMecanisme})</span>{/if}</span>
                       </li>
                     {/each}
                   </ul>
@@ -103,6 +104,8 @@
   .faite .num { border-color: var(--accent); color: var(--accent); }
   .courante .num { border-color: var(--accent); background: var(--accent); color: #fff; }
   .texte { padding: 8px 10px 10px 46px; font-size: 15px; }
+  .ref { margin-top: 6px; font-size: 12px; color: var(--encre-2); }
+  span.ref { margin: 0; }
   .mecanismes { margin-top: 8px; display: flex; flex-direction: column; gap: 6px; font-size: 14px; }
   .mecanismes li { display: flex; gap: 8px; align-items: baseline; }
 

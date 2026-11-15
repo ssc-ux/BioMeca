@@ -1,8 +1,8 @@
 [
   { "id": "il6r", "nom": "Récepteur de l'IL-6 (IL-6R)", "voieId": "il6", "ancre": { "elementId": "il6r", "x": 350, "y": 137, "angle": 0 } },
   { "id": "il6", "nom": "Interleukine 6 (IL-6)", "voieId": "il6", "ancre": { "elementId": "il6", "x": 215, "y": 87, "angle": 0 } },
-  { "id": "tnf", "nom": "TNF", "voieId": "tnf", "ancre": { "elementId": "tnf", "x": 220, "y": 87, "angle": 0 } },
-  { "id": "cd20", "nom": "CD20", "voieId": "lb", "ancre": { "elementId": "cd20", "x": 585, "y": 137, "angle": 0 }, "aval": ["baffr", "taci", "bcma", "nfkb2", "noyau", "e1", "e2"] },
-  { "id": "baff", "nom": "BAFF (BLyS)", "voieId": "lb", "ancre": { "elementId": "baff", "x": 228, "y": 87, "angle": 0 } },
-  { "id": "jak", "nom": "Janus kinases (JAK)", "voieId": "jakstat", "ancre": { "elementId": "jaks", "x": 505, "y": 240, "angle": 90 }, "aval": ["stat", "noyau", "e1", "e2", "e3", "e4"] }
+  { "id": "tnf", "nom": "TNF-α", "voieId": "tnf", "ancre": { "elementId": "tnf", "x": 220, "y": 83, "angle": 0 } },
+  { "id": "cd20", "nom": "CD20", "voieId": "lb", "ancre": { "elementId": "cd20", "x": 585, "y": 137, "angle": 0 }, "aval": ["baffr", "taci", "bcma", "traf3", "nfnc", "nfc", "noyau", "e1", "e2"] },
+  { "id": "baff", "nom": "BAFF (BLyS)", "voieId": "lb", "ancre": { "elementId": "baff", "x": 232, "y": 87, "angle": 0 } },
+  { "id": "jak", "nom": "Janus kinases (JAK)", "voieId": "jakstat", "ancre": { "elementId": "jaks", "x": 520, "y": 240, "angle": 90 }, "aval": ["stat", "noyau", "e1", "e2", "e3", "e4"] }
 ]

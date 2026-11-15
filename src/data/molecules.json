@@ -8,7 +8,7 @@
     "glyphe": "anticorps",
     "cibleId": "il6r",
     "voieId": "il6",
-    "mecanisme": "Se fixe sur les formes membranaire et soluble d'IL-6R et empêche l'IL-6 de s'y lier.",
+    "mecanisme": "Anticorps humanisé dirigé contre le récepteur de l'IL-6 : il empêche l'IL-6 de s'y fixer et bloque ses effets pro-inflammatoires.",
     "administration": "Intraveineuse ou sous-cutanée",
     "indications": [
       "Polyarthrite rhumatoïde",
@@ -19,7 +19,8 @@
     ],
     "source": "À confronter au RCP européen (EMA) de RoActemra",
     "dateMaj": "2026-11-14",
-    "statut": "à relire"
+    "statut": "à relire",
+    "refMecanisme": "Janeway 9e éd., § 16-8"
   },
   {
     "id": "sarilumab",
@@ -30,14 +31,15 @@
     "glyphe": "anticorps",
     "cibleId": "il6r",
     "voieId": "il6",
-    "mecanisme": "Se fixe sur les formes membranaire et soluble d'IL-6R et empêche l'IL-6 de s'y lier.",
+    "mecanisme": "Anticorps dirigé contre le récepteur de l'IL-6 : il empêche l'IL-6 de s'y fixer et bloque ses effets pro-inflammatoires.",
     "administration": "Sous-cutanée",
     "indications": [
       "Polyarthrite rhumatoïde"
     ],
     "source": "À confronter au RCP européen (EMA) de Kevzara",
     "dateMaj": "2026-11-14",
-    "statut": "à relire"
+    "statut": "à relire",
+    "refMecanisme": ""
   },
   {
     "id": "siltuximab",
@@ -48,14 +50,15 @@
     "glyphe": "anticorps",
     "cibleId": "il6",
     "voieId": "il6",
-    "mecanisme": "Capte l'IL-6 elle-même et l'empêche de se lier à IL-6R, membranaire ou soluble.",
+    "mecanisme": "Anticorps dirigé contre l'IL-6 elle-même : il la capte avant qu'elle ne se fixe sur son récepteur.",
     "administration": "Intraveineuse",
     "indications": [
       "Maladie de Castleman multicentrique, VIH négatif et HHV-8 négatif"
     ],
     "source": "À confronter au RCP européen (EMA) de Sylvant",
     "dateMaj": "2026-11-14",
-    "statut": "à relire"
+    "statut": "à relire",
+    "refMecanisme": ""
   },
   {
     "id": "infliximab",
@@ -66,7 +69,7 @@
     "glyphe": "anticorps",
     "cibleId": "tnf",
     "voieId": "tnf",
-    "mecanisme": "Se fixe sur le TNF soluble et sur le TNF membranaire et l'empêche d'activer ses récepteurs.",
+    "mecanisme": "Anticorps anti-TNF-α : il se fixe sur le TNF-α et bloque son activité.",
     "administration": "Intraveineuse (forme sous-cutanée pour certaines spécialités)",
     "indications": [
       "Polyarthrite rhumatoïde",
@@ -78,7 +81,8 @@
     ],
     "source": "À confronter au RCP européen (EMA) de Remicade",
     "dateMaj": "2026-11-14",
-    "statut": "à relire"
+    "statut": "à relire",
+    "refMecanisme": "Janeway 9e éd., § 16-8"
   },
   {
     "id": "adalimumab",
@@ -89,7 +93,7 @@
     "glyphe": "anticorps",
     "cibleId": "tnf",
     "voieId": "tnf",
-    "mecanisme": "Se fixe sur le TNF soluble et sur le TNF membranaire et l'empêche d'activer ses récepteurs.",
+    "mecanisme": "Anticorps anti-TNF-α : il se fixe sur le TNF-α et bloque son activité.",
     "administration": "Sous-cutanée",
     "indications": [
       "Polyarthrite rhumatoïde",
@@ -104,18 +108,19 @@
     ],
     "source": "À confronter au RCP européen (EMA) de Humira",
     "dateMaj": "2026-11-14",
-    "statut": "à relire"
+    "statut": "à relire",
+    "refMecanisme": "Janeway 9e éd., § 16-8"
   },
   {
     "id": "etanercept",
     "dci": "étanercept",
     "abreviation": "ETN",
     "classe": "Récepteur soluble du TNF (protéine de fusion)",
-    "structure": "Domaine extracellulaire du récepteur p75 du TNF fusionné au fragment Fc d'une IgG1 humaine",
+    "structure": "Sous-unité p75 du récepteur du TNF fusionnée à un fragment Fc d'immunoglobuline humaine",
     "glyphe": "fusion",
     "cibleId": "tnf",
     "voieId": "tnf",
-    "mecanisme": "Récepteur leurre : capte le TNF (et la lymphotoxine α) avant qu'il n'atteigne les récepteurs cellulaires.",
+    "mecanisme": "Protéine de fusion entre la sous-unité p75 du récepteur du TNF et un fragment Fc : elle fixe le TNF-α et le neutralise.",
     "administration": "Sous-cutanée",
     "indications": [
       "Polyarthrite rhumatoïde",
@@ -126,7 +131,8 @@
     ],
     "source": "À confronter au RCP européen (EMA) d'Enbrel",
     "dateMaj": "2026-11-14",
-    "statut": "à relire"
+    "statut": "à relire",
+    "refMecanisme": "Janeway 9e éd., § 16-8"
   },
   {
     "id": "rituximab",
@@ -137,7 +143,7 @@
     "glyphe": "anticorps",
     "cibleId": "cd20",
     "voieId": "lb",
-    "mecanisme": "Se fixe sur CD20 et détruit le lymphocyte B : cytotoxicité cellulaire dépendante des anticorps, activation du complément, apoptose.",
+    "mecanisme": "La liaison à CD20 transmet un signal qui induit l'apoptose du lymphocyte B ; la cytotoxicité cellulaire dépendante des anticorps (ADCC) y contribue probablement. Les lymphocytes B sont déplétés pour plusieurs mois.",
     "administration": "Intraveineuse (forme sous-cutanée en hématologie)",
     "indications": [
       "Lymphomes non hodgkiniens B",
@@ -148,7 +154,8 @@
     ],
     "source": "À confronter au RCP européen (EMA) de MabThera",
     "dateMaj": "2026-11-14",
-    "statut": "à relire"
+    "statut": "à relire",
+    "refMecanisme": "Janeway 9e éd., § 16-7 et § 16-16"
   },
   {
     "id": "belimumab",
@@ -159,7 +166,7 @@
     "glyphe": "anticorps",
     "cibleId": "baff",
     "voieId": "lb",
-    "mecanisme": "Capte BAFF soluble et l'empêche de se lier à ses récepteurs sur le lymphocyte B.",
+    "mecanisme": "Anticorps anti-BLyS (BAFF) : il capte BAFF et réduit les réponses des lymphocytes B.",
     "administration": "Intraveineuse ou sous-cutanée",
     "indications": [
       "Lupus systémique actif avec auto-anticorps, en association au traitement habituel",
@@ -167,18 +174,19 @@
     ],
     "source": "À confronter au RCP européen (EMA) de Benlysta",
     "dateMaj": "2026-11-14",
-    "statut": "à relire"
+    "statut": "à relire",
+    "refMecanisme": "Janeway 9e éd., fig. 16.8"
   },
   {
     "id": "baricitinib",
     "dci": "baricitinib",
     "abreviation": "",
     "classe": "Inhibiteur de JAK",
-    "structure": "Petite molécule de synthèse, inhibiteur sélectif et réversible de JAK1 et JAK2",
+    "structure": "Petite molécule de synthèse ; inhibe JAK1 et JAK2",
     "glyphe": "inhibiteur",
     "cibleId": "jak",
     "voieId": "jakstat",
-    "mecanisme": "Entre dans la cellule et occupe le site de l'ATP de JAK1 et JAK2 : les STAT ne sont plus phosphorylés.",
+    "mecanisme": "Inhibe l'activité kinase de JAK1 et de JAK2.",
     "administration": "Orale",
     "indications": [
       "Polyarthrite rhumatoïde",
@@ -188,18 +196,19 @@
     ],
     "source": "À confronter au RCP européen (EMA) d'Olumiant",
     "dateMaj": "2026-11-14",
-    "statut": "à relire"
+    "statut": "à relire",
+    "refMecanisme": ""
   },
   {
     "id": "tofacitinib",
     "dci": "tofacitinib",
     "abreviation": "",
     "classe": "Inhibiteur de JAK",
-    "structure": "Petite molécule de synthèse, inhibiteur de JAK1 et JAK3 (JAK2 à un moindre degré)",
+    "structure": "Petite molécule de synthèse ; inhibe JAK3 et, plus faiblement, JAK1",
     "glyphe": "inhibiteur",
     "cibleId": "jak",
     "voieId": "jakstat",
-    "mecanisme": "Entre dans la cellule et occupe le site de l'ATP des JAK (surtout JAK1 et JAK3) : les STAT ne sont plus phosphorylés.",
+    "mecanisme": "Inhibe l'activité kinase de JAK3, ce qui interrompt le signal de l'IL-2 et de l'IL-4, et plus faiblement celle de JAK1, ce qui interrompt le signal de l'IL-6.",
     "administration": "Orale",
     "indications": [
       "Polyarthrite rhumatoïde",
@@ -210,6 +219,7 @@
     ],
     "source": "À confronter au RCP européen (EMA) de Xeljanz",
     "dateMaj": "2026-11-14",
-    "statut": "à relire"
+    "statut": "à relire",
+    "refMecanisme": "Janeway 9e éd., § 16-3"
   }
 ]

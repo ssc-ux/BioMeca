@@ -38,7 +38,7 @@
 </main>
 
 <footer>
-  Outil pédagogique destiné aux internes. Contenu en cours de relecture : il ne remplace ni le RCP ni les recommandations en vigueur.
+  Outil pédagogique destiné aux internes. Voies de signalisation décrites d'après Janeway's Immunobiology, 9e édition (Murphy, Weaver) ; les références figurent à chaque étape. Les données propres aux médicaments (classe, structure, administration) restent à confronter au RCP.
 </footer>
 
 <style>
