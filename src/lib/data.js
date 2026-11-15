@@ -23,6 +23,5 @@ export const champs = [
   { libelle: 'Cible', valeur: (m) => afficher(cibleParId[m.cibleId]?.nom) },
   { libelle: 'Classe', valeur: (m) => afficher(m.classe) },
   { libelle: 'Structure', valeur: (m) => afficher(m.structure) },
-  { libelle: 'Administration', valeur: (m) => afficher(m.administration) },
-  { libelle: 'Indications', valeur: (m) => afficher(m.indications) }
+  { libelle: 'Administration', valeur: (m) => afficher(m.administration) }
 ];

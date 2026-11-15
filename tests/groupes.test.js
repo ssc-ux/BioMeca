@@ -19,7 +19,7 @@ describe('comparaison', () => {
   it('ne liste en différences que les champs qui diffèrent', () => {
     const { commun, differences } = comparer(sel('tocilizumab', 'sarilumab'), champs);
     expect(commun.map((c) => c.libelle)).toEqual(['Voie', 'Cible', 'Classe']);
-    expect(differences.map((d) => d.libelle)).toEqual(['Structure', 'Administration', 'Indications']);
+    expect(differences.map((d) => d.libelle)).toEqual(['Structure', 'Administration']);
   });
 });
 

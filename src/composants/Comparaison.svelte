@@ -1,5 +1,5 @@
 <script>
-  import { champs, A_VALIDER, afficher } from '../lib/data.js';
+  import { champs, A_VALIDER } from '../lib/data.js';
   import { comparer } from '../lib/groupes.js';
   import { couleur } from '../lib/couleurs.js';
 
@@ -64,18 +64,6 @@
         </tbody>
       {/if}
 
-      <tbody>
-        <tr class="source">
-          <th scope="row">Source</th>
-          {#each mols as m (m.id)}
-            <td>
-              <span class:a-valider={!m.source}>{afficher(m.source)}</span><br />
-              Mise à jour : <span class:a-valider={!m.dateMaj}>{afficher(m.dateMaj)}</span>
-              {#if m.statut}<span class="badge">{m.statut}</span>{/if}
-            </td>
-          {/each}
-        </tr>
-      </tbody>
     </table>
   </div>
 </section>
@@ -102,6 +90,4 @@
   td.commun { background: var(--accent-clair); text-align: center; font-weight: 500; }
   td.commun ul { display: inline-block; text-align: left; }
   td ul { display: flex; flex-direction: column; gap: 3px; padding-left: 16px; list-style: disc; }
-  .source td { font-size: 12px; color: var(--encre-2); }
-  .source .badge { margin-left: 4px; }
 </style>
