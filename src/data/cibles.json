@@ -1,8 +1,173 @@
 [
-  { "id": "il6r", "nom": "Récepteur de l'IL-6 (IL-6R)", "voieId": "il6", "ancre": { "elementId": "il6r", "x": 350, "y": 137, "angle": 0 } },
-  { "id": "il6", "nom": "Interleukine 6 (IL-6)", "voieId": "il6", "ancre": { "elementId": "il6", "x": 215, "y": 87, "angle": 0 } },
-  { "id": "tnf", "nom": "TNF-α", "voieId": "tnf", "ancre": { "elementId": "tnf", "x": 220, "y": 83, "angle": 0 } },
-  { "id": "cd20", "nom": "CD20", "voieId": "lb", "ancre": { "elementId": "cd20", "x": 585, "y": 137, "angle": 0 }, "aval": ["baffr", "taci", "bcma", "traf3", "nfnc", "nfc", "noyau", "e1", "e2"] },
-  { "id": "baff", "nom": "BAFF (BLyS)", "voieId": "lb", "ancre": { "elementId": "baff", "x": 232, "y": 87, "angle": 0 } },
-  { "id": "jak", "nom": "Janus kinases (JAK)", "voieId": "jakstat", "ancre": { "elementId": "jaks", "x": 520, "y": 240, "angle": 90 }, "aval": ["stat", "noyau", "e1", "e2", "e3", "e4"] }
+  {
+    "id": "il6r",
+    "nom": "Récepteur de l'IL-6 (IL-6R)",
+    "voieId": "il6",
+    "ancre": {
+      "elementId": "il6r",
+      "x": 350,
+      "y": 137,
+      "angle": 0
+    }
+  },
+  {
+    "id": "il6",
+    "nom": "Interleukine 6 (IL-6)",
+    "voieId": "il6",
+    "ancre": {
+      "elementId": "il6",
+      "x": 215,
+      "y": 87,
+      "angle": 0
+    }
+  },
+  {
+    "id": "tnf",
+    "nom": "TNF-α",
+    "voieId": "tnf",
+    "ancre": {
+      "elementId": "tnf",
+      "x": 220,
+      "y": 83,
+      "angle": 0
+    }
+  },
+  {
+    "id": "cd20",
+    "nom": "CD20",
+    "voieId": "lb",
+    "ancre": {
+      "elementId": "cd20",
+      "x": 585,
+      "y": 137,
+      "angle": 0
+    },
+    "aval": [
+      "baffr",
+      "taci",
+      "bcma",
+      "traf3",
+      "nfnc",
+      "nfc",
+      "noyau",
+      "e1",
+      "e2"
+    ]
+  },
+  {
+    "id": "baff",
+    "nom": "BAFF (BLyS)",
+    "voieId": "lb",
+    "ancre": {
+      "elementId": "baff",
+      "x": 232,
+      "y": 87,
+      "angle": 0
+    }
+  },
+  {
+    "id": "jak",
+    "nom": "Janus kinases (JAK)",
+    "voieId": "jakstat",
+    "ancre": {
+      "elementId": "jaks",
+      "x": 565,
+      "y": 240,
+      "angle": 90
+    },
+    "aval": [
+      "stat",
+      "noyau",
+      "e1",
+      "e2",
+      "e3",
+      "e4"
+    ]
+  },
+  {
+    "id": "ifnar",
+    "nom": "Récepteur des interférons α et β (IFNAR)",
+    "voieId": "jakstat",
+    "ancre": {
+      "elementId": "r3",
+      "x": 341,
+      "y": 150,
+      "angle": 90
+    },
+    "aval": [
+      "j3",
+      "e3"
+    ]
+  },
+  {
+    "id": "p40",
+    "nom": "Sous-unité p40 de l'IL-12 et de l'IL-23",
+    "voieId": "jakstat",
+    "ancre": {
+      "elementId": "c4",
+      "x": 500,
+      "y": 81,
+      "angle": 0
+    },
+    "aval": [
+      "r4",
+      "j4",
+      "e4"
+    ]
+  },
+  {
+    "id": "il1b",
+    "nom": "IL-1β",
+    "voieId": "il1",
+    "ancre": {
+      "elementId": "il1b",
+      "x": 215,
+      "y": 83,
+      "angle": 0
+    }
+  },
+  {
+    "id": "il1r",
+    "nom": "Récepteur de l'IL-1 (IL-1RI)",
+    "voieId": "il1",
+    "ancre": {
+      "elementId": "il1r",
+      "x": 350,
+      "y": 137,
+      "angle": 0
+    }
+  },
+  {
+    "id": "b7",
+    "nom": "B7 (CD80, CD86)",
+    "voieId": "costim",
+    "ancre": {
+      "elementId": "b7",
+      "x": 300,
+      "y": 82,
+      "angle": 0
+    }
+  },
+  {
+    "id": "il17a",
+    "nom": "IL-17A",
+    "voieId": "il17",
+    "ancre": {
+      "elementId": "il17",
+      "x": 232,
+      "y": 80,
+      "angle": 0
+    }
+  },
+  {
+    "id": "il5",
+    "nom": "IL-5",
+    "voieId": "il5",
+    "ancre": {
+      "elementId": "il5",
+      "x": 215,
+      "y": 87,
+      "angle": 0
+    }
+  }
 ]

@@ -1,35 +1,401 @@
 {
-  "viewBox": "0 0 920 520",
-  "zones": [
-    { "nom": "Cellules", "x": 0, "w": 160 },
-    { "nom": "Cytokines", "x": 160, "w": 160 },
-    { "nom": "Récepteurs", "x": 320, "w": 200 },
-    { "nom": "Voies intracellulaires", "x": 520, "w": 250 },
-    { "nom": "Noyau", "x": 770, "w": 150 }
-  ],
-  "stations": [
-    { "id": "macro", "x": 60, "y": 200, "label": "Macrophages", "haut": true, "dx": -8 },
-    { "id": "mye", "x": 80, "y": 380, "label": "Cellules folliculaires\ndendritiques" },
-    { "id": "il6", "x": 240, "y": 100, "label": "IL-6", "haut": true, "cibleId": "il6" },
-    { "id": "cytokines", "x": 240, "y": 180, "label": "Autres cytokines\n(IL-2, IFN, IL-12…)" },
-    { "id": "tnf", "x": 240, "y": 270, "label": "TNF-α", "cibleId": "tnf" },
-    { "id": "baff", "x": 240, "y": 380, "label": "BAFF", "cibleId": "baff" },
-    { "id": "il6r", "x": 400, "y": 100, "label": "IL-6Rα", "haut": true, "cibleId": "il6r" },
-    { "id": "gp130", "x": 480, "y": 100, "label": "gp130", "haut": true },
-    { "id": "recepteurs", "x": 400, "y": 180, "label": "Récepteurs\nde cytokines" },
-    { "id": "tnfr", "x": 400, "y": 270, "label": "TNFR-I / TNFR-II" },
-    { "id": "baffr", "x": 400, "y": 380, "label": "BAFF-R", "haut": true },
-    { "id": "cd20", "x": 400, "y": 455, "label": "CD20", "cibleId": "cd20" },
-    { "id": "jak", "x": 590, "y": 180, "label": "JAK", "cibleId": "jak" },
-    { "id": "stat", "x": 705, "y": 180, "label": "STAT" },
-    { "id": "nfkb", "x": 590, "y": 270, "label": "TRAF, NF-κB" },
-    { "id": "nfkb2", "x": 590, "y": 380, "label": "TRAF3, NIK, NF-κB" },
-    { "id": "noyau", "x": 845, "y": 270, "label": "Noyau :\ntranscription" }
-  ],
-  "lignes": [
-    { "voieId": "il6", "couleur": "#0e7490", "decalage": -3, "trajets": [["macro", "il6", "il6r", "gp130", "jak", "stat", "noyau"]] },
-    { "voieId": "jakstat", "couleur": "#a16207", "decalage": 3, "trajets": [["cytokines", "recepteurs", "jak", "stat", "noyau"]] },
-    { "voieId": "tnf", "couleur": "#b91c1c", "decalage": 0, "trajets": [["macro", "tnf", "tnfr", "nfkb", "noyau"]] },
-    { "voieId": "lb", "couleur": "#6d28d9", "decalage": 0, "trajets": [["mye", "baff", "baffr", "nfkb2", "noyau"], ["baffr", "cd20"]] }
-  ]
+ "viewBox": "0 0 920 960",
+ "zones": [
+  {
+   "nom": "Cellules",
+   "x": 0,
+   "w": 160
+  },
+  {
+   "nom": "Cytokines et ligands",
+   "x": 160,
+   "w": 160
+  },
+  {
+   "nom": "Récepteurs",
+   "x": 320,
+   "w": 200
+  },
+  {
+   "nom": "Voies intracellulaires",
+   "x": 520,
+   "w": 250
+  },
+  {
+   "nom": "Noyau",
+   "x": 770,
+   "w": 150
+  }
+ ],
+ "stations": [
+  {
+   "id": "macro",
+   "x": 80,
+   "y": 330,
+   "label": "Macrophages",
+   "haut": true,
+   "dx": -30
+  },
+  {
+   "id": "macro2",
+   "x": 80,
+   "y": 590,
+   "label": "Macrophages\n(inflammasome)"
+  },
+  {
+   "id": "th2",
+   "x": 80,
+   "y": 420,
+   "label": "Th2, ILC2"
+  },
+  {
+   "id": "th17",
+   "x": 80,
+   "y": 670,
+   "label": "Lymphocytes Th17"
+  },
+  {
+   "id": "fdc",
+   "x": 80,
+   "y": 750,
+   "label": "Cellules folliculaires\ndendritiques"
+  },
+  {
+   "id": "cpa",
+   "x": 80,
+   "y": 900,
+   "label": "Cellule présentatrice\nd'antigène"
+  },
+  {
+   "id": "il6",
+   "x": 240,
+   "y": 100,
+   "label": "IL-6",
+   "haut": true,
+   "cibleId": "il6"
+  },
+  {
+   "id": "cytokines",
+   "x": 240,
+   "y": 180,
+   "label": "Cytokines à chaîne γc\n(IL-2, IL-4, IL-7…)"
+  },
+  {
+   "id": "ifn",
+   "x": 240,
+   "y": 250,
+   "label": "IFN-α, IFN-β"
+  },
+  {
+   "id": "il1223",
+   "x": 240,
+   "y": 320,
+   "label": "IL-12, IL-23",
+   "cibleId": "p40"
+  },
+  {
+   "id": "il5",
+   "x": 240,
+   "y": 390,
+   "label": "IL-5",
+   "cibleId": "il5"
+  },
+  {
+   "id": "tnf",
+   "x": 240,
+   "y": 470,
+   "label": "TNF-α",
+   "cibleId": "tnf"
+  },
+  {
+   "id": "il1b",
+   "x": 240,
+   "y": 590,
+   "label": "IL-1β",
+   "cibleId": "il1b"
+  },
+  {
+   "id": "il17",
+   "x": 240,
+   "y": 670,
+   "label": "IL-17A",
+   "cibleId": "il17a"
+  },
+  {
+   "id": "baff",
+   "x": 240,
+   "y": 750,
+   "label": "BAFF",
+   "cibleId": "baff"
+  },
+  {
+   "id": "b7",
+   "x": 240,
+   "y": 900,
+   "label": "B7 (CD80, CD86)",
+   "cibleId": "b7"
+  },
+  {
+   "id": "il6r",
+   "x": 400,
+   "y": 100,
+   "label": "IL-6Rα",
+   "haut": true,
+   "cibleId": "il6r"
+  },
+  {
+   "id": "gp130",
+   "x": 480,
+   "y": 100,
+   "label": "gp130",
+   "haut": true
+  },
+  {
+   "id": "recepteurs",
+   "x": 400,
+   "y": 180,
+   "label": "Récepteurs\nà chaîne γc"
+  },
+  {
+   "id": "ifnar",
+   "x": 400,
+   "y": 250,
+   "label": "IFNAR",
+   "cibleId": "ifnar"
+  },
+  {
+   "id": "rec1223",
+   "x": 400,
+   "y": 320,
+   "label": "Récepteurs IL-12, IL-23"
+  },
+  {
+   "id": "il5r",
+   "x": 400,
+   "y": 390,
+   "label": "IL-5R"
+  },
+  {
+   "id": "tnfr",
+   "x": 400,
+   "y": 470,
+   "label": "TNFR-I / TNFR-II"
+  },
+  {
+   "id": "il1r",
+   "x": 400,
+   "y": 590,
+   "label": "IL-1R",
+   "cibleId": "il1r"
+  },
+  {
+   "id": "il17r",
+   "x": 400,
+   "y": 670,
+   "label": "IL-17RA"
+  },
+  {
+   "id": "baffr",
+   "x": 400,
+   "y": 750,
+   "label": "BAFF-R",
+   "haut": true
+  },
+  {
+   "id": "cd20",
+   "x": 400,
+   "y": 820,
+   "label": "CD20",
+   "cibleId": "cd20"
+  },
+  {
+   "id": "cd28",
+   "x": 400,
+   "y": 900,
+   "label": "CD28"
+  },
+  {
+   "id": "jak",
+   "x": 590,
+   "y": 285,
+   "label": "JAK",
+   "cibleId": "jak"
+  },
+  {
+   "id": "stat",
+   "x": 705,
+   "y": 285,
+   "label": "STAT",
+   "haut": true
+  },
+  {
+   "id": "nfkb",
+   "x": 590,
+   "y": 470,
+   "label": "TRAF, NF-κB"
+  },
+  {
+   "id": "myd",
+   "x": 590,
+   "y": 590,
+   "label": "MyD88, IRAK, NF-κB"
+  },
+  {
+   "id": "sig17",
+   "x": 590,
+   "y": 670,
+   "label": "Signal intracellulaire"
+  },
+  {
+   "id": "nfkb2",
+   "x": 590,
+   "y": 750,
+   "label": "TRAF3, NIK, NF-κB"
+  },
+  {
+   "id": "pi3k",
+   "x": 590,
+   "y": 900,
+   "label": "PI 3-kinase"
+  },
+  {
+   "id": "noyau",
+   "x": 845,
+   "y": 500,
+   "label": "Noyau",
+   "haut": true,
+   "dx": 30
+  }
+ ],
+ "lignes": [
+  {
+   "voieId": "il6",
+   "couleur": "#0e7490",
+   "decalage": -6,
+   "trajets": [
+    [
+     "macro",
+     "il6",
+     "il6r",
+     "gp130",
+     "jak",
+     "stat",
+     "noyau"
+    ]
+   ]
+  },
+  {
+   "voieId": "jakstat",
+   "couleur": "#a16207",
+   "decalage": 0,
+   "trajets": [
+    [
+     "cytokines",
+     "recepteurs",
+     "jak",
+     "stat",
+     "noyau"
+    ],
+    [
+     "ifn",
+     "ifnar",
+     "jak"
+    ],
+    [
+     "il1223",
+     "rec1223",
+     "jak"
+    ]
+   ]
+  },
+  {
+   "voieId": "il5",
+   "couleur": "#0369a1",
+   "decalage": 6,
+   "trajets": [
+    [
+     "th2",
+     "il5",
+     "il5r",
+     "jak",
+     "stat",
+     "noyau"
+    ]
+   ]
+  },
+  {
+   "voieId": "tnf",
+   "couleur": "#b91c1c",
+   "decalage": 0,
+   "trajets": [
+    [
+     "macro",
+     "tnf",
+     "tnfr",
+     "nfkb",
+     "noyau"
+    ]
+   ]
+  },
+  {
+   "voieId": "il1",
+   "couleur": "#db2777",
+   "decalage": 0,
+   "trajets": [
+    [
+     "macro2",
+     "il1b",
+     "il1r",
+     "myd",
+     "noyau"
+    ]
+   ]
+  },
+  {
+   "voieId": "il17",
+   "couleur": "#15803d",
+   "decalage": 0,
+   "trajets": [
+    [
+     "th17",
+     "il17",
+     "il17r",
+     "sig17",
+     "noyau"
+    ]
+   ]
+  },
+  {
+   "voieId": "lb",
+   "couleur": "#6d28d9",
+   "decalage": 0,
+   "trajets": [
+    [
+     "fdc",
+     "baff",
+     "baffr",
+     "nfkb2",
+     "noyau"
+    ],
+    [
+     "baffr",
+     "cd20"
+    ]
+   ]
+  },
+  {
+   "voieId": "costim",
+   "couleur": "#475569",
+   "decalage": 0,
+   "trajets": [
+    [
+     "cpa",
+     "b7",
+     "cd28",
+     "pi3k",
+     "noyau"
+    ]
+   ]
+  }
+ ]
 }

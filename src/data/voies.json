@@ -1,152 +1,1849 @@
 [
-  {
-    "id": "il6", "nom": "Voie IL-6",
-    "scene": {
-      "viewBox": "0 0 640 480",
-      "elements": [
-        { "id": "membrane", "type": "membrane", "y": 170, "label": "Membrane plasmique", "dessus": "Milieu extracellulaire", "dessous": "Cytoplasme" },
-        { "id": "source", "type": "boite", "variante": "source", "x": 70, "y": 105, "label": "Macrophages,\nlymphocytes T,\nendothélium" },
-        { "id": "il6", "type": "cytokine", "x": 215, "y": 105, "label": "IL-6" },
-        { "id": "il6r", "type": "recepteur", "x": 350, "y": 170, "label": "IL-6Rα (CD126)" },
-        { "id": "gp130", "type": "recepteur", "x": 490, "y": 170, "label": "gp130 (CD130)" },
-        { "id": "jak", "type": "kinase", "x": 490, "y": 235, "label": "JAK (dont JAK1)" },
-        { "id": "stat3", "type": "kinase", "x": 490, "y": 287, "label": "STAT3 phosphorylé (dimère)" },
-        { "id": "socs", "type": "kinase", "x": 230, "y": 287, "label": "SOCS (rétrocontrôle)" },
-        { "id": "noyau", "type": "noyau", "x": 400, "y": 352, "label": "Noyau : transcription des gènes cibles" },
-        { "id": "e1", "type": "boite", "variante": "effet", "x": 93, "y": 442, "label": "Foie : phase aiguë\n(CRP, fibrinogène, MBL)" },
-        { "id": "e2", "type": "boite", "variante": "effet", "x": 243, "y": 442, "label": "Hypothalamus :\nfièvre (PGE2)" },
-        { "id": "e3", "type": "boite", "variante": "effet", "x": 370, "y": 442, "label": "Moelle osseuse :\nneutrophiles" },
-        { "id": "e4", "type": "boite", "variante": "effet", "x": 510, "y": 442, "label": "Th17 (avec TGF-β),\nplasmocytes" }
-      ],
-      "liens": [
-        ["source", "il6"], ["il6", "il6r"], ["il6r", "gp130"], ["gp130", "jak"], ["jak", "stat3"],
-        ["stat3", "noyau"], ["noyau", "socs"], ["socs", "jak", "inhibe"],
-        ["noyau", "e1"], ["noyau", "e2"], ["noyau", "e3"], ["noyau", "e4"]
-      ]
+ {
+  "id": "il6",
+  "nom": "Voie IL-6",
+  "scene": {
+   "viewBox": "0 0 640 480",
+   "elements": [
+    {
+     "id": "membrane",
+     "type": "membrane",
+     "y": 170,
+     "label": "Membrane plasmique",
+     "dessus": "Milieu extracellulaire",
+     "dessous": "Cytoplasme"
     },
-    "etapes": [
-      { "id": "production", "phase": "physiologie", "titre": "Production de l'IL-6", "texte": "L'IL-6 est produite par les macrophages et les cellules dendritiques activés par un agent infectieux, ainsi que par les lymphocytes T et les cellules endothéliales. Avec le TNF-α et l'IL-1β, elle fait partie des cytokines pro-inflammatoires de l'immunité innée.", "ref": "Janeway 9e éd., § 3-21 et annexe III", "actifs": ["source", "il6"] },
-      { "id": "liaison", "phase": "physiologie", "titre": "Un récepteur à deux chaînes", "texte": "Le récepteur de l'IL-6 appartient à la famille des récepteurs de l'hématopoïétine. Il associe la chaîne IL-6Rα (CD126), qui fixe la cytokine, et la chaîne gp130 (CD130).", "ref": "Janeway 9e éd., § 3-15 et annexes II-III", "actifs": ["source", "il6", "il6r", "gp130"] },
-      { "id": "jak", "phase": "physiologie", "titre": "Activation des JAK", "texte": "Les chaînes de signalisation du récepteur sont associées, sans liaison covalente, à des tyrosine kinases de la famille JAK. La fixation de la cytokine rapproche ces chaînes : les JAK se phosphorylent mutuellement, ce qui les active, puis phosphorylent des tyrosines de la queue cytoplasmique du récepteur.", "ref": "Janeway 9e éd., § 3-16", "actifs": ["source", "il6", "il6r", "gp130", "jak"] },
-      { "id": "stat3", "phase": "physiologie", "titre": "STAT3 gagne le noyau", "texte": "STAT3 reconnaît ces phosphotyrosines par son domaine SH2 et se fixe au récepteur. Phosphorylé à son tour par les JAK, il forme un dimère qui entre dans le noyau et agit comme facteur de transcription.", "ref": "Janeway 9e éd., § 3-16 et § 9-21", "actifs": ["source", "il6", "il6r", "gp130", "jak", "stat3", "noyau"] },
-      { "id": "socs", "phase": "physiologie", "titre": "Rétrocontrôle négatif", "texte": "L'activation des STAT induit les protéines SOCS. Elles inhibent directement les JAK, entrent en compétition pour le récepteur et provoquent la dégradation des JAK et des STAT. Des tyrosine phosphatases (SHP-1, SHP-2) déphosphorylent aussi le récepteur, les JAK et les STAT.", "ref": "Janeway 9e éd., § 3-16", "actifs": ["source", "il6", "il6r", "gp130", "jak", "stat3", "noyau", "socs"] },
-      { "id": "effets", "phase": "physiologie", "titre": "Effets biologiques", "texte": "Foie : synthèse des protéines de la phase aiguë (CRP, fibrinogène, lectine liant le mannose). Hypothalamus : fièvre, par la prostaglandine E2 (l'IL-6 est un pyrogène endogène). Moelle osseuse : libération de neutrophiles. Lymphocytes : avec le TGF-β, différenciation des CD4 naïfs en Th17, qui dépend de STAT3 ; signal de différenciation et de survie des plasmocytes, avec production accrue d'anticorps.", "ref": "Janeway 9e éd., § 3-21, § 9-21, § 10-4" },
-      { "id": "fixation", "phase": "fixation", "titre": "Fixation du médicament", "texte": "Chaque médicament se fixe sur sa cible et empêche l'IL-6 d'activer son récepteur.", "ref": "Janeway 9e éd., § 16-8 (tocilizumab)" },
-      { "id": "aval", "phase": "aval", "titre": "Conséquences en aval", "texte": "Le récepteur n'est plus activé : les JAK ne phosphorylent plus STAT3 et la transcription dépendante de l'IL-6 chute. La réponse de phase aiguë s'éteint (la CRP baisse), la fièvre et la mobilisation des neutrophiles diminuent, ainsi que le signal orientant vers les Th17." }
+    {
+     "id": "source",
+     "type": "boite",
+     "variante": "source",
+     "x": 70,
+     "y": 105,
+     "label": "Macrophages,\nlymphocytes T,\nendothélium"
+    },
+    {
+     "id": "il6",
+     "type": "cytokine",
+     "x": 215,
+     "y": 105,
+     "label": "IL-6"
+    },
+    {
+     "id": "il6r",
+     "type": "recepteur",
+     "x": 350,
+     "y": 170,
+     "label": "IL-6Rα (CD126)"
+    },
+    {
+     "id": "gp130",
+     "type": "recepteur",
+     "x": 490,
+     "y": 170,
+     "label": "gp130 (CD130)"
+    },
+    {
+     "id": "jak",
+     "type": "kinase",
+     "x": 490,
+     "y": 235,
+     "label": "JAK (dont JAK1)"
+    },
+    {
+     "id": "stat3",
+     "type": "kinase",
+     "x": 490,
+     "y": 287,
+     "label": "STAT3 phosphorylé (dimère)"
+    },
+    {
+     "id": "socs",
+     "type": "kinase",
+     "x": 230,
+     "y": 287,
+     "label": "SOCS (rétrocontrôle)"
+    },
+    {
+     "id": "noyau",
+     "type": "noyau",
+     "x": 400,
+     "y": 352,
+     "label": "Noyau : transcription des gènes cibles"
+    },
+    {
+     "id": "e1",
+     "type": "boite",
+     "variante": "effet",
+     "x": 93,
+     "y": 442,
+     "label": "Foie : phase aiguë\n(CRP, fibrinogène, MBL)"
+    },
+    {
+     "id": "e2",
+     "type": "boite",
+     "variante": "effet",
+     "x": 243,
+     "y": 442,
+     "label": "Hypothalamus :\nfièvre (PGE2)"
+    },
+    {
+     "id": "e3",
+     "type": "boite",
+     "variante": "effet",
+     "x": 370,
+     "y": 442,
+     "label": "Moelle osseuse :\nneutrophiles"
+    },
+    {
+     "id": "e4",
+     "type": "boite",
+     "variante": "effet",
+     "x": 510,
+     "y": 442,
+     "label": "Th17 (avec TGF-β),\nplasmocytes"
+    }
+   ],
+   "liens": [
+    [
+     "source",
+     "il6"
+    ],
+    [
+     "il6",
+     "il6r"
+    ],
+    [
+     "il6r",
+     "gp130"
+    ],
+    [
+     "gp130",
+     "jak"
+    ],
+    [
+     "jak",
+     "stat3"
+    ],
+    [
+     "stat3",
+     "noyau"
+    ],
+    [
+     "noyau",
+     "socs"
+    ],
+    [
+     "socs",
+     "jak",
+     "inhibe"
+    ],
+    [
+     "noyau",
+     "e1"
+    ],
+    [
+     "noyau",
+     "e2"
+    ],
+    [
+     "noyau",
+     "e3"
+    ],
+    [
+     "noyau",
+     "e4"
     ]
+   ]
   },
-  {
-    "id": "tnf", "nom": "Voie TNF",
-    "scene": {
-      "viewBox": "0 0 640 480",
-      "elements": [
-        { "id": "membrane", "type": "membrane", "y": 170, "label": "Membrane plasmique", "dessus": "Milieu extracellulaire", "dessous": "Cytoplasme" },
-        { "id": "source", "type": "boite", "variante": "source", "x": 68, "y": 105, "label": "Macrophages,\ncellules NK,\nlymphocytes T" },
-        { "id": "tnf", "type": "cytokine", "x": 220, "y": 105, "label": "TNF-α" },
-        { "id": "tnfr1", "type": "recepteur", "x": 330, "y": 170, "label": "TNFR-I (p55)" },
-        { "id": "tnfr2", "type": "recepteur", "x": 520, "y": 170, "label": "TNFR-II (p75)" },
-        { "id": "traf", "type": "kinase", "x": 330, "y": 240, "label": "TRAF" },
-        { "id": "traf2", "type": "kinase", "x": 520, "y": 240, "label": "TRAF" },
-        { "id": "dd", "type": "kinase", "x": 140, "y": 297, "label": "Domaine de mort : apoptose" },
-        { "id": "nfkb", "type": "kinase", "x": 420, "y": 297, "label": "NF-κB" },
-        { "id": "noyau", "type": "noyau", "x": 420, "y": 360, "label": "Noyau : gènes de l'inflammation" },
-        { "id": "e1", "type": "boite", "variante": "effet", "x": 93, "y": 445, "label": "Endothélium : adhésion,\nperméabilité vasculaire" },
-        { "id": "e2", "type": "boite", "variante": "effet", "x": 247, "y": 445, "label": "Recrutement des\nphagocytes" },
-        { "id": "e3", "type": "boite", "variante": "effet", "x": 380, "y": 445, "label": "Confinement local\nde l'infection" },
-        { "id": "e4", "type": "boite", "variante": "effet", "x": 501, "y": 445, "label": "Fièvre,\nphase aiguë" }
-      ],
-      "liens": [
-        ["source", "tnf"], ["tnf", "tnfr1"], ["tnf", "tnfr2"], ["tnfr1", "traf"], ["tnfr2", "traf2"],
-        ["tnfr1", "dd"], ["traf", "nfkb"], ["traf2", "nfkb"], ["nfkb", "noyau"],
-        ["noyau", "e1"], ["noyau", "e2"], ["noyau", "e3"], ["noyau", "e4"]
-      ]
-    },
-    "etapes": [
-      { "id": "production", "phase": "physiologie", "titre": "Production du TNF-α", "texte": "Le TNF-α est produit par les macrophages, les cellules NK et les lymphocytes T. Il est d'abord exprimé à la membrane sous forme de trimère, puis peut en être détaché par la protéase TACE (gène ADAM17) et circuler sous forme soluble.", "ref": "Janeway 9e éd., § 3-15, § 3-20 et annexe III", "actifs": ["source", "tnf"] },
-      { "id": "recepteurs", "phase": "physiologie", "titre": "Deux récepteurs", "texte": "TNFR-I (p55) est exprimé par de nombreuses cellules, dont les cellules endothéliales et les macrophages ; TNFR-II (p75) surtout par les lymphocytes. Le TNF-α étant un trimère, sa fixation regroupe trois chaînes de récepteur : cette trimérisation déclenche le signal.", "ref": "Janeway 9e éd., § 3-15 et § 9-28", "actifs": ["source", "tnf", "tnfr1", "tnfr2"] },
-      { "id": "signal", "phase": "physiologie", "titre": "TRAF, NF-κB et apoptose", "texte": "Les récepteurs de la famille du TNF signalent par des protéines adaptatrices de la famille TRAF, qui conduisent à l'activation de NF-κB. TNFR-I est en outre associé à des domaines de mort : il peut aussi induire l'apoptose de la cellule.", "ref": "Janeway 9e éd., § 3-15 et § 9-28", "actifs": ["source", "tnf", "tnfr1", "tnfr2", "traf", "traf2", "nfkb", "dd", "noyau"] },
-      { "id": "local", "phase": "physiologie", "titre": "Effets locaux", "texte": "Sur l'endothélium, le TNF-α induit des molécules d'adhésion et augmente la perméabilité vasculaire : monocytes et neutrophiles gagnent le tissu, avec les IgG et le complément. Il déclenche aussi la coagulation dans les petits vaisseaux voisins, ce qui empêche le pathogène de passer dans le sang : l'infection reste confinée.", "ref": "Janeway 9e éd., § 3-20", "actifs": ["source", "tnf", "tnfr1", "tnfr2", "traf", "traf2", "nfkb", "dd", "noyau", "e1", "e2", "e3"] },
-      { "id": "systemique", "phase": "physiologie", "titre": "Effets systémiques", "texte": "Avec l'IL-1β et l'IL-6, le TNF-α est un pyrogène endogène (fièvre) et participe à la réponse de phase aiguë. Libéré massivement dans le sang lors d'un sepsis, il provoque vasodilatation, fuite plasmatique, choc septique et coagulation intravasculaire disséminée.", "ref": "Janeway 9e éd., § 3-20 et § 3-21" },
-      { "id": "fixation", "phase": "fixation", "titre": "Fixation du médicament", "texte": "Deux types de biothérapies neutralisent le TNF-α : des anticorps anti-TNF-α et une protéine de fusion contenant un récepteur du TNF.", "ref": "Janeway 9e éd., § 16-8" },
-      { "id": "aval", "phase": "aval", "titre": "Conséquences en aval", "texte": "Le TNF-α n'atteint plus ses récepteurs : l'activation de l'endothélium, le recrutement des leucocytes et l'inflammation diminuent. En contrepartie, le confinement local des infections est affaibli : la réactivation de tuberculoses chez des patients antérieurement infectés en est la démonstration directe.", "ref": "Janeway 9e éd., § 3-20 et § 16-8" }
+  "etapes": [
+   {
+    "id": "production",
+    "phase": "physiologie",
+    "titre": "Production de l'IL-6",
+    "texte": "L'IL-6 est produite par les macrophages et les cellules dendritiques activés par un agent infectieux, ainsi que par les lymphocytes T et les cellules endothéliales. Avec le TNF-α et l'IL-1β, elle fait partie des cytokines pro-inflammatoires de l'immunité innée.",
+    "actifs": [
+     "source",
+     "il6"
     ]
+   },
+   {
+    "id": "liaison",
+    "phase": "physiologie",
+    "titre": "Un récepteur à deux chaînes",
+    "texte": "Le récepteur de l'IL-6 appartient à la famille des récepteurs de l'hématopoïétine. Il associe la chaîne IL-6Rα (CD126), qui fixe la cytokine, et la chaîne gp130 (CD130).",
+    "actifs": [
+     "source",
+     "il6",
+     "il6r",
+     "gp130"
+    ]
+   },
+   {
+    "id": "jak",
+    "phase": "physiologie",
+    "titre": "Activation des JAK",
+    "texte": "Les chaînes de signalisation du récepteur sont associées, sans liaison covalente, à des tyrosine kinases de la famille JAK. La fixation de la cytokine rapproche ces chaînes : les JAK se phosphorylent mutuellement, ce qui les active, puis phosphorylent des tyrosines de la queue cytoplasmique du récepteur.",
+    "actifs": [
+     "source",
+     "il6",
+     "il6r",
+     "gp130",
+     "jak"
+    ]
+   },
+   {
+    "id": "stat3",
+    "phase": "physiologie",
+    "titre": "STAT3 gagne le noyau",
+    "texte": "STAT3 reconnaît ces phosphotyrosines par son domaine SH2 et se fixe au récepteur. Phosphorylé à son tour par les JAK, il forme un dimère qui entre dans le noyau et agit comme facteur de transcription.",
+    "actifs": [
+     "source",
+     "il6",
+     "il6r",
+     "gp130",
+     "jak",
+     "stat3",
+     "noyau"
+    ]
+   },
+   {
+    "id": "socs",
+    "phase": "physiologie",
+    "titre": "Rétrocontrôle négatif",
+    "texte": "L'activation des STAT induit les protéines SOCS. Elles inhibent directement les JAK, entrent en compétition pour le récepteur et provoquent la dégradation des JAK et des STAT. Des tyrosine phosphatases (SHP-1, SHP-2) déphosphorylent aussi le récepteur, les JAK et les STAT.",
+    "actifs": [
+     "source",
+     "il6",
+     "il6r",
+     "gp130",
+     "jak",
+     "stat3",
+     "noyau",
+     "socs"
+    ]
+   },
+   {
+    "id": "effets",
+    "phase": "physiologie",
+    "titre": "Effets biologiques",
+    "texte": "Foie : synthèse des protéines de la phase aiguë (CRP, fibrinogène, lectine liant le mannose). Hypothalamus : fièvre, par la prostaglandine E2 (l'IL-6 est un pyrogène endogène). Moelle osseuse : libération de neutrophiles. Lymphocytes : avec le TGF-β, différenciation des CD4 naïfs en Th17, qui dépend de STAT3 ; signal de différenciation et de survie des plasmocytes, avec production accrue d'anticorps."
+   },
+   {
+    "id": "fixation",
+    "phase": "fixation",
+    "titre": "Fixation du médicament",
+    "texte": "Chaque médicament se fixe sur sa cible et empêche l'IL-6 d'activer son récepteur."
+   },
+   {
+    "id": "aval",
+    "phase": "aval",
+    "titre": "Conséquences en aval",
+    "texte": "Le récepteur n'est plus activé : les JAK ne phosphorylent plus STAT3 et la transcription dépendante de l'IL-6 chute. La réponse de phase aiguë s'éteint (la CRP baisse), la fièvre et la mobilisation des neutrophiles diminuent, ainsi que le signal orientant vers les Th17."
+   }
+  ]
+ },
+ {
+  "id": "tnf",
+  "nom": "Voie TNF",
+  "scene": {
+   "viewBox": "0 0 640 480",
+   "elements": [
+    {
+     "id": "membrane",
+     "type": "membrane",
+     "y": 170,
+     "label": "Membrane plasmique",
+     "dessus": "Milieu extracellulaire",
+     "dessous": "Cytoplasme"
+    },
+    {
+     "id": "source",
+     "type": "boite",
+     "variante": "source",
+     "x": 68,
+     "y": 105,
+     "label": "Macrophages,\ncellules NK,\nlymphocytes T"
+    },
+    {
+     "id": "tnf",
+     "type": "cytokine",
+     "x": 220,
+     "y": 105,
+     "label": "TNF-α"
+    },
+    {
+     "id": "tnfr1",
+     "type": "recepteur",
+     "x": 330,
+     "y": 170,
+     "label": "TNFR-I (p55)"
+    },
+    {
+     "id": "tnfr2",
+     "type": "recepteur",
+     "x": 520,
+     "y": 170,
+     "label": "TNFR-II (p75)"
+    },
+    {
+     "id": "traf",
+     "type": "kinase",
+     "x": 330,
+     "y": 240,
+     "label": "TRAF"
+    },
+    {
+     "id": "traf2",
+     "type": "kinase",
+     "x": 520,
+     "y": 240,
+     "label": "TRAF"
+    },
+    {
+     "id": "dd",
+     "type": "kinase",
+     "x": 140,
+     "y": 297,
+     "label": "Domaine de mort : apoptose"
+    },
+    {
+     "id": "nfkb",
+     "type": "kinase",
+     "x": 420,
+     "y": 297,
+     "label": "NF-κB"
+    },
+    {
+     "id": "noyau",
+     "type": "noyau",
+     "x": 420,
+     "y": 360,
+     "label": "Noyau : gènes de l'inflammation"
+    },
+    {
+     "id": "e1",
+     "type": "boite",
+     "variante": "effet",
+     "x": 93,
+     "y": 445,
+     "label": "Endothélium : adhésion,\nperméabilité vasculaire"
+    },
+    {
+     "id": "e2",
+     "type": "boite",
+     "variante": "effet",
+     "x": 247,
+     "y": 445,
+     "label": "Recrutement des\nphagocytes"
+    },
+    {
+     "id": "e3",
+     "type": "boite",
+     "variante": "effet",
+     "x": 380,
+     "y": 445,
+     "label": "Confinement local\nde l'infection"
+    },
+    {
+     "id": "e4",
+     "type": "boite",
+     "variante": "effet",
+     "x": 501,
+     "y": 445,
+     "label": "Fièvre,\nphase aiguë"
+    }
+   ],
+   "liens": [
+    [
+     "source",
+     "tnf"
+    ],
+    [
+     "tnf",
+     "tnfr1"
+    ],
+    [
+     "tnf",
+     "tnfr2"
+    ],
+    [
+     "tnfr1",
+     "traf"
+    ],
+    [
+     "tnfr2",
+     "traf2"
+    ],
+    [
+     "tnfr1",
+     "dd"
+    ],
+    [
+     "traf",
+     "nfkb"
+    ],
+    [
+     "traf2",
+     "nfkb"
+    ],
+    [
+     "nfkb",
+     "noyau"
+    ],
+    [
+     "noyau",
+     "e1"
+    ],
+    [
+     "noyau",
+     "e2"
+    ],
+    [
+     "noyau",
+     "e3"
+    ],
+    [
+     "noyau",
+     "e4"
+    ]
+   ]
   },
-  {
-    "id": "lb", "nom": "Lymphocyte B (CD20, BAFF)",
-    "scene": {
-      "viewBox": "0 0 640 480",
-      "elements": [
-        { "id": "membrane", "type": "membrane", "y": 170, "label": "Membrane du lymphocyte B", "dessus": "Follicule B", "dessous": "Cytoplasme" },
-        { "id": "source", "type": "boite", "variante": "source", "x": 90, "y": 105, "label": "Cellules folliculaires\ndendritiques,\ncellules myéloïdes" },
-        { "id": "baff", "type": "cytokine", "x": 232, "y": 105, "label": "BAFF" },
-        { "id": "baffr", "type": "recepteur", "x": 330, "y": 170, "label": "BAFF-R" },
-        { "id": "taci", "type": "recepteur", "x": 410, "y": 170, "label": "TACI" },
-        { "id": "bcma", "type": "recepteur", "x": 480, "y": 170, "label": "BCMA" },
-        { "id": "cd20", "type": "recepteur", "x": 585, "y": 170, "label": "CD20" },
-        { "id": "traf3", "type": "kinase", "x": 330, "y": 240, "label": "TRAF3 · NIK" },
-        { "id": "nfc", "type": "kinase", "x": 452, "y": 256, "label": "NF-κB canonique" },
-        { "id": "nfnc", "type": "kinase", "x": 310, "y": 296, "label": "NF-κB non canonique" },
-        { "id": "noyau", "type": "noyau", "x": 385, "y": 354, "label": "Noyau : gènes de survie (Bcl-2)" },
-        { "id": "e1", "type": "boite", "variante": "effet", "x": 270, "y": 442, "label": "Survie des lymphocytes B\nfolliculaires" },
-        { "id": "e2", "type": "boite", "variante": "effet", "x": 450, "y": 442, "label": "Maturation des B\ntransitionnels" }
-      ],
-      "liens": [
-        ["source", "baff"], ["baff", "baffr"], ["baff", "taci"], ["baff", "bcma"],
-        ["baffr", "traf3"], ["traf3", "nfnc"], ["nfnc", "noyau"],
-        ["taci", "nfc"], ["bcma", "nfc"], ["nfc", "noyau"],
-        ["noyau", "e1"], ["noyau", "e2"]
-      ]
-    },
-    "etapes": [
-      { "id": "production", "phase": "physiologie", "titre": "Production de BAFF", "texte": "BAFF (aussi appelé BLyS) est une cytokine de la superfamille du TNF, d'abord produite sous forme de trimère membranaire. Dans le follicule B, elle provient surtout des cellules folliculaires dendritiques ; des cellules myéloïdes en produisent aussi.", "ref": "Janeway 9e éd., § 8-8, § 10-3 et annexe II", "actifs": ["source", "baff"] },
-      { "id": "recepteurs", "phase": "physiologie", "titre": "Trois récepteurs", "texte": "Le lymphocyte B exprime trois récepteurs de BAFF : BAFF-R, TACI et BCMA, l'affinité de BAFF pour BCMA étant faible. TACI et BCMA fixent aussi APRIL, une cytokine apparentée, importante pour la production d'IgA.", "ref": "Janeway 9e éd., § 8-8 et § 10-3", "actifs": ["source", "baff", "baffr", "taci", "bcma"] },
-      { "id": "signal", "phase": "physiologie", "titre": "Signalisation NF-κB", "texte": "BAFF-R signale, comme CD40, par TRAF3 et la kinase NIK : il active la voie NF-κB non canonique (facteur RelB:p52) ainsi que la voie canonique (p50:p65), et induit l'expression de Bcl-2. TACI et BCMA activent la voie canonique.", "ref": "Janeway 9e éd., § 10-3, fig. 10.6", "actifs": ["source", "baff", "baffr", "taci", "bcma", "traf3", "nfnc", "nfc", "noyau"] },
-      { "id": "effets", "phase": "physiologie", "titre": "Survie et maturation", "texte": "BAFF-R est le récepteur le plus important pour la survie des lymphocytes B folliculaires. Associé aux signaux faibles et constitutifs du récepteur B, il permet la maturation finale des lymphocytes B transitionnels en périphérie. Un excès de BAFF déséquilibre cette sélection et a été relié à des maladies auto-immunes comme le syndrome de Sjögren.", "ref": "Janeway 9e éd., § 8-8", "actifs": ["source", "baff", "baffr", "taci", "bcma", "traf3", "nfnc", "nfc", "noyau", "e1", "e2"] },
-      { "id": "cd20", "phase": "physiologie", "titre": "CD20, marqueur du lymphocyte B", "texte": "CD20 est une protéine à quatre segments transmembranaires, exprimée par les lymphocytes B depuis les stades précoces dans la moelle osseuse jusqu'au lymphocyte B mature. Elle pourrait former un canal calcique et participer à la régulation de l'activation B. Les plasmocytes ne l'expriment pas.", "ref": "Janeway 9e éd., fig. 8.14, annexe II et § 16-7", "actifs": ["cd20"] },
-      { "id": "fixation", "phase": "fixation", "titre": "Fixation du médicament", "texte": "Chaque médicament se fixe sur sa cible : BAFF pour l'anti-BLyS, CD20 à la surface du lymphocyte B pour l'anti-CD20.", "ref": "Janeway 9e éd., § 16-7 et fig. 16.8" },
-      { "id": "aval", "phase": "aval", "titre": "Conséquences en aval", "texte": "Anti-CD20 : les lymphocytes B sont déplétés pour plusieurs mois. Les plasmocytes, qui n'expriment pas CD20, ne sont pas détruits, mais leurs précurseurs le sont : la population des plasmocytes à vie courte diminue nettement, celle des plasmocytes à longue durée de vie persiste. Anti-BAFF : le lymphocyte B perd un signal de survie, ce qui réduit les réponses B.", "ref": "Janeway 9e éd., § 16-7" }
+  "etapes": [
+   {
+    "id": "production",
+    "phase": "physiologie",
+    "titre": "Production du TNF-α",
+    "texte": "Le TNF-α est produit par les macrophages, les cellules NK et les lymphocytes T. Il est d'abord exprimé à la membrane sous forme de trimère, puis peut en être détaché par la protéase TACE (gène ADAM17) et circuler sous forme soluble.",
+    "actifs": [
+     "source",
+     "tnf"
     ]
+   },
+   {
+    "id": "recepteurs",
+    "phase": "physiologie",
+    "titre": "Deux récepteurs",
+    "texte": "TNFR-I (p55) est exprimé par de nombreuses cellules, dont les cellules endothéliales et les macrophages ; TNFR-II (p75) surtout par les lymphocytes. Le TNF-α étant un trimère, sa fixation regroupe trois chaînes de récepteur : cette trimérisation déclenche le signal.",
+    "actifs": [
+     "source",
+     "tnf",
+     "tnfr1",
+     "tnfr2"
+    ]
+   },
+   {
+    "id": "signal",
+    "phase": "physiologie",
+    "titre": "TRAF, NF-κB et apoptose",
+    "texte": "Les récepteurs de la famille du TNF signalent par des protéines adaptatrices de la famille TRAF, qui conduisent à l'activation de NF-κB. TNFR-I est en outre associé à des domaines de mort : il peut aussi induire l'apoptose de la cellule.",
+    "actifs": [
+     "source",
+     "tnf",
+     "tnfr1",
+     "tnfr2",
+     "traf",
+     "traf2",
+     "nfkb",
+     "dd",
+     "noyau"
+    ]
+   },
+   {
+    "id": "local",
+    "phase": "physiologie",
+    "titre": "Effets locaux",
+    "texte": "Sur l'endothélium, le TNF-α induit des molécules d'adhésion et augmente la perméabilité vasculaire : monocytes et neutrophiles gagnent le tissu, avec les IgG et le complément. Il déclenche aussi la coagulation dans les petits vaisseaux voisins, ce qui empêche le pathogène de passer dans le sang : l'infection reste confinée.",
+    "actifs": [
+     "source",
+     "tnf",
+     "tnfr1",
+     "tnfr2",
+     "traf",
+     "traf2",
+     "nfkb",
+     "dd",
+     "noyau",
+     "e1",
+     "e2",
+     "e3"
+    ]
+   },
+   {
+    "id": "systemique",
+    "phase": "physiologie",
+    "titre": "Effets systémiques",
+    "texte": "Avec l'IL-1β et l'IL-6, le TNF-α est un pyrogène endogène (fièvre) et participe à la réponse de phase aiguë. Libéré massivement dans le sang lors d'un sepsis, il provoque vasodilatation, fuite plasmatique, choc septique et coagulation intravasculaire disséminée."
+   },
+   {
+    "id": "fixation",
+    "phase": "fixation",
+    "titre": "Fixation du médicament",
+    "texte": "Deux types de biothérapies neutralisent le TNF-α : des anticorps anti-TNF-α et une protéine de fusion contenant un récepteur du TNF."
+   },
+   {
+    "id": "aval",
+    "phase": "aval",
+    "titre": "Conséquences en aval",
+    "texte": "Le TNF-α n'atteint plus ses récepteurs : l'activation de l'endothélium, le recrutement des leucocytes et l'inflammation diminuent. En contrepartie, le confinement local des infections est affaibli : la réactivation de tuberculoses chez des patients antérieurement infectés en est la démonstration directe."
+   }
+  ]
+ },
+ {
+  "id": "lb",
+  "nom": "Lymphocyte B (CD20, BAFF)",
+  "scene": {
+   "viewBox": "0 0 640 480",
+   "elements": [
+    {
+     "id": "membrane",
+     "type": "membrane",
+     "y": 170,
+     "label": "Membrane du lymphocyte B",
+     "dessus": "Follicule B",
+     "dessous": "Cytoplasme"
+    },
+    {
+     "id": "source",
+     "type": "boite",
+     "variante": "source",
+     "x": 90,
+     "y": 105,
+     "label": "Cellules folliculaires\ndendritiques,\ncellules myéloïdes"
+    },
+    {
+     "id": "baff",
+     "type": "cytokine",
+     "x": 232,
+     "y": 105,
+     "label": "BAFF"
+    },
+    {
+     "id": "baffr",
+     "type": "recepteur",
+     "x": 330,
+     "y": 170,
+     "label": "BAFF-R"
+    },
+    {
+     "id": "taci",
+     "type": "recepteur",
+     "x": 410,
+     "y": 170,
+     "label": "TACI"
+    },
+    {
+     "id": "bcma",
+     "type": "recepteur",
+     "x": 480,
+     "y": 170,
+     "label": "BCMA"
+    },
+    {
+     "id": "cd20",
+     "type": "recepteur",
+     "x": 585,
+     "y": 170,
+     "label": "CD20"
+    },
+    {
+     "id": "traf3",
+     "type": "kinase",
+     "x": 330,
+     "y": 240,
+     "label": "TRAF3 · NIK"
+    },
+    {
+     "id": "nfc",
+     "type": "kinase",
+     "x": 452,
+     "y": 256,
+     "label": "NF-κB canonique"
+    },
+    {
+     "id": "nfnc",
+     "type": "kinase",
+     "x": 310,
+     "y": 296,
+     "label": "NF-κB non canonique"
+    },
+    {
+     "id": "noyau",
+     "type": "noyau",
+     "x": 385,
+     "y": 354,
+     "label": "Noyau : gènes de survie (Bcl-2)"
+    },
+    {
+     "id": "e1",
+     "type": "boite",
+     "variante": "effet",
+     "x": 270,
+     "y": 442,
+     "label": "Survie des lymphocytes B\nfolliculaires"
+    },
+    {
+     "id": "e2",
+     "type": "boite",
+     "variante": "effet",
+     "x": 450,
+     "y": 442,
+     "label": "Maturation des B\ntransitionnels"
+    }
+   ],
+   "liens": [
+    [
+     "source",
+     "baff"
+    ],
+    [
+     "baff",
+     "baffr"
+    ],
+    [
+     "baff",
+     "taci"
+    ],
+    [
+     "baff",
+     "bcma"
+    ],
+    [
+     "baffr",
+     "traf3"
+    ],
+    [
+     "traf3",
+     "nfnc"
+    ],
+    [
+     "nfnc",
+     "noyau"
+    ],
+    [
+     "taci",
+     "nfc"
+    ],
+    [
+     "bcma",
+     "nfc"
+    ],
+    [
+     "nfc",
+     "noyau"
+    ],
+    [
+     "noyau",
+     "e1"
+    ],
+    [
+     "noyau",
+     "e2"
+    ]
+   ]
   },
-  {
-    "id": "jakstat", "nom": "Voie JAK/STAT",
-    "scene": {
-      "viewBox": "0 0 680 480",
-      "elements": [
-        { "id": "membrane", "type": "membrane", "y": 170, "label": "", "dessus": "Milieu extracellulaire", "dessous": "" },
-        { "id": "jaks", "type": "groupe", "x": 280, "y": 240, "w": 480, "h": 48, "label": "Janus kinases (JAK)" },
-        { "id": "c1", "type": "boite", "variante": "famille", "x": 95, "y": 95, "label": "IL-2, IL-4, IL-7, IL-9,\nIL-15, IL-21 (chaîne γc)" },
-        { "id": "c2", "type": "boite", "variante": "famille", "x": 225, "y": 95, "label": "IL-6" },
-        { "id": "c3", "type": "boite", "variante": "famille", "x": 340, "y": 95, "label": "IFN-α, IFN-β" },
-        { "id": "c4", "type": "boite", "variante": "famille", "x": 455, "y": 95, "label": "IL-12, IL-23" },
-        { "id": "r1", "type": "recepteur", "x": 95, "y": 170, "label": "" },
-        { "id": "r2", "type": "recepteur", "x": 225, "y": 170, "label": "" },
-        { "id": "r3", "type": "recepteur", "x": 340, "y": 170, "label": "" },
-        { "id": "r4", "type": "recepteur", "x": 455, "y": 170, "label": "" },
-        { "id": "j1", "type": "kinase", "x": 95, "y": 240, "label": "JAK3" },
-        { "id": "j2", "type": "kinase", "x": 225, "y": 240, "label": "JAK1" },
-        { "id": "j3", "type": "kinase", "x": 340, "y": 240, "label": "TYK2 · JAK1" },
-        { "id": "j4", "type": "kinase", "x": 455, "y": 240, "label": "TYK2 · JAK2" },
-        { "id": "stat", "type": "kinase", "x": 280, "y": 318, "label": "STAT phosphorylés (dimères)" },
-        { "id": "noyau", "type": "noyau", "x": 280, "y": 372, "label": "Noyau : transcription" },
-        { "id": "e1", "type": "boite", "variante": "effet", "x": 93, "y": 447, "label": "Développement et survie\ndes lymphocytes" },
-        { "id": "e2", "type": "boite", "variante": "effet", "x": 260, "y": 447, "label": "Phase aiguë, fièvre,\nTh17 (STAT3)" },
-        { "id": "e3", "type": "boite", "variante": "effet", "x": 396, "y": 447, "label": "État antiviral\n(STAT1, STAT2)" },
-        { "id": "e4", "type": "boite", "variante": "effet", "x": 513, "y": 447, "label": "Th1 (STAT4),\nTh17 (STAT3)" }
-      ],
-      "liens": [
-        ["c1", "r1"], ["c2", "r2"], ["c3", "r3"], ["c4", "r4"],
-        ["r1", "j1"], ["r2", "j2"], ["r3", "j3"], ["r4", "j4"],
-        ["j1", "stat"], ["j2", "stat"], ["j3", "stat"], ["j4", "stat"],
-        ["stat", "noyau"], ["noyau", "e1"], ["noyau", "e2"], ["noyau", "e3"], ["noyau", "e4"]
-      ]
-    },
-    "etapes": [
-      { "id": "cytokines", "phase": "physiologie", "titre": "Des récepteurs sans activité kinase", "texte": "Les récepteurs de la famille de l'hématopoïétine (IL-2, IL-4, IL-6, IL-7…) et les récepteurs des interférons sont faits d'au moins deux chaînes et n'ont pas d'activité kinase propre. Les récepteurs de l'IL-2, l'IL-4, l'IL-7, l'IL-9, l'IL-15 et l'IL-21 partagent la chaîne γ commune (γc).", "ref": "Janeway 9e éd., § 3-15", "actifs": ["c1", "c2", "c3", "c4", "r1", "r2", "r3", "r4"] },
-      { "id": "jak", "phase": "physiologie", "titre": "Quatre JAK, réparties selon les récepteurs", "texte": "Les chaînes des récepteurs sont associées à des tyrosine kinases de la famille JAK : JAK1, JAK2, JAK3 et TYK2. JAK3 se fixe exclusivement à la chaîne γc ; le récepteur des interférons α et β utilise TYK2 et JAK1 ; ceux de l'IL-12 et de l'IL-23, TYK2 et JAK2. La fixation de la cytokine rapproche les chaînes : les JAK se phosphorylent mutuellement, puis phosphorylent le récepteur.", "ref": "Janeway 9e éd., § 3-16, § 3-22, § 8-1 et fig. 15.35", "actifs": ["c1", "c2", "c3", "c4", "r1", "r2", "r3", "r4", "jaks", "j1", "j2", "j3", "j4"] },
-      { "id": "stat", "phase": "physiologie", "titre": "Phosphorylation des STAT", "texte": "Il existe sept STAT (1 à 4, 5a, 5b et 6). Chacune reconnaît par son domaine SH2 les phosphotyrosines d'un récepteur donné, ce qui explique la spécificité du signal. Phosphorylées par les JAK, les STAT forment des dimères qui entrent dans le noyau et activent la transcription. Les protéines SOCS, induites par les STAT, éteignent ensuite le signal.", "ref": "Janeway 9e éd., § 3-16", "actifs": ["c1", "c2", "c3", "c4", "r1", "r2", "r3", "r4", "jaks", "j1", "j2", "j3", "j4", "stat", "noyau"] },
-      { "id": "effets", "phase": "physiologie", "titre": "Effets biologiques", "texte": "Cytokines à chaîne γc : développement et survie des lymphocytes (un déficit en γc ou en JAK3 donne un déficit immunitaire combiné sévère). IL-6 : phase aiguë, fièvre, Th17 via STAT3. Interférons α et β : état antiviral, via STAT1 et STAT2. IL-12 : différenciation Th1 via STAT4 ; IL-23 : expansion des Th17 via STAT3.", "ref": "Janeway 9e éd., § 3-15, § 3-22, § 9-21" },
-      { "id": "fixation", "phase": "fixation", "titre": "Fixation du médicament", "texte": "Les inhibiteurs de JAK (« jakinibs ») sont de petites molécules qui bloquent l'activité kinase d'un ou plusieurs membres de la famille. Comme les JAK diffèrent selon les récepteurs, leur effet dépend des JAK inhibées.", "ref": "Janeway 9e éd., § 16-3" },
-      { "id": "aval", "phase": "aval", "titre": "Conséquences en aval", "texte": "Les STAT ne sont plus phosphorylées : le signal de plusieurs cytokines est interrompu en même temps. Inhiber JAK3 interrompt le signal de l'IL-2 et de l'IL-4 ; inhiber JAK1, celui de l'IL-6.", "ref": "Janeway 9e éd., § 16-3" }
+  "etapes": [
+   {
+    "id": "production",
+    "phase": "physiologie",
+    "titre": "Production de BAFF",
+    "texte": "BAFF (aussi appelé BLyS) est une cytokine de la superfamille du TNF, d'abord produite sous forme de trimère membranaire. Dans le follicule B, elle provient surtout des cellules folliculaires dendritiques ; des cellules myéloïdes en produisent aussi.",
+    "actifs": [
+     "source",
+     "baff"
     ]
-  }
+   },
+   {
+    "id": "recepteurs",
+    "phase": "physiologie",
+    "titre": "Trois récepteurs",
+    "texte": "Le lymphocyte B exprime trois récepteurs de BAFF : BAFF-R, TACI et BCMA, l'affinité de BAFF pour BCMA étant faible. TACI et BCMA fixent aussi APRIL, une cytokine apparentée, importante pour la production d'IgA.",
+    "actifs": [
+     "source",
+     "baff",
+     "baffr",
+     "taci",
+     "bcma"
+    ]
+   },
+   {
+    "id": "signal",
+    "phase": "physiologie",
+    "titre": "Signalisation NF-κB",
+    "texte": "BAFF-R signale, comme CD40, par TRAF3 et la kinase NIK : il active la voie NF-κB non canonique (facteur RelB:p52) ainsi que la voie canonique (p50:p65), et induit l'expression de Bcl-2. TACI et BCMA activent la voie canonique.",
+    "actifs": [
+     "source",
+     "baff",
+     "baffr",
+     "taci",
+     "bcma",
+     "traf3",
+     "nfnc",
+     "nfc",
+     "noyau"
+    ]
+   },
+   {
+    "id": "effets",
+    "phase": "physiologie",
+    "titre": "Survie et maturation",
+    "texte": "BAFF-R est le récepteur le plus important pour la survie des lymphocytes B folliculaires. Associé aux signaux faibles et constitutifs du récepteur B, il permet la maturation finale des lymphocytes B transitionnels en périphérie. Un excès de BAFF déséquilibre cette sélection et a été relié à des maladies auto-immunes comme le syndrome de Sjögren.",
+    "actifs": [
+     "source",
+     "baff",
+     "baffr",
+     "taci",
+     "bcma",
+     "traf3",
+     "nfnc",
+     "nfc",
+     "noyau",
+     "e1",
+     "e2"
+    ]
+   },
+   {
+    "id": "cd20",
+    "phase": "physiologie",
+    "titre": "CD20, marqueur du lymphocyte B",
+    "texte": "CD20 est une protéine à quatre segments transmembranaires, exprimée par les lymphocytes B depuis les stades précoces dans la moelle osseuse jusqu'au lymphocyte B mature. Elle pourrait former un canal calcique et participer à la régulation de l'activation B. Les plasmocytes ne l'expriment pas.",
+    "actifs": [
+     "cd20"
+    ]
+   },
+   {
+    "id": "fixation",
+    "phase": "fixation",
+    "titre": "Fixation du médicament",
+    "texte": "Chaque médicament se fixe sur sa cible : BAFF pour l'anti-BLyS, CD20 à la surface du lymphocyte B pour l'anti-CD20."
+   },
+   {
+    "id": "aval",
+    "phase": "aval",
+    "titre": "Conséquences en aval",
+    "texte": "Anti-CD20 : les lymphocytes B sont déplétés pour plusieurs mois. Les plasmocytes, qui n'expriment pas CD20, ne sont pas détruits, mais leurs précurseurs le sont : la population des plasmocytes à vie courte diminue nettement, celle des plasmocytes à longue durée de vie persiste. Anti-BAFF : le lymphocyte B perd un signal de survie, ce qui réduit les réponses B."
+   }
+  ]
+ },
+ {
+  "id": "jakstat",
+  "nom": "Voie JAK/STAT",
+  "scene": {
+   "viewBox": "0 0 720 480",
+   "elements": [
+    {
+     "id": "membrane",
+     "type": "membrane",
+     "y": 170,
+     "label": "",
+     "dessus": "Milieu extracellulaire",
+     "dessous": ""
+    },
+    {
+     "id": "jaks",
+     "type": "groupe",
+     "x": 302,
+     "y": 240,
+     "w": 526,
+     "h": 48,
+     "label": "Janus kinases (JAK)"
+    },
+    {
+     "id": "c1",
+     "type": "boite",
+     "variante": "famille",
+     "x": 95,
+     "y": 95,
+     "label": "IL-2, IL-4, IL-7, IL-9,\nIL-15, IL-21 (chaîne γc)"
+    },
+    {
+     "id": "c2",
+     "type": "boite",
+     "variante": "famille",
+     "x": 215,
+     "y": 95,
+     "label": "IL-6"
+    },
+    {
+     "id": "c3",
+     "type": "boite",
+     "variante": "famille",
+     "x": 330,
+     "y": 95,
+     "label": "IFN-α, IFN-β"
+    },
+    {
+     "id": "c4",
+     "type": "boite",
+     "variante": "famille",
+     "x": 500,
+     "y": 95,
+     "label": "IL-12, IL-23"
+    },
+    {
+     "id": "r1",
+     "type": "recepteur",
+     "x": 95,
+     "y": 170,
+     "label": ""
+    },
+    {
+     "id": "r2",
+     "type": "recepteur",
+     "x": 215,
+     "y": 170,
+     "label": ""
+    },
+    {
+     "id": "r3",
+     "type": "recepteur",
+     "x": 330,
+     "y": 170,
+     "label": ""
+    },
+    {
+     "id": "r4",
+     "type": "recepteur",
+     "x": 500,
+     "y": 170,
+     "label": ""
+    },
+    {
+     "id": "j1",
+     "type": "kinase",
+     "x": 95,
+     "y": 240,
+     "label": "JAK3"
+    },
+    {
+     "id": "j2",
+     "type": "kinase",
+     "x": 215,
+     "y": 240,
+     "label": "JAK1"
+    },
+    {
+     "id": "j3",
+     "type": "kinase",
+     "x": 330,
+     "y": 240,
+     "label": "TYK2 · JAK1"
+    },
+    {
+     "id": "j4",
+     "type": "kinase",
+     "x": 500,
+     "y": 240,
+     "label": "TYK2 · JAK2"
+    },
+    {
+     "id": "stat",
+     "type": "kinase",
+     "x": 300,
+     "y": 318,
+     "label": "STAT phosphorylés (dimères)"
+    },
+    {
+     "id": "noyau",
+     "type": "noyau",
+     "x": 300,
+     "y": 372,
+     "label": "Noyau : transcription"
+    },
+    {
+     "id": "e1",
+     "type": "boite",
+     "variante": "effet",
+     "x": 93,
+     "y": 447,
+     "label": "Développement et survie\ndes lymphocytes"
+    },
+    {
+     "id": "e2",
+     "type": "boite",
+     "variante": "effet",
+     "x": 260,
+     "y": 447,
+     "label": "Phase aiguë, fièvre,\nTh17 (STAT3)"
+    },
+    {
+     "id": "e3",
+     "type": "boite",
+     "variante": "effet",
+     "x": 396,
+     "y": 447,
+     "label": "État antiviral\n(STAT1, STAT2)"
+    },
+    {
+     "id": "e4",
+     "type": "boite",
+     "variante": "effet",
+     "x": 513,
+     "y": 447,
+     "label": "Th1 (STAT4),\nTh17 (STAT3)"
+    }
+   ],
+   "liens": [
+    [
+     "c1",
+     "r1"
+    ],
+    [
+     "c2",
+     "r2"
+    ],
+    [
+     "c3",
+     "r3"
+    ],
+    [
+     "c4",
+     "r4"
+    ],
+    [
+     "r1",
+     "j1"
+    ],
+    [
+     "r2",
+     "j2"
+    ],
+    [
+     "r3",
+     "j3"
+    ],
+    [
+     "r4",
+     "j4"
+    ],
+    [
+     "j1",
+     "stat"
+    ],
+    [
+     "j2",
+     "stat"
+    ],
+    [
+     "j3",
+     "stat"
+    ],
+    [
+     "j4",
+     "stat"
+    ],
+    [
+     "stat",
+     "noyau"
+    ],
+    [
+     "noyau",
+     "e1"
+    ],
+    [
+     "noyau",
+     "e2"
+    ],
+    [
+     "noyau",
+     "e3"
+    ],
+    [
+     "noyau",
+     "e4"
+    ]
+   ]
+  },
+  "etapes": [
+   {
+    "id": "cytokines",
+    "phase": "physiologie",
+    "titre": "Des récepteurs sans activité kinase",
+    "texte": "Les récepteurs de la famille de l'hématopoïétine (IL-2, IL-4, IL-6, IL-7…) et les récepteurs des interférons sont faits d'au moins deux chaînes et n'ont pas d'activité kinase propre. Les récepteurs de l'IL-2, l'IL-4, l'IL-7, l'IL-9, l'IL-15 et l'IL-21 partagent la chaîne γ commune (γc).",
+    "actifs": [
+     "c1",
+     "c2",
+     "c3",
+     "c4",
+     "r1",
+     "r2",
+     "r3",
+     "r4"
+    ]
+   },
+   {
+    "id": "jak",
+    "phase": "physiologie",
+    "titre": "Quatre JAK, réparties selon les récepteurs",
+    "texte": "Les chaînes des récepteurs sont associées à des tyrosine kinases de la famille JAK : JAK1, JAK2, JAK3 et TYK2. JAK3 se fixe exclusivement à la chaîne γc ; le récepteur des interférons α et β utilise TYK2 et JAK1 ; ceux de l'IL-12 et de l'IL-23, TYK2 et JAK2. La fixation de la cytokine rapproche les chaînes : les JAK se phosphorylent mutuellement, puis phosphorylent le récepteur.",
+    "actifs": [
+     "c1",
+     "c2",
+     "c3",
+     "c4",
+     "r1",
+     "r2",
+     "r3",
+     "r4",
+     "jaks",
+     "j1",
+     "j2",
+     "j3",
+     "j4"
+    ]
+   },
+   {
+    "id": "stat",
+    "phase": "physiologie",
+    "titre": "Phosphorylation des STAT",
+    "texte": "Il existe sept STAT (1 à 4, 5a, 5b et 6). Chacune reconnaît par son domaine SH2 les phosphotyrosines d'un récepteur donné, ce qui explique la spécificité du signal. Phosphorylées par les JAK, les STAT forment des dimères qui entrent dans le noyau et activent la transcription. Les protéines SOCS, induites par les STAT, éteignent ensuite le signal.",
+    "actifs": [
+     "c1",
+     "c2",
+     "c3",
+     "c4",
+     "r1",
+     "r2",
+     "r3",
+     "r4",
+     "jaks",
+     "j1",
+     "j2",
+     "j3",
+     "j4",
+     "stat",
+     "noyau"
+    ]
+   },
+   {
+    "id": "effets",
+    "phase": "physiologie",
+    "titre": "Effets biologiques",
+    "texte": "Cytokines à chaîne γc : développement et survie des lymphocytes (un déficit en γc ou en JAK3 donne un déficit immunitaire combiné sévère). IL-6 : phase aiguë, fièvre, Th17 via STAT3. Interférons α et β : état antiviral, via STAT1 et STAT2. IL-12 : différenciation Th1 via STAT4 ; IL-23 : expansion des Th17 via STAT3."
+   },
+   {
+    "id": "fixation",
+    "phase": "fixation",
+    "titre": "Fixation du médicament",
+    "texte": "Trois façons de bloquer la voie : un anticorps contre une cytokine (sous-unité p40 de l'IL-12 et de l'IL-23), un anticorps contre un récepteur (récepteur des interférons α et β), ou une petite molécule qui bloque l'activité kinase d'une ou plusieurs JAK (« jakinib »)."
+   },
+   {
+    "id": "aval",
+    "phase": "aval",
+    "titre": "Conséquences en aval",
+    "texte": "Anticorps : seul le signal de la cytokine ou du récepteur visé est interrompu. Jakinibs : les STAT ne sont plus phosphorylées en aval des JAK inhibées, et le signal de plusieurs cytokines est interrompu en même temps ; inhiber JAK3 interrompt le signal de l'IL-2 et de l'IL-4, inhiber JAK1 celui de l'IL-6."
+   }
+  ]
+ },
+ {
+  "id": "il1",
+  "nom": "Voie IL-1",
+  "scene": {
+   "viewBox": "0 0 640 480",
+   "elements": [
+    {
+     "id": "membrane",
+     "type": "membrane",
+     "y": 170,
+     "label": "Membrane plasmique",
+     "dessus": "Milieu extracellulaire",
+     "dessous": "Cytoplasme"
+    },
+    {
+     "id": "source",
+     "type": "boite",
+     "x": 72,
+     "y": 105,
+     "label": "Macrophages :\ninflammasome,\ncaspase 1",
+     "variante": "source"
+    },
+    {
+     "id": "il1b",
+     "type": "cytokine",
+     "x": 215,
+     "y": 105,
+     "label": "IL-1β"
+    },
+    {
+     "id": "il1r",
+     "type": "recepteur",
+     "x": 350,
+     "y": 170,
+     "label": "IL-1RI"
+    },
+    {
+     "id": "il1rap",
+     "type": "recepteur",
+     "x": 430,
+     "y": 170,
+     "label": "IL-1RAP"
+    },
+    {
+     "id": "myd88",
+     "type": "kinase",
+     "x": 350,
+     "y": 232,
+     "label": "MyD88 · IRAK4 · IRAK1"
+    },
+    {
+     "id": "traf6",
+     "type": "kinase",
+     "x": 350,
+     "y": 276,
+     "label": "TRAF6"
+    },
+    {
+     "id": "nfkb",
+     "type": "kinase",
+     "x": 350,
+     "y": 320,
+     "label": "NF-κB"
+    },
+    {
+     "id": "noyau",
+     "type": "noyau",
+     "x": 350,
+     "y": 372,
+     "label": "Noyau : gènes de l'inflammation"
+    },
+    {
+     "id": "e1",
+     "type": "boite",
+     "x": 62,
+     "y": 447,
+     "label": "Activation de\nl'endothélium",
+     "variante": "effet"
+    },
+    {
+     "id": "e2",
+     "type": "boite",
+     "x": 170,
+     "y": 447,
+     "label": "Production\nd'IL-6",
+     "variante": "effet"
+    },
+    {
+     "id": "e3",
+     "type": "boite",
+     "x": 270,
+     "y": 447,
+     "label": "Fièvre,\nphase aiguë",
+     "variante": "effet"
+    },
+    {
+     "id": "e4",
+     "type": "boite",
+     "x": 385,
+     "y": 447,
+     "label": "Activation des\nlymphocytes",
+     "variante": "effet"
+    },
+    {
+     "id": "e5",
+     "type": "boite",
+     "x": 522,
+     "y": 447,
+     "label": "Destruction\ntissulaire locale",
+     "variante": "effet"
+    }
+   ],
+   "liens": [
+    [
+     "source",
+     "il1b"
+    ],
+    [
+     "il1b",
+     "il1r"
+    ],
+    [
+     "il1r",
+     "il1rap"
+    ],
+    [
+     "il1r",
+     "myd88"
+    ],
+    [
+     "myd88",
+     "traf6"
+    ],
+    [
+     "traf6",
+     "nfkb"
+    ],
+    [
+     "nfkb",
+     "noyau"
+    ],
+    [
+     "noyau",
+     "e1"
+    ],
+    [
+     "noyau",
+     "e2"
+    ],
+    [
+     "noyau",
+     "e3"
+    ],
+    [
+     "noyau",
+     "e4"
+    ],
+    [
+     "noyau",
+     "e5"
+    ]
+   ]
+  },
+  "etapes": [
+   {
+    "id": "production",
+    "phase": "physiologie",
+    "titre": "Production de l'IL-1β",
+    "texte": "L'IL-1β est synthétisée par les macrophages sous forme d'un précurseur inactif, en réponse aux signaux des récepteurs Toll. L'activation d'un inflammasome, par exemple NLRP3, active la caspase 1, qui clive ce précurseur et libère la cytokine mature.",
+    "actifs": [
+     "source",
+     "il1b"
+    ]
+   },
+   {
+    "id": "recepteur",
+    "phase": "physiologie",
+    "titre": "Récepteur et protéine accessoire",
+    "texte": "L'IL-1 se fixe sur son récepteur, qui fonctionne avec une seconde protéine transmembranaire, la protéine accessoire IL-1RAP, indispensable à la transmission du signal. Leurs queues cytoplasmiques portent un domaine TIR, comme celles des récepteurs Toll.",
+    "actifs": [
+     "source",
+     "il1b",
+     "il1r",
+     "il1rap"
+    ]
+   },
+   {
+    "id": "signal",
+    "phase": "physiologie",
+    "titre": "MyD88, IRAK, TRAF6, NF-κB",
+    "texte": "Le domaine TIR recrute l'adaptateur MyD88, qui recrute et active les kinases IRAK4 et IRAK1. Le signal passe ensuite par TRAF6 et aboutit à l'activation de NF-κB, qui entre dans le noyau : c'est la même voie que celle des récepteurs Toll.",
+    "actifs": [
+     "source",
+     "il1b",
+     "il1r",
+     "il1rap",
+     "myd88",
+     "traf6",
+     "nfkb",
+     "noyau"
+    ]
+   },
+   {
+    "id": "effets",
+    "phase": "physiologie",
+    "titre": "Effets biologiques",
+    "texte": "Localement, l'IL-1β active l'endothélium vasculaire et les lymphocytes, facilite l'accès des cellules effectrices et participe à la destruction tissulaire. À distance, elle provoque la fièvre (pyrogène endogène), induit la production d'IL-6 et participe à la réponse de phase aiguë."
+   },
+   {
+    "id": "fixation",
+    "phase": "fixation",
+    "titre": "Fixation du médicament",
+    "texte": "Deux stratégies bloquent la voie : une protéine recombinante qui occupe le récepteur de l'IL-1, ou un anticorps qui capte l'IL-1β."
+   },
+   {
+    "id": "aval",
+    "phase": "aval",
+    "titre": "Conséquences en aval",
+    "texte": "Le récepteur n'est plus activé : MyD88 n'est plus recruté et NF-κB n'est plus activé par l'IL-1. L'activation endothéliale, la fièvre et la production d'IL-6 diminuent. Ce blocage est particulièrement efficace dans les maladies auto-inflammatoires liées à un excès d'IL-1β, comme le syndrome de Muckle-Wells."
+   }
+  ]
+ },
+ {
+  "id": "costim",
+  "nom": "Co-stimulation du lymphocyte T",
+  "scene": {
+   "viewBox": "0 0 640 480",
+   "elements": [
+    {
+     "id": "membrane",
+     "type": "membrane",
+     "y": 170,
+     "label": "Membrane du lymphocyte T",
+     "dessus": "Cellule présentatrice d'antigène",
+     "dessous": "Cytoplasme"
+    },
+    {
+     "id": "source",
+     "type": "boite",
+     "x": 88,
+     "y": 105,
+     "label": "Cellule présentatrice\nd'antigène activée",
+     "variante": "source"
+    },
+    {
+     "id": "b7",
+     "type": "cytokine",
+     "x": 300,
+     "y": 100,
+     "label": "B7"
+    },
+    {
+     "id": "cmh",
+     "type": "boite",
+     "x": 470,
+     "y": 100,
+     "label": "CMH + peptide",
+     "variante": "famille"
+    },
+    {
+     "id": "cd28",
+     "type": "recepteur",
+     "x": 300,
+     "y": 170,
+     "label": "CD28"
+    },
+    {
+     "id": "tcr",
+     "type": "recepteur",
+     "x": 470,
+     "y": 170,
+     "label": "TCR"
+    },
+    {
+     "id": "pi3k",
+     "type": "kinase",
+     "x": 250,
+     "y": 245,
+     "label": "PI 3-kinase"
+    },
+    {
+     "id": "signal1",
+     "type": "kinase",
+     "x": 470,
+     "y": 245,
+     "label": "NFAT · AP-1 · NF-κB"
+    },
+    {
+     "id": "noyau",
+     "type": "noyau",
+     "x": 370,
+     "y": 325,
+     "label": "Noyau : gène de l'IL-2"
+    },
+    {
+     "id": "e1",
+     "type": "boite",
+     "x": 260,
+     "y": 425,
+     "label": "Production\nd'IL-2",
+     "variante": "effet"
+    },
+    {
+     "id": "e2",
+     "type": "boite",
+     "x": 450,
+     "y": 425,
+     "label": "Prolifération et\ndifférenciation des T",
+     "variante": "effet"
+    }
+   ],
+   "liens": [
+    [
+     "source",
+     "b7"
+    ],
+    [
+     "b7",
+     "cd28"
+    ],
+    [
+     "cmh",
+     "tcr"
+    ],
+    [
+     "tcr",
+     "signal1"
+    ],
+    [
+     "cd28",
+     "pi3k"
+    ],
+    [
+     "pi3k",
+     "noyau"
+    ],
+    [
+     "signal1",
+     "noyau"
+    ],
+    [
+     "noyau",
+     "e1"
+    ],
+    [
+     "noyau",
+     "e2"
+    ]
+   ]
+  },
+  "etapes": [
+   {
+    "id": "signal1",
+    "phase": "physiologie",
+    "titre": "Signal 1 : reconnaissance de l'antigène",
+    "texte": "Le récepteur T (TCR) reconnaît un peptide présenté par une molécule du CMH. Ce signal active les facteurs de transcription NFAT, AP-1 et NF-κB, mais il ne suffit pas à activer un lymphocyte T naïf.",
+    "actifs": [
+     "cmh",
+     "tcr",
+     "signal1"
+    ]
+   },
+   {
+    "id": "signal2",
+    "phase": "physiologie",
+    "titre": "Signal 2 : B7 se lie à CD28",
+    "texte": "Les cellules présentatrices d'antigène activées expriment les molécules B7 (B7.1 ou CD80, B7.2 ou CD86). Leur liaison à CD28, à la surface du lymphocyte T, délivre le signal de co-stimulation.",
+    "actifs": [
+     "cmh",
+     "tcr",
+     "signal1",
+     "source",
+     "b7",
+     "cd28"
+    ]
+   },
+   {
+    "id": "pi3k",
+    "phase": "physiologie",
+    "titre": "CD28 active la PI 3-kinase",
+    "texte": "CD28 active la PI 3-kinase, qui augmente la production d'AP-1 et de NF-κB et donc la transcription du gène de l'IL-2. CD28 stabilise aussi l'ARN messager de l'IL-2, normalement très instable.",
+    "actifs": [
+     "cmh",
+     "tcr",
+     "signal1",
+     "source",
+     "b7",
+     "cd28",
+     "pi3k",
+     "noyau"
+    ]
+   },
+   {
+    "id": "effets",
+    "phase": "physiologie",
+    "titre": "IL-2, prolifération et différenciation",
+    "texte": "L'IL-2 produite agit sur le lymphocyte T lui-même et entraîne sa prolifération puis sa différenciation en cellule effectrice. Sans signal de co-stimulation, la reconnaissance de l'antigène conduit au contraire à l'anergie.",
+    "actifs": [
+     "cmh",
+     "tcr",
+     "signal1",
+     "source",
+     "b7",
+     "cd28",
+     "pi3k",
+     "noyau",
+     "e1",
+     "e2"
+    ]
+   },
+   {
+    "id": "ctla4",
+    "phase": "physiologie",
+    "titre": "CTLA-4, le frein naturel",
+    "texte": "Après activation, le lymphocyte T exprime CTLA-4, qui se lie aux mêmes molécules B7 que CD28, avec une affinité plus forte, mais délivre un signal inhibiteur. Il limite ainsi la réponse."
+   },
+   {
+    "id": "fixation",
+    "phase": "fixation",
+    "titre": "Fixation du médicament",
+    "texte": "Le médicament reprend le principe de CTLA-4 : il se fixe sur B7 à la surface de la cellule présentatrice d'antigène."
+   },
+   {
+    "id": "aval",
+    "phase": "aval",
+    "titre": "Conséquences en aval",
+    "texte": "B7 n'est plus disponible pour CD28 : le lymphocyte T reçoit le signal 1 sans le signal 2. La production d'IL-2, la prolifération et la différenciation des lymphocytes T sont freinées."
+   }
+  ]
+ },
+ {
+  "id": "il17",
+  "nom": "Voie IL-17",
+  "scene": {
+   "viewBox": "0 0 640 480",
+   "elements": [
+    {
+     "id": "membrane",
+     "type": "membrane",
+     "y": 170,
+     "label": "Fibroblaste, cellule épithéliale, kératinocyte",
+     "dessus": "Milieu extracellulaire",
+     "dessous": "Cytoplasme"
+    },
+    {
+     "id": "source",
+     "type": "boite",
+     "x": 80,
+     "y": 105,
+     "label": "Lymphocytes Th17\n(IL-6, TGF-β, IL-23)",
+     "variante": "source"
+    },
+    {
+     "id": "il17",
+     "type": "cytokine",
+     "x": 232,
+     "y": 105,
+     "label": "IL-17A"
+    },
+    {
+     "id": "il17r",
+     "type": "recepteur",
+     "x": 370,
+     "y": 170,
+     "label": "IL-17RA"
+    },
+    {
+     "id": "signal",
+     "type": "kinase",
+     "x": 370,
+     "y": 245,
+     "label": "Signal intracellulaire"
+    },
+    {
+     "id": "noyau",
+     "type": "noyau",
+     "x": 370,
+     "y": 320,
+     "label": "Noyau : cytokines et chimiokines"
+    },
+    {
+     "id": "e1",
+     "type": "boite",
+     "x": 68,
+     "y": 430,
+     "label": "IL-6 : amplifie\nla réponse Th17",
+     "variante": "effet"
+    },
+    {
+     "id": "e2",
+     "type": "boite",
+     "x": 205,
+     "y": 430,
+     "label": "G-CSF : production\nde neutrophiles",
+     "variante": "effet"
+    },
+    {
+     "id": "e3",
+     "type": "boite",
+     "x": 385,
+     "y": 430,
+     "label": "CXCL8, CXCL2 :\nrecrutement des neutrophiles",
+     "variante": "effet"
+    },
+    {
+     "id": "e4",
+     "type": "boite",
+     "x": 560,
+     "y": 430,
+     "label": "Peptides\nantimicrobiens",
+     "variante": "effet"
+    }
+   ],
+   "liens": [
+    [
+     "source",
+     "il17"
+    ],
+    [
+     "il17",
+     "il17r"
+    ],
+    [
+     "il17r",
+     "signal"
+    ],
+    [
+     "signal",
+     "noyau"
+    ],
+    [
+     "noyau",
+     "e1"
+    ],
+    [
+     "noyau",
+     "e2"
+    ],
+    [
+     "noyau",
+     "e3"
+    ],
+    [
+     "noyau",
+     "e4"
+    ]
+   ]
+  },
+  "etapes": [
+   {
+    "id": "th17",
+    "phase": "physiologie",
+    "titre": "Les lymphocytes Th17",
+    "texte": "Un lymphocyte T CD4 naïf se différencie en Th17 lorsque l'IL-6 et le TGF-β dominent au moment de son activation. Cette différenciation dépend de STAT3, activé par l'IL-6, et du facteur de transcription RORγt ; l'IL-23 assure ensuite l'expansion et le maintien des Th17, qui sécrètent l'IL-17.",
+    "actifs": [
+     "source",
+     "il17"
+    ]
+   },
+   {
+    "id": "recepteur",
+    "phase": "physiologie",
+    "titre": "Un récepteur largement exprimé",
+    "texte": "L'IL-17A et l'IL-17F agissent sous forme de dimères. Leur récepteur, dont IL-17RA est le composant commun, est exprimé par de nombreuses cellules : fibroblastes, cellules épithéliales, kératinocytes.",
+    "actifs": [
+     "source",
+     "il17",
+     "il17r"
+    ]
+   },
+   {
+    "id": "signal",
+    "phase": "physiologie",
+    "titre": "Réponse de la cellule cible",
+    "texte": "La cellule stimulée active la transcription de cytokines, de chimiokines et de peptides antimicrobiens.",
+    "actifs": [
+     "source",
+     "il17",
+     "il17r",
+     "signal",
+     "noyau"
+    ]
+   },
+   {
+    "id": "effets",
+    "phase": "physiologie",
+    "titre": "Recruter les neutrophiles",
+    "texte": "L'IL-17 fait sécréter de l'IL-6, qui amplifie la réponse Th17, du G-CSF, qui augmente la production de neutrophiles par la moelle, et les chimiokines CXCL8 et CXCL2, qui attirent les neutrophiles. Elle induit aussi des peptides antimicrobiens. Cette réponse défend les barrières contre les champignons (Candida) et les bactéries extracellulaires (staphylocoque doré).",
+    "actifs": [
+     "source",
+     "il17",
+     "il17r",
+     "signal",
+     "noyau",
+     "e1",
+     "e2",
+     "e3",
+     "e4"
+    ]
+   },
+   {
+    "id": "fixation",
+    "phase": "fixation",
+    "titre": "Fixation du médicament",
+    "texte": "L'anticorps capte l'IL-17A avant qu'elle n'atteigne son récepteur."
+   },
+   {
+    "id": "aval",
+    "phase": "aval",
+    "titre": "Conséquences en aval",
+    "texte": "Les cellules cibles ne sont plus stimulées : la production de chimiokines et le recrutement des neutrophiles diminuent. La contrepartie attendue est une moindre défense contre Candida : les déficits héréditaires en IL-17RA ou en IL-17F donnent une candidose cutanéo-muqueuse chronique."
+   }
+  ]
+ },
+ {
+  "id": "il5",
+  "nom": "Voie IL-5 (éosinophile)",
+  "scene": {
+   "viewBox": "0 0 640 480",
+   "elements": [
+    {
+     "id": "membrane",
+     "type": "membrane",
+     "y": 170,
+     "label": "Membrane de l'éosinophile et de ses précurseurs",
+     "dessus": "Milieu extracellulaire",
+     "dessous": "Cytoplasme"
+    },
+    {
+     "id": "source",
+     "type": "boite",
+     "x": 75,
+     "y": 105,
+     "label": "Lymphocytes Th2,\nILC2",
+     "variante": "source"
+    },
+    {
+     "id": "il5",
+     "type": "cytokine",
+     "x": 215,
+     "y": 105,
+     "label": "IL-5"
+    },
+    {
+     "id": "il5r",
+     "type": "recepteur",
+     "x": 350,
+     "y": 170,
+     "label": "IL-5Rα (CD125)"
+    },
+    {
+     "id": "bc",
+     "type": "recepteur",
+     "x": 490,
+     "y": 170,
+     "label": "Chaîne β commune"
+    },
+    {
+     "id": "jak",
+     "type": "kinase",
+     "x": 490,
+     "y": 235,
+     "label": "JAK"
+    },
+    {
+     "id": "stat",
+     "type": "kinase",
+     "x": 490,
+     "y": 285,
+     "label": "STAT"
+    },
+    {
+     "id": "noyau",
+     "type": "noyau",
+     "x": 400,
+     "y": 350,
+     "label": "Noyau : transcription"
+    },
+    {
+     "id": "e1",
+     "type": "boite",
+     "x": 140,
+     "y": 440,
+     "label": "Production des éosinophiles\npar la moelle osseuse",
+     "variante": "effet"
+    },
+    {
+     "id": "e2",
+     "type": "boite",
+     "x": 330,
+     "y": 440,
+     "label": "Sortie dans\nla circulation",
+     "variante": "effet"
+    },
+    {
+     "id": "e3",
+     "type": "boite",
+     "x": 480,
+     "y": 440,
+     "label": "Activation des\néosinophiles",
+     "variante": "effet"
+    }
+   ],
+   "liens": [
+    [
+     "source",
+     "il5"
+    ],
+    [
+     "il5",
+     "il5r"
+    ],
+    [
+     "il5r",
+     "bc"
+    ],
+    [
+     "bc",
+     "jak"
+    ],
+    [
+     "jak",
+     "stat"
+    ],
+    [
+     "stat",
+     "noyau"
+    ],
+    [
+     "noyau",
+     "e1"
+    ],
+    [
+     "noyau",
+     "e2"
+    ],
+    [
+     "noyau",
+     "e3"
+    ]
+   ]
+  },
+  "etapes": [
+   {
+    "id": "production",
+    "phase": "physiologie",
+    "titre": "Production de l'IL-5",
+    "texte": "L'IL-5 est une cytokine de l'immunité de type 2, dirigée contre les helminthes et impliquée dans l'allergie. Elle est produite par les lymphocytes Th2 et par les cellules lymphoïdes innées de type 2 (ILC2).",
+    "actifs": [
+     "source",
+     "il5"
+    ]
+   },
+   {
+    "id": "recepteur",
+    "phase": "physiologie",
+    "titre": "Récepteur à chaîne β commune",
+    "texte": "Le récepteur de l'IL-5 appartient à la famille des récepteurs de l'hématopoïétine. Il associe une chaîne propre, IL-5Rα (CD125), exprimée par les éosinophiles, et une chaîne β commune, partagée avec les récepteurs de l'IL-3 et du GM-CSF.",
+    "actifs": [
+     "source",
+     "il5",
+     "il5r",
+     "bc"
+    ]
+   },
+   {
+    "id": "signal",
+    "phase": "physiologie",
+    "titre": "Signalisation JAK/STAT",
+    "texte": "Comme les autres récepteurs de cette famille, il signale par des kinases JAK, qui phosphorylent des facteurs STAT ; ceux-ci gagnent le noyau.",
+    "actifs": [
+     "source",
+     "il5",
+     "il5r",
+     "bc",
+     "jak",
+     "stat",
+     "noyau"
+    ]
+   },
+   {
+    "id": "effets",
+    "phase": "physiologie",
+    "titre": "Effets sur les éosinophiles",
+    "texte": "L'IL-5 stimule la production des éosinophiles par la moelle osseuse, leur sortie dans la circulation et leur activation.",
+    "actifs": [
+     "source",
+     "il5",
+     "il5r",
+     "bc",
+     "jak",
+     "stat",
+     "noyau",
+     "e1",
+     "e2",
+     "e3"
+    ]
+   },
+   {
+    "id": "fixation",
+    "phase": "fixation",
+    "titre": "Fixation du médicament",
+    "texte": "L'anticorps capte l'IL-5 avant qu'elle n'atteigne son récepteur."
+   },
+   {
+    "id": "aval",
+    "phase": "aval",
+    "titre": "Conséquences en aval",
+    "texte": "Sans signal de l'IL-5, la production des éosinophiles par la moelle et leur passage dans le sang diminuent. C'est le bénéfice recherché quand une surproduction chronique d'éosinophiles lèse les organes, comme dans le syndrome hyperéosinophilique."
+   }
+  ]
+ }
 ]

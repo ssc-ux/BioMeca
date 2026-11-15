@@ -19,8 +19,7 @@
     ],
     "source": "À confronter au RCP européen (EMA) de RoActemra",
     "dateMaj": "2026-11-14",
-    "statut": "à relire",
-    "refMecanisme": "Janeway 9e éd., § 16-8"
+    "statut": "à relire"
   },
   {
     "id": "sarilumab",
@@ -38,8 +37,7 @@
     ],
     "source": "À confronter au RCP européen (EMA) de Kevzara",
     "dateMaj": "2026-11-14",
-    "statut": "à relire",
-    "refMecanisme": ""
+    "statut": "à relire"
   },
   {
     "id": "siltuximab",
@@ -57,8 +55,7 @@
     ],
     "source": "À confronter au RCP européen (EMA) de Sylvant",
     "dateMaj": "2026-11-14",
-    "statut": "à relire",
-    "refMecanisme": ""
+    "statut": "à relire"
   },
   {
     "id": "infliximab",
@@ -81,8 +78,7 @@
     ],
     "source": "À confronter au RCP européen (EMA) de Remicade",
     "dateMaj": "2026-11-14",
-    "statut": "à relire",
-    "refMecanisme": "Janeway 9e éd., § 16-8"
+    "statut": "à relire"
   },
   {
     "id": "adalimumab",
@@ -108,8 +104,7 @@
     ],
     "source": "À confronter au RCP européen (EMA) de Humira",
     "dateMaj": "2026-11-14",
-    "statut": "à relire",
-    "refMecanisme": "Janeway 9e éd., § 16-8"
+    "statut": "à relire"
   },
   {
     "id": "etanercept",
@@ -131,8 +126,7 @@
     ],
     "source": "À confronter au RCP européen (EMA) d'Enbrel",
     "dateMaj": "2026-11-14",
-    "statut": "à relire",
-    "refMecanisme": "Janeway 9e éd., § 16-8"
+    "statut": "à relire"
   },
   {
     "id": "rituximab",
@@ -154,8 +148,7 @@
     ],
     "source": "À confronter au RCP européen (EMA) de MabThera",
     "dateMaj": "2026-11-14",
-    "statut": "à relire",
-    "refMecanisme": "Janeway 9e éd., § 16-7 et § 16-16"
+    "statut": "à relire"
   },
   {
     "id": "belimumab",
@@ -174,8 +167,7 @@
     ],
     "source": "À confronter au RCP européen (EMA) de Benlysta",
     "dateMaj": "2026-11-14",
-    "statut": "à relire",
-    "refMecanisme": "Janeway 9e éd., fig. 16.8"
+    "statut": "à relire"
   },
   {
     "id": "baricitinib",
@@ -196,8 +188,7 @@
     ],
     "source": "À confronter au RCP européen (EMA) d'Olumiant",
     "dateMaj": "2026-11-14",
-    "statut": "à relire",
-    "refMecanisme": ""
+    "statut": "à relire"
   },
   {
     "id": "tofacitinib",
@@ -219,7 +210,216 @@
     ],
     "source": "À confronter au RCP européen (EMA) de Xeljanz",
     "dateMaj": "2026-11-14",
-    "statut": "à relire",
-    "refMecanisme": "Janeway 9e éd., § 16-3"
+    "statut": "à relire"
+  },
+  {
+    "id": "certolizumab",
+    "dci": "certolizumab pégol",
+    "abreviation": "",
+    "classe": "Anticorps anti-TNF (fragment Fab' pégylé)",
+    "structure": "Fragment Fab' humanisé conjugué à du polyéthylène glycol, sans fragment Fc",
+    "glyphe": "anticorps",
+    "cibleId": "tnf",
+    "voieId": "tnf",
+    "mecanisme": "Fragment d'anticorps anti-TNF-α : il se fixe sur le TNF-α et bloque son activité.",
+    "administration": "Sous-cutanée",
+    "indications": [
+      "Polyarthrite rhumatoïde",
+      "Spondyloarthrite axiale",
+      "Rhumatisme psoriasique",
+      "Psoriasis en plaques"
+    ],
+    "source": "À confronter au RCP européen (EMA) de Cimzia",
+    "dateMaj": "2026-11-15",
+    "statut": "à relire"
+  },
+  {
+    "id": "golimumab",
+    "dci": "golimumab",
+    "abreviation": "",
+    "classe": "Anticorps monoclonal anti-TNF",
+    "structure": "IgG1 humaine",
+    "glyphe": "anticorps",
+    "cibleId": "tnf",
+    "voieId": "tnf",
+    "mecanisme": "Anticorps anti-TNF-α : il se fixe sur le TNF-α et bloque son activité.",
+    "administration": "Sous-cutanée",
+    "indications": [
+      "Polyarthrite rhumatoïde",
+      "Rhumatisme psoriasique",
+      "Spondyloarthrite axiale",
+      "Rectocolite hémorragique",
+      "Arthrite juvénile idiopathique polyarticulaire"
+    ],
+    "source": "À confronter au RCP européen (EMA) de Simponi",
+    "dateMaj": "2026-11-15",
+    "statut": "à relire"
+  },
+  {
+    "id": "upadacitinib",
+    "dci": "upadacitinib",
+    "abreviation": "",
+    "classe": "Inhibiteur de JAK",
+    "structure": "Petite molécule de synthèse ; inhibe préférentiellement JAK1",
+    "glyphe": "inhibiteur",
+    "cibleId": "jak",
+    "voieId": "jakstat",
+    "mecanisme": "Inhibe l'activité kinase de JAK1 de façon préférentielle.",
+    "administration": "Orale",
+    "indications": [
+      "Polyarthrite rhumatoïde",
+      "Rhumatisme psoriasique",
+      "Spondyloarthrite axiale",
+      "Artérite à cellules géantes",
+      "Dermatite atopique",
+      "Rectocolite hémorragique",
+      "Maladie de Crohn"
+    ],
+    "source": "À confronter au RCP européen (EMA) de Rinvoq",
+    "dateMaj": "2026-11-15",
+    "statut": "à relire"
+  },
+  {
+    "id": "anifrolumab",
+    "dci": "anifrolumab",
+    "abreviation": "",
+    "classe": "Anticorps monoclonal anti-récepteur des interférons de type I",
+    "structure": "IgG1 humaine",
+    "glyphe": "anticorps",
+    "cibleId": "ifnar",
+    "voieId": "jakstat",
+    "mecanisme": "Se fixe sur le récepteur des interférons α et β (IFNAR) et empêche ces interférons de l'activer.",
+    "administration": "Intraveineuse",
+    "indications": [
+      "Lupus systémique"
+    ],
+    "source": "À confronter au RCP européen (EMA) de Saphnelo",
+    "dateMaj": "2026-11-15",
+    "statut": "à relire"
+  },
+  {
+    "id": "ustekinumab",
+    "dci": "ustékinumab",
+    "abreviation": "",
+    "classe": "Anticorps monoclonal anti-p40 (IL-12 et IL-23)",
+    "structure": "IgG1 humaine",
+    "glyphe": "anticorps",
+    "cibleId": "p40",
+    "voieId": "jakstat",
+    "mecanisme": "Se fixe sur la sous-unité p40, commune à l'IL-12 et à l'IL-23, et empêche ces deux cytokines de se lier à leurs récepteurs.",
+    "administration": "Sous-cutanée (induction intraveineuse dans les maladies inflammatoires de l'intestin)",
+    "indications": [
+      "Psoriasis en plaques",
+      "Rhumatisme psoriasique",
+      "Maladie de Crohn",
+      "Rectocolite hémorragique"
+    ],
+    "source": "À confronter au RCP européen (EMA) de Stelara",
+    "dateMaj": "2026-11-15",
+    "statut": "à relire"
+  },
+  {
+    "id": "anakinra",
+    "dci": "anakinra",
+    "abreviation": "",
+    "classe": "Antagoniste du récepteur de l'IL-1",
+    "structure": "Protéine recombinante, forme non glycosylée de l'antagoniste naturel du récepteur de l'IL-1",
+    "glyphe": "inhibiteur",
+    "cibleId": "il1r",
+    "voieId": "il1",
+    "mecanisme": "Protéine recombinante qui occupe le récepteur de l'IL-1 sans l'activer : l'IL-1 ne peut plus s'y fixer.",
+    "administration": "Sous-cutanée",
+    "indications": [
+      "Polyarthrite rhumatoïde",
+      "Syndromes périodiques associés à la cryopyrine",
+      "Maladie de Still",
+      "Fièvre méditerranéenne familiale"
+    ],
+    "source": "À confronter au RCP européen (EMA) de Kineret",
+    "dateMaj": "2026-11-15",
+    "statut": "à relire"
+  },
+  {
+    "id": "canakinumab",
+    "dci": "canakinumab",
+    "abreviation": "",
+    "classe": "Anticorps monoclonal anti-IL-1β",
+    "structure": "IgG1 humaine",
+    "glyphe": "anticorps",
+    "cibleId": "il1b",
+    "voieId": "il1",
+    "mecanisme": "Anticorps qui capte l'IL-1β avant qu'elle ne se fixe sur son récepteur.",
+    "administration": "Sous-cutanée",
+    "indications": [
+      "Syndromes périodiques associés à la cryopyrine",
+      "Fièvre méditerranéenne familiale",
+      "Maladie de Still",
+      "Arthrite goutteuse"
+    ],
+    "source": "À confronter au RCP européen (EMA) d'Ilaris",
+    "dateMaj": "2026-11-15",
+    "statut": "à relire"
+  },
+  {
+    "id": "abatacept",
+    "dci": "abatacept",
+    "abreviation": "",
+    "classe": "Modulateur de la co-stimulation (CTLA-4–Ig)",
+    "structure": "Domaine extracellulaire de CTLA-4 fusionné à un fragment Fc d'IgG1 humaine",
+    "glyphe": "fusion",
+    "cibleId": "b7",
+    "voieId": "costim",
+    "mecanisme": "Protéine de fusion CTLA-4–Ig : elle se fixe sur B7 à la surface des cellules présentatrices d'antigène et empêche son interaction avec CD28.",
+    "administration": "Intraveineuse ou sous-cutanée",
+    "indications": [
+      "Polyarthrite rhumatoïde",
+      "Arthrite juvénile idiopathique polyarticulaire",
+      "Rhumatisme psoriasique"
+    ],
+    "source": "À confronter au RCP européen (EMA) d'Orencia",
+    "dateMaj": "2026-11-15",
+    "statut": "à relire"
+  },
+  {
+    "id": "secukinumab",
+    "dci": "sécukinumab",
+    "abreviation": "",
+    "classe": "Anticorps monoclonal anti-IL-17A",
+    "structure": "IgG1 humaine",
+    "glyphe": "anticorps",
+    "cibleId": "il17a",
+    "voieId": "il17",
+    "mecanisme": "Anticorps qui capte l'IL-17A avant qu'elle ne se fixe sur son récepteur.",
+    "administration": "Sous-cutanée",
+    "indications": [
+      "Psoriasis en plaques",
+      "Rhumatisme psoriasique",
+      "Spondyloarthrite axiale",
+      "Hidradénite suppurée"
+    ],
+    "source": "À confronter au RCP européen (EMA) de Cosentyx",
+    "dateMaj": "2026-11-15",
+    "statut": "à relire"
+  },
+  {
+    "id": "mepolizumab",
+    "dci": "mépolizumab",
+    "abreviation": "",
+    "classe": "Anticorps monoclonal anti-IL-5",
+    "structure": "IgG1 humanisée",
+    "glyphe": "anticorps",
+    "cibleId": "il5",
+    "voieId": "il5",
+    "mecanisme": "Anticorps anti-IL-5 : il capte l'IL-5 et réduit la production des éosinophiles et leur sortie dans la circulation.",
+    "administration": "Sous-cutanée",
+    "indications": [
+      "Asthme sévère à éosinophiles",
+      "Granulomatose éosinophilique avec polyangéite",
+      "Syndrome hyperéosinophilique",
+      "Polypose naso-sinusienne"
+    ],
+    "source": "À confronter au RCP européen (EMA) de Nucala",
+    "dateMaj": "2026-11-15",
+    "statut": "à relire"
   }
 ]

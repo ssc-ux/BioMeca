@@ -54,15 +54,17 @@ export function placer(mols, cibleParId) {
   for (const [cibleId, liste] of parCible) {
     const a = cibleParId[cibleId].ancre;
     const n = liste.length;
-    const pas = n > 1 ? Math.min(64, 150 / (n - 1)) : 0;
+    const pas = n > 1 ? Math.min(64, 120 / (n - 1)) : 0;
     liste.forEach((mol, i) => {
       const angle = (a.angle ?? 0) + (i - (n - 1) / 2) * pas;
       const r = (angle * Math.PI) / 180;
       const dx = Math.sin(r);
       const dy = -Math.cos(r);
+      // Au-delà de 3 molécules, les libellés du centre sont éloignés pour ne pas se chevaucher.
+      const L = 56 + (n > 3 ? 12 * (1 - Math.abs(i - (n - 1) / 2) / ((n - 1) / 2)) : 0);
       out.push({
         mol, x: a.x, y: a.y, angle,
-        lx: a.x + dx * 56, ly: a.y + dy * 56 + 4,
+        lx: a.x + dx * L, ly: a.y + dy * L + 4,
         ancrage: dx > 0.2 ? 'start' : dx < -0.2 ? 'end' : 'middle'
       });
     });

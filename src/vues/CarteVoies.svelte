@@ -13,6 +13,7 @@
   const points = (trajet) => trajet.map((id) => `${st[id].x},${st[id].y}`).join(' ');
   const lignes = (s) => s.label.split('\n');
   // Ordonnée de la première ligne du libellé, au-dessus ou au-dessous de la station.
+  const hauteur = Number(carte.viewBox.split(' ')[3]);
   const y0 = (s) => (s.haut ? s.y - 22 - (lignes(s).length - 1) * 14 : s.y + 30);
 </script>
 
@@ -28,7 +29,7 @@
     <div class="defilement">
       <svg viewBox={carte.viewBox} role="group" aria-label="Carte des voies ciblées par les biothérapies">
         {#each carte.zones as z, k}
-          <rect x={z.x} y="0" width={z.w} height="520" fill={k % 2 ? '#ffffff' : '#f4f7fa'} />
+          <rect x={z.x} y="0" width={z.w} height={hauteur} fill={k % 2 ? '#ffffff' : '#f4f7fa'} />
           <text class="zone" x={z.x + z.w / 2} y="24" text-anchor="middle">{z.nom}</text>
         {/each}
 
@@ -75,7 +76,7 @@
   .defilement { overflow-x: auto; }
   svg { display: block; width: 100%; min-width: 760px; height: auto; font-size: 13px; }
   .zone { font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; fill: #475569; }
-  polyline { fill: none; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+  polyline { fill: none; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
   .ligne, .legende li { transition: opacity 0.2s; }
   .eteinte { opacity: 0.25; }
   .station { fill: #fff; stroke: #0f172a; stroke-width: 3; }
