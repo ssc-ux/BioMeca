@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { molecules, cibles, voies, moleculeParId, cibleParId, voieParId, champs } from '../src/lib/data.js';
+import { molecules, cibles, voies, maladies, carte, moleculeParId, cibleParId, voieParId, champs } from '../src/lib/data.js';
 import { grouperParVoie, comparer, aval, bloquesPar, placer } from '../src/lib/groupes.js';
 
 const sel = (...ids) => ids.map((id) => moleculeParId[id]);
@@ -40,6 +40,22 @@ describe('schéma', () => {
 });
 
 describe('intégrité des données', () => {
+  it('chaque maladie liste des molécules existantes dont les voies sont exactement ses voies', () => {
+    for (const d of maladies) {
+      for (const id of d.moleculeIds) expect(moleculeParId[id], d.id + ' ' + id).toBeDefined();
+      expect([...new Set(d.moleculeIds.map((id) => moleculeParId[id].voieId))].sort(), d.id).toEqual([...d.voieIds].sort());
+    }
+  });
+  it('la carte référence des stations, voies et cibles existantes, et couvre toutes les cibles', () => {
+    const ids = carte.stations.map((s) => s.id);
+    for (const l of carte.lignes) {
+      expect(voieParId[l.voieId], l.voieId).toBeDefined();
+      for (const t of l.trajets) for (const id of t) expect(ids, l.voieId).toContain(id);
+    }
+    const ciblees = carte.stations.filter((s) => s.cibleId).map((s) => s.cibleId);
+    for (const id of ciblees) expect(cibleParId[id], id).toBeDefined();
+    expect(ciblees.sort()).toEqual(cibles.map((c) => c.id).sort());
+  });
   it('chaque molécule référence une cible et une voie cohérentes', () => {
     for (const m of molecules) {
       expect(cibleParId[m.cibleId], m.id).toBeDefined();

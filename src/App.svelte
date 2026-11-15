@@ -1,6 +1,9 @@
 <script>
   import { etat, hash } from './lib/selection.svelte.js';
   import Mecanisme from './vues/Mecanisme.svelte';
+  import CarteVoies from './vues/CarteVoies.svelte';
+  import ParCible from './vues/ParCible.svelte';
+  import ParMaladie from './vues/ParMaladie.svelte';
 
   const vues = [
     { chemin: '/mecanisme', nom: 'Mécanisme' },
@@ -25,11 +28,12 @@
 <main>
   {#if active.chemin === '/mecanisme'}
     <Mecanisme />
+  {:else if active.chemin === '/carte'}
+    <CarteVoies />
+  {:else if active.chemin === '/cible'}
+    <ParCible />
   {:else}
-    <div class="carte avenir">
-      <h1>{active.nom}</h1>
-      <p>Cette vue arrive à l'étape suivante. Votre sélection est conservée.</p>
-    </div>
+    <ParMaladie />
   {/if}
 </main>
 
@@ -52,8 +56,6 @@
   nav a:hover { color: var(--encre); }
   nav a[aria-current='page'] { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
   main { max-width: 1280px; margin: 0 auto; padding: 24px; }
-  .avenir { padding: 32px; }
-  .avenir h1 { font-size: 22px; margin-bottom: 8px; }
   footer { max-width: 1280px; margin: 0 auto; padding: 8px 24px 32px; font-size: 13px; color: var(--encre-2); }
   @media (max-width: 600px) {
     .barre, main, footer { padding-left: 16px; padding-right: 16px; }

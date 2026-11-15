@@ -1,0 +1,35 @@
+{
+  "viewBox": "0 0 920 520",
+  "zones": [
+    { "nom": "Cellules", "x": 0, "w": 160 },
+    { "nom": "Cytokines", "x": 160, "w": 160 },
+    { "nom": "Récepteurs", "x": 320, "w": 200 },
+    { "nom": "Voies intracellulaires", "x": 520, "w": 250 },
+    { "nom": "Noyau", "x": 770, "w": 150 }
+  ],
+  "stations": [
+    { "id": "macro", "x": 60, "y": 200, "label": "Macrophages", "haut": true, "dx": -8 },
+    { "id": "mye", "x": 80, "y": 380, "label": "Monocytes,\ncellules dendritiques" },
+    { "id": "il6", "x": 240, "y": 100, "label": "IL-6", "haut": true, "cibleId": "il6" },
+    { "id": "cytokines", "x": 240, "y": 180, "label": "Autres cytokines\n(IL-2, IFN, EPO…)" },
+    { "id": "tnf", "x": 240, "y": 270, "label": "TNF", "cibleId": "tnf" },
+    { "id": "baff", "x": 240, "y": 380, "label": "BAFF", "cibleId": "baff" },
+    { "id": "il6r", "x": 400, "y": 100, "label": "IL-6R", "haut": true, "cibleId": "il6r" },
+    { "id": "gp130", "x": 480, "y": 100, "label": "gp130", "haut": true },
+    { "id": "recepteurs", "x": 400, "y": 180, "label": "Récepteurs\nde cytokines" },
+    { "id": "tnfr", "x": 400, "y": 270, "label": "TNFR1 / TNFR2" },
+    { "id": "baffr", "x": 400, "y": 380, "label": "BAFF-R", "haut": true },
+    { "id": "cd20", "x": 400, "y": 455, "label": "CD20", "cibleId": "cd20" },
+    { "id": "jak", "x": 590, "y": 180, "label": "JAK", "cibleId": "jak" },
+    { "id": "stat", "x": 705, "y": 180, "label": "STAT" },
+    { "id": "nfkb", "x": 590, "y": 270, "label": "NF-κB, MAP kinases" },
+    { "id": "nfkb2", "x": 590, "y": 380, "label": "NF-κB (voie alterne)" },
+    { "id": "noyau", "x": 845, "y": 270, "label": "Noyau :\ntranscription" }
+  ],
+  "lignes": [
+    { "voieId": "il6", "couleur": "#0e7490", "decalage": -3, "trajets": [["macro", "il6", "il6r", "gp130", "jak", "stat", "noyau"]] },
+    { "voieId": "jakstat", "couleur": "#a16207", "decalage": 3, "trajets": [["cytokines", "recepteurs", "jak", "stat", "noyau"]] },
+    { "voieId": "tnf", "couleur": "#b91c1c", "decalage": 0, "trajets": [["macro", "tnf", "tnfr", "nfkb", "noyau"]] },
+    { "voieId": "lb", "couleur": "#6d28d9", "decalage": 0, "trajets": [["mye", "baff", "baffr", "nfkb2", "noyau"], ["baffr", "cd20"]] }
+  ]
+}

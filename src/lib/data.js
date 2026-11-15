@@ -2,10 +2,12 @@ import molecules from '../data/molecules.json';
 import cibles from '../data/cibles.json';
 import voies from '../data/voies.json';
 import maladies from '../data/maladies.json';
+import carte from '../data/carte.json';
 
 const index = (liste) => Object.fromEntries(liste.map((x) => [x.id, x]));
 
-export { molecules, cibles, voies, maladies };
+export { molecules, cibles, voies, maladies, carte };
+export const maladieParId = Object.fromEntries(maladies.map((x) => [x.id, x]));
 export const moleculeParId = index(molecules);
 export const cibleParId = index(cibles);
 export const voieParId = index(voies);

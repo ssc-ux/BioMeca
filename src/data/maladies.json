@@ -1,1 +1,13 @@
-[]
+[
+  { "id": "pr", "nom": "Polyarthrite rhumatoïde", "voieIds": ["il6", "tnf", "lb", "jakstat"], "moleculeIds": ["tocilizumab", "sarilumab", "infliximab", "adalimumab", "etanercept", "rituximab", "baricitinib", "tofacitinib"] },
+  { "id": "acg", "nom": "Artérite à cellules géantes", "voieIds": ["il6"], "moleculeIds": ["tocilizumab"] },
+  { "id": "castleman", "nom": "Maladie de Castleman multicentrique", "voieIds": ["il6"], "moleculeIds": ["siltuximab"] },
+  { "id": "lupus", "nom": "Lupus systémique", "voieIds": ["lb"], "moleculeIds": ["belimumab"] },
+  { "id": "anca", "nom": "Vascularites à ANCA (granulomatose avec polyangéite, polyangéite microscopique)", "voieIds": ["lb"], "moleculeIds": ["rituximab"] },
+  { "id": "spa", "nom": "Spondyloarthrite axiale", "voieIds": ["tnf", "jakstat"], "moleculeIds": ["infliximab", "adalimumab", "etanercept", "tofacitinib"] },
+  { "id": "rpso", "nom": "Rhumatisme psoriasique", "voieIds": ["tnf", "jakstat"], "moleculeIds": ["infliximab", "adalimumab", "etanercept", "tofacitinib"] },
+  { "id": "crohn", "nom": "Maladie de Crohn", "voieIds": ["tnf"], "moleculeIds": ["infliximab", "adalimumab"] },
+  { "id": "rch", "nom": "Rectocolite hémorragique", "voieIds": ["tnf", "jakstat"], "moleculeIds": ["infliximab", "adalimumab", "tofacitinib"] },
+  { "id": "uveite", "nom": "Uvéite non infectieuse", "voieIds": ["tnf"], "moleculeIds": ["adalimumab"] },
+  { "id": "aji", "nom": "Arthrite juvénile idiopathique", "voieIds": ["il6", "tnf", "jakstat"], "moleculeIds": ["tocilizumab", "adalimumab", "etanercept", "baricitinib", "tofacitinib"] }
+]

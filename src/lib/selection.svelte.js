@@ -28,6 +28,16 @@ export function retirer(id) {
   ecrire();
 }
 
+export const basculer = (id) => (etat.ids.includes(id) ? retirer(id) : ajouter(id));
+
+export function definir(ids) {
+  etat.ids = [...new Set(ids.filter((id) => valides.has(id)))];
+  ecrire();
+}
+
+/** Paramètre de la vue courante : #/cible/il6r → « il6r ». */
+export const parametre = () => etat.chemin.split('/')[2] ?? null;
+
 if (typeof window !== 'undefined') {
   lire();
   addEventListener('hashchange', lire);

@@ -64,3 +64,21 @@ button { cursor: pointer; }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
 }
+
+/* Éléments communs aux vues Carte, Par cible, Par maladie */
+.vue { display: flex; flex-direction: column; gap: 20px; }
+.vue > header h1 { font-size: 22px; }
+.vue > header p { margin-top: 4px; color: var(--encre-2); max-width: 80ch; }
+.bloc { padding: 20px; }
+.bloc > h2 { font-size: 18px; margin-bottom: 10px; }
+.choix { display: flex; flex-direction: column; gap: 12px; }
+.choix h2 { font-size: 13px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--encre-2); margin-bottom: 6px; }
+.choix ul { display: flex; flex-wrap: wrap; gap: 8px; }
+.choix a {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px;
+  border: 1px solid var(--bord-fort); border-radius: 8px; background: var(--surface);
+  color: var(--encre); text-decoration: none; font-weight: 500;
+}
+.choix a:hover { background: var(--fond); }
+.choix a[aria-current='page'] { border-color: var(--accent); background: var(--accent); color: #fff; font-weight: 600; }
+.lien { color: var(--accent); font-weight: 600; }

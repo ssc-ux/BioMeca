@@ -30,7 +30,7 @@
 <svg viewBox={scene.viewBox} role="img" aria-label={description}>
   {#each scene.elements.filter((e) => FOND.includes(e.type)) as e (e.id)}
     {@const C = types[e.type]}
-    <g class="el" class:inactif={inactif(e.id)}><C {...e} {largeur} /></g>
+    <g class="el" class:inactif={e.type !== 'membrane' && inactif(e.id)}><C {...e} {largeur} /></g>
   {/each}
 
   {#each scene.liens as [a, b, genre]}
