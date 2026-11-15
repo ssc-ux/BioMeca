@@ -1,401 +1,361 @@
 {
- "viewBox": "0 0 920 960",
- "zones": [
+ "viewBox": "0 0 1245 715",
+ "titres": [
   {
-   "nom": "Cellules",
-   "x": 0,
-   "w": 160
+   "x": 130,
+   "texte": "Immunité innée"
   },
   {
-   "nom": "Cytokines et ligands",
-   "x": 160,
-   "w": 160
+   "x": 675,
+   "texte": "Activation et différenciation des lymphocytes T"
   },
   {
-   "nom": "Récepteurs",
-   "x": 320,
-   "w": 200
-  },
-  {
-   "nom": "Voies intracellulaires",
-   "x": 520,
-   "w": 250
-  },
-  {
-   "nom": "Noyau",
-   "x": 770,
-   "w": 150
+   "x": 1125,
+   "texte": "Effets"
   }
  ],
- "stations": [
+ "noeuds": [
+  {
+   "id": "pdc",
+   "x": 130,
+   "y": 85,
+   "label": "Cellule infectée,\ndendritique plasmacytoïde",
+   "type": "cellule",
+   "famille": "inne",
+   "info": "Lors d'une infection virale, les cellules infectées et les cellules dendritiques plasmacytoïdes sécrètent les interférons α et β.",
+   "hw": 110
+  },
+  {
+   "id": "apc",
+   "x": 130,
+   "y": 255,
+   "label": "Cellule dendritique\nprésentatrice d'antigène",
+   "type": "cellule",
+   "famille": "inne",
+   "info": "Elle capte l'antigène, le présente sur une molécule du CMH et, une fois activée, exprime les molécules de co-stimulation B7. Elle sécrète aussi les cytokines qui orientent la différenciation des lymphocytes T (IL-12, IL-6, IL-23).",
+   "hw": 110
+  },
   {
    "id": "macro",
-   "x": 80,
-   "y": 330,
-   "label": "Macrophages",
-   "haut": true,
-   "dx": -30
-  },
-  {
-   "id": "macro2",
-   "x": 80,
-   "y": 590,
-   "label": "Macrophages\n(inflammasome)"
-  },
-  {
-   "id": "th2",
-   "x": 80,
-   "y": 420,
-   "label": "Th2, ILC2"
-  },
-  {
-   "id": "th17",
-   "x": 80,
-   "y": 670,
-   "label": "Lymphocytes Th17"
+   "x": 130,
+   "y": 480,
+   "label": "Macrophage activé",
+   "type": "cellule",
+   "famille": "inne",
+   "info": "Activé par un agent infectieux, il sécrète les cytokines pro-inflammatoires de l'immunité innée : TNF-α, IL-1β et IL-6.",
+   "hw": 110
   },
   {
    "id": "fdc",
-   "x": 80,
-   "y": 750,
-   "label": "Cellules folliculaires\ndendritiques"
+   "x": 130,
+   "y": 650,
+   "label": "Cellule folliculaire\ndendritique",
+   "type": "cellule",
+   "famille": "inne",
+   "info": "Cellule non hématopoïétique du follicule B. Elle produit BAFF, indispensable à la survie des lymphocytes B.",
+   "hw": 110
   },
   {
-   "id": "cpa",
-   "x": 80,
-   "y": 900,
-   "label": "Cellule présentatrice\nd'antigène"
+   "id": "tnaif",
+   "x": 520,
+   "y": 255,
+   "label": "Lymphocyte T CD4\nnaïf",
+   "type": "cellule",
+   "famille": "t",
+   "info": "Son activation exige deux signaux : la reconnaissance de l'antigène par le récepteur T (signal 1) et la co-stimulation par CD28 (signal 2). Il produit alors de l'IL-2, prolifère et se différencie selon les cytokines présentes. Sans signal 2, il devient anergique."
   },
   {
-   "id": "il6",
-   "x": 240,
-   "y": 100,
-   "label": "IL-6",
-   "haut": true,
-   "cibleId": "il6"
+   "id": "th1",
+   "x": 830,
+   "y": 160,
+   "label": "Lymphocyte Th1",
+   "type": "cellule",
+   "famille": "t",
+   "info": "Induit par l'IL-12 (via STAT4). Il sécrète l'interféron γ, qui active les macrophages contre les pathogènes intracellulaires."
   },
   {
-   "id": "cytokines",
-   "x": 240,
-   "y": 180,
-   "label": "Cytokines à chaîne γc\n(IL-2, IL-4, IL-7…)"
+   "id": "th17",
+   "x": 830,
+   "y": 255,
+   "label": "Lymphocyte Th17",
+   "type": "cellule",
+   "famille": "t",
+   "info": "Induit par l'IL-6 et le TGF-β (via STAT3 et RORγt), entretenu par l'IL-23. Il sécrète l'IL-17 et défend les barrières contre les champignons et les bactéries extracellulaires."
   },
+  {
+   "id": "th2",
+   "x": 830,
+   "y": 350,
+   "label": "Lymphocyte Th2",
+   "type": "cellule",
+   "famille": "t",
+   "info": "Induit par l'IL-4. Il sécrète l'IL-4, l'IL-5 et l'IL-13 : immunité de type 2 contre les helminthes, et allergie."
+  },
+  {
+   "id": "lb",
+   "x": 520,
+   "y": 650,
+   "label": "Lymphocyte B",
+   "type": "cellule",
+   "famille": "b",
+   "info": "Il exprime CD20 depuis les stades précoces jusqu'au stade mature. Sa survie en périphérie dépend de BAFF.",
+   "cibleIds": [
+    "cd20"
+   ]
+  },
+  {
+   "id": "plasmo",
+   "x": 830,
+   "y": 650,
+   "label": "Nouveaux plasmocytes",
+   "type": "cellule",
+   "famille": "b",
+   "info": "Issus de la différenciation des lymphocytes B. Ils n'expriment pas CD20 : les plasmocytes à longue durée de vie persistent après déplétion B, ceux à vie courte ne sont plus renouvelés."
+  },
+  {
+   "id": "antiviral",
+   "x": 1125,
+   "y": 85,
+   "label": "État antiviral\nde toutes les cellules",
+   "type": "effet",
+   "famille": "effet",
+   "info": "Les interférons α et β induisent, via TYK2, JAK1, STAT1 et STAT2, un état de résistance à la réplication virale.",
+   "hw": 100
+  },
+  {
+   "id": "mact",
+   "x": 1125,
+   "y": 160,
+   "label": "Activation\ndes macrophages",
+   "type": "effet",
+   "famille": "effet",
+   "info": "L'interféron γ renforce le pouvoir microbicide des macrophages. En cas d'échec, un granulome se forme autour du pathogène.",
+   "hw": 100
+  },
+  {
+   "id": "neutro",
+   "x": 1125,
+   "y": 255,
+   "label": "Recrutement\ndes neutrophiles",
+   "type": "effet",
+   "famille": "effet",
+   "info": "L'IL-17 fait sécréter par les fibroblastes et les cellules épithéliales du G-CSF et les chimiokines CXCL8 et CXCL2, qui produisent et attirent les neutrophiles.",
+   "hw": 100
+  },
+  {
+   "id": "eosino",
+   "x": 1125,
+   "y": 350,
+   "label": "Production et activation\ndes éosinophiles",
+   "type": "effet",
+   "famille": "effet",
+   "info": "L'IL-5 stimule la production des éosinophiles par la moelle, leur sortie dans le sang et leur activation.",
+   "hw": 100
+  },
+  {
+   "id": "endo",
+   "x": 1125,
+   "y": 450,
+   "label": "Endothélium : adhésion,\nafflux de leucocytes",
+   "type": "effet",
+   "famille": "effet",
+   "info": "Le TNF-α et l'IL-1β activent l'endothélium : molécules d'adhésion, perméabilité vasculaire, passage des monocytes et des neutrophiles dans le tissu. Le TNF-α assure aussi le confinement local de l'infection.",
+   "hw": 100
+  },
+  {
+   "id": "sys",
+   "x": 1125,
+   "y": 545,
+   "label": "Foie, hypothalamus :\nphase aiguë, fièvre",
+   "type": "effet",
+   "famille": "effet",
+   "info": "L'IL-6 fait synthétiser par le foie les protéines de la phase aiguë (CRP, fibrinogène) et, comme le TNF-α et l'IL-1β, provoque la fièvre.",
+   "hw": 100
+  },
+  {
+   "id": "anticorps",
+   "x": 1125,
+   "y": 650,
+   "label": "Anticorps",
+   "type": "effet",
+   "famille": "effet",
+   "info": "Les plasmocytes sécrètent les anticorps. Dans les maladies auto-immunes à auto-anticorps, c'est cette production que vise la déplétion B.",
+   "hw": 100
+  }
+ ],
+ "aretes": [
   {
    "id": "ifn",
-   "x": 240,
-   "y": 250,
-   "label": "IFN-α, IFN-β"
+   "de": "pdc",
+   "vers": "antiviral",
+   "label": "IFN-α, IFN-β",
+   "cibleIds": [
+    "ifnar",
+    "jak"
+   ],
+   "info": "Interférons de type I. Leur récepteur commun, IFNAR, signale par TYK2 et JAK1."
   },
   {
-   "id": "il1223",
-   "x": 240,
-   "y": 320,
-   "label": "IL-12, IL-23",
-   "cibleId": "p40"
+   "id": "sig1",
+   "de": "apc",
+   "vers": "tnaif",
+   "label": "Signal 1 : CMH–TCR",
+   "cibleIds": [],
+   "info": "Le récepteur T reconnaît le peptide présenté par le CMH. Ce signal seul ne suffit pas à activer un lymphocyte T naïf.",
+   "dy": -14
   },
   {
-   "id": "il5",
-   "x": 240,
-   "y": 390,
-   "label": "IL-5",
-   "cibleId": "il5"
+   "id": "sig2",
+   "de": "apc",
+   "vers": "tnaif",
+   "label": "Signal 2 : B7–CD28",
+   "cibleIds": [
+    "b7"
+   ],
+   "info": "Les molécules B7 (CD80, CD86) de la cellule présentatrice se lient à CD28. Signal de co-stimulation, indispensable à l'activation.",
+   "dy": 14,
+   "requis": true
   },
   {
-   "id": "tnf",
-   "x": 240,
-   "y": 470,
-   "label": "TNF-α",
-   "cibleId": "tnf"
+   "id": "il12",
+   "de": "tnaif",
+   "vers": "th1",
+   "label": "IL-12",
+   "cibleIds": [
+    "p40",
+    "jak"
+   ],
+   "info": "Sécrétée par les cellules dendritiques et les macrophages, l'IL-12 oriente vers les Th1. Son récepteur signale par TYK2 et JAK2. Elle partage la sous-unité p40 avec l'IL-23."
   },
   {
-   "id": "il1b",
-   "x": 240,
-   "y": 590,
-   "label": "IL-1β",
-   "cibleId": "il1b"
+   "id": "th17a",
+   "de": "tnaif",
+   "vers": "th17",
+   "label": "IL-6 + TGF-β",
+   "cibleIds": [
+    "il6",
+    "il6r",
+    "jak"
+   ],
+   "info": "L'IL-6, associée au TGF-β, engage la différenciation en Th17 par l'intermédiaire de STAT3.",
+   "dy": -14
+  },
+  {
+   "id": "th17b",
+   "de": "tnaif",
+   "vers": "th17",
+   "label": "IL-23",
+   "cibleIds": [
+    "p40",
+    "jak"
+   ],
+   "info": "L'IL-23 assure l'expansion et le maintien des Th17. Elle partage la sous-unité p40 avec l'IL-12.",
+   "dy": 14
+  },
+  {
+   "id": "il4",
+   "de": "tnaif",
+   "vers": "th2",
+   "label": "IL-4",
+   "cibleIds": [
+    "jak"
+   ],
+   "info": "L'IL-4 oriente vers les Th2. Son récepteur comporte la chaîne γ commune, associée à JAK3."
+  },
+  {
+   "id": "ifng",
+   "de": "th1",
+   "vers": "mact",
+   "label": "IFN-γ",
+   "cibleIds": [
+    "jak"
+   ],
+   "info": "Cytokine signature des Th1. Son récepteur signale par la voie JAK-STAT (STAT1)."
   },
   {
    "id": "il17",
-   "x": 240,
-   "y": 670,
+   "de": "th17",
+   "vers": "neutro",
    "label": "IL-17A",
-   "cibleId": "il17a"
+   "cibleIds": [
+    "il17a"
+   ],
+   "info": "Cytokine signature des Th17, active sur les fibroblastes, les cellules épithéliales et les kératinocytes."
+  },
+  {
+   "id": "il5",
+   "de": "th2",
+   "vers": "eosino",
+   "label": "IL-5",
+   "cibleIds": [
+    "il5",
+    "jak"
+   ],
+   "info": "Cytokine de l'immunité de type 2. Son récepteur, de la famille de l'hématopoïétine, signale par la voie JAK-STAT."
+  },
+  {
+   "id": "tnf",
+   "de": "macro",
+   "vers": "endo",
+   "label": "TNF-α",
+   "cibleIds": [
+    "tnf"
+   ],
+   "info": "Trimère membranaire puis soluble. Il agit par TNFR-I et TNFR-II, qui activent NF-κB.",
+   "dy": -13,
+   "pos": 0.3
+  },
+  {
+   "id": "il1",
+   "de": "macro",
+   "vers": "endo",
+   "label": "IL-1β",
+   "cibleIds": [
+    "il1b",
+    "il1r"
+   ],
+   "info": "Produite sous forme de précurseur, activée par la caspase 1 de l'inflammasome. Son récepteur signale par MyD88 et NF-κB.",
+   "dy": 13,
+   "pos": 0.58
+  },
+  {
+   "id": "il6",
+   "de": "macro",
+   "vers": "sys",
+   "label": "IL-6",
+   "cibleIds": [
+    "il6",
+    "il6r",
+    "jak"
+   ],
+   "info": "Son récepteur associe IL-6Rα et gp130 et signale par les JAK et STAT3.",
+   "pos": 0.42
   },
   {
    "id": "baff",
-   "x": 240,
-   "y": 750,
+   "de": "fdc",
+   "vers": "lb",
    "label": "BAFF",
-   "cibleId": "baff"
+   "cibleIds": [
+    "baff"
+   ],
+   "info": "Cytokine de la famille du TNF. Par BAFF-R, elle active NF-κB et induit Bcl-2 : c'est le signal de survie du lymphocyte B."
   },
   {
-   "id": "b7",
-   "x": 240,
-   "y": 900,
-   "label": "B7 (CD80, CD86)",
-   "cibleId": "b7"
+   "id": "diff",
+   "de": "lb",
+   "vers": "plasmo",
+   "label": "Différenciation",
+   "cibleIds": [],
+   "info": "Activé par l'antigène et aidé par les lymphocytes T, le lymphocyte B se différencie en plasmocyte."
   },
   {
-   "id": "il6r",
-   "x": 400,
-   "y": 100,
-   "label": "IL-6Rα",
-   "haut": true,
-   "cibleId": "il6r"
-  },
-  {
-   "id": "gp130",
-   "x": 480,
-   "y": 100,
-   "label": "gp130",
-   "haut": true
-  },
-  {
-   "id": "recepteurs",
-   "x": 400,
-   "y": 180,
-   "label": "Récepteurs\nà chaîne γc"
-  },
-  {
-   "id": "ifnar",
-   "x": 400,
-   "y": 250,
-   "label": "IFNAR",
-   "cibleId": "ifnar"
-  },
-  {
-   "id": "rec1223",
-   "x": 400,
-   "y": 320,
-   "label": "Récepteurs IL-12, IL-23"
-  },
-  {
-   "id": "il5r",
-   "x": 400,
-   "y": 390,
-   "label": "IL-5R"
-  },
-  {
-   "id": "tnfr",
-   "x": 400,
-   "y": 470,
-   "label": "TNFR-I / TNFR-II"
-  },
-  {
-   "id": "il1r",
-   "x": 400,
-   "y": 590,
-   "label": "IL-1R",
-   "cibleId": "il1r"
-  },
-  {
-   "id": "il17r",
-   "x": 400,
-   "y": 670,
-   "label": "IL-17RA"
-  },
-  {
-   "id": "baffr",
-   "x": 400,
-   "y": 750,
-   "label": "BAFF-R",
-   "haut": true
-  },
-  {
-   "id": "cd20",
-   "x": 400,
-   "y": 820,
-   "label": "CD20",
-   "cibleId": "cd20"
-  },
-  {
-   "id": "cd28",
-   "x": 400,
-   "y": 900,
-   "label": "CD28"
-  },
-  {
-   "id": "jak",
-   "x": 590,
-   "y": 285,
-   "label": "JAK",
-   "cibleId": "jak"
-  },
-  {
-   "id": "stat",
-   "x": 705,
-   "y": 285,
-   "label": "STAT",
-   "haut": true
-  },
-  {
-   "id": "nfkb",
-   "x": 590,
-   "y": 470,
-   "label": "TRAF, NF-κB"
-  },
-  {
-   "id": "myd",
-   "x": 590,
-   "y": 590,
-   "label": "MyD88, IRAK, NF-κB"
-  },
-  {
-   "id": "sig17",
-   "x": 590,
-   "y": 670,
-   "label": "Signal intracellulaire"
-  },
-  {
-   "id": "nfkb2",
-   "x": 590,
-   "y": 750,
-   "label": "TRAF3, NIK, NF-κB"
-  },
-  {
-   "id": "pi3k",
-   "x": 590,
-   "y": 900,
-   "label": "PI 3-kinase"
-  },
-  {
-   "id": "noyau",
-   "x": 845,
-   "y": 500,
-   "label": "Noyau",
-   "haut": true,
-   "dx": 30
-  }
- ],
- "lignes": [
-  {
-   "voieId": "il6",
-   "couleur": "#0e7490",
-   "decalage": -6,
-   "trajets": [
-    [
-     "macro",
-     "il6",
-     "il6r",
-     "gp130",
-     "jak",
-     "stat",
-     "noyau"
-    ]
-   ]
-  },
-  {
-   "voieId": "jakstat",
-   "couleur": "#a16207",
-   "decalage": 0,
-   "trajets": [
-    [
-     "cytokines",
-     "recepteurs",
-     "jak",
-     "stat",
-     "noyau"
-    ],
-    [
-     "ifn",
-     "ifnar",
-     "jak"
-    ],
-    [
-     "il1223",
-     "rec1223",
-     "jak"
-    ]
-   ]
-  },
-  {
-   "voieId": "il5",
-   "couleur": "#0369a1",
-   "decalage": 6,
-   "trajets": [
-    [
-     "th2",
-     "il5",
-     "il5r",
-     "jak",
-     "stat",
-     "noyau"
-    ]
-   ]
-  },
-  {
-   "voieId": "tnf",
-   "couleur": "#b91c1c",
-   "decalage": 0,
-   "trajets": [
-    [
-     "macro",
-     "tnf",
-     "tnfr",
-     "nfkb",
-     "noyau"
-    ]
-   ]
-  },
-  {
-   "voieId": "il1",
-   "couleur": "#db2777",
-   "decalage": 0,
-   "trajets": [
-    [
-     "macro2",
-     "il1b",
-     "il1r",
-     "myd",
-     "noyau"
-    ]
-   ]
-  },
-  {
-   "voieId": "il17",
-   "couleur": "#15803d",
-   "decalage": 0,
-   "trajets": [
-    [
-     "th17",
-     "il17",
-     "il17r",
-     "sig17",
-     "noyau"
-    ]
-   ]
-  },
-  {
-   "voieId": "lb",
-   "couleur": "#6d28d9",
-   "decalage": 0,
-   "trajets": [
-    [
-     "fdc",
-     "baff",
-     "baffr",
-     "nfkb2",
-     "noyau"
-    ],
-    [
-     "baffr",
-     "cd20"
-    ]
-   ]
-  },
-  {
-   "voieId": "costim",
-   "couleur": "#475569",
-   "decalage": 0,
-   "trajets": [
-    [
-     "cpa",
-     "b7",
-     "cd28",
-     "pi3k",
-     "noyau"
-    ]
-   ]
+   "id": "ac",
+   "de": "plasmo",
+   "vers": "anticorps",
+   "label": "Sécrétion",
+   "cibleIds": [],
+   "info": "Les plasmocytes sécrètent de grandes quantités d'anticorps."
   }
  ]
 }

@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { molecules, cibles, voies, maladies, carte, moleculeParId, cibleParId, voieParId, champs } from '../src/lib/data.js';
 import { grouperParVoie, comparer, aval, bloquesPar, placer } from '../src/lib/groupes.js';
+import { eteindre } from '../src/lib/carte.js';
 
 const sel = (...ids) => ids.map((id) => moleculeParId[id]);
 
@@ -39,6 +40,29 @@ describe('schéma', () => {
   });
 });
 
+describe('carte : signaux éteints', () => {
+  const off = (...ids) => eteindre(carte, sel(...ids).map((m) => m.cibleId));
+  it('tocilizumab éteint les signaux de l’IL-6 sans éteindre les Th17', () => {
+    const { aretes, noeuds } = off('tocilizumab');
+    expect([...aretes].sort()).toEqual(['il6', 'th17a']);
+    expect(noeuds.has('sys')).toBe(true);
+    expect(noeuds.has('th17')).toBe(false);
+  });
+  it('abatacept coupe le signal 2 : toute la différenciation T s’éteint', () => {
+    const { noeuds } = off('abatacept');
+    for (const id of ['tnaif', 'th1', 'th17', 'th2', 'neutro', 'eosino']) expect(noeuds.has(id), id).toBe(true);
+    expect(noeuds.has('endo')).toBe(false);
+  });
+  it('rituximab éteint le lymphocyte B et la production d’anticorps', () => {
+    const { noeuds } = off('rituximab');
+    for (const id of ['lb', 'plasmo', 'anticorps']) expect(noeuds.has(id), id).toBe(true);
+  });
+  it('sans sélection, rien n’est éteint', () => {
+    const { aretes, noeuds } = off();
+    expect(aretes.size + noeuds.size).toBe(0);
+  });
+});
+
 describe('intégrité des données', () => {
   it('chaque maladie liste des molécules existantes dont les voies sont exactement ses voies', () => {
     for (const d of maladies) {
@@ -46,15 +70,15 @@ describe('intégrité des données', () => {
       expect([...new Set(d.moleculeIds.map((id) => moleculeParId[id].voieId))].sort(), d.id).toEqual([...d.voieIds].sort());
     }
   });
-  it('la carte référence des stations, voies et cibles existantes, et couvre toutes les cibles', () => {
-    const ids = carte.stations.map((s) => s.id);
-    for (const l of carte.lignes) {
-      expect(voieParId[l.voieId], l.voieId).toBeDefined();
-      for (const t of l.trajets) for (const id of t) expect(ids, l.voieId).toContain(id);
+  it('la carte relie des nœuds existants et couvre toutes les cibles', () => {
+    const ids = carte.noeuds.map((x) => x.id);
+    for (const a of carte.aretes) {
+      expect(ids, a.id).toContain(a.de);
+      expect(ids, a.id).toContain(a.vers);
     }
-    const ciblees = carte.stations.filter((s) => s.cibleId).map((s) => s.cibleId);
+    const ciblees = new Set([...carte.aretes, ...carte.noeuds].flatMap((x) => x.cibleIds ?? []));
     for (const id of ciblees) expect(cibleParId[id], id).toBeDefined();
-    expect(ciblees.sort()).toEqual(cibles.map((c) => c.id).sort());
+    expect([...ciblees].sort()).toEqual(cibles.map((c) => c.id).sort());
   });
   it('chaque molécule référence une cible et une voie cohérentes', () => {
     for (const m of molecules) {
@@ -63,7 +87,7 @@ describe('intégrité des données', () => {
       expect(cibleParId[m.cibleId].voieId).toBe(m.voieId);
     }
   });
-  it('ancres, liens et étapes pointent sur des éléments existants de la scène', () => {
+  it('ancres et liens pointent sur des éléments existants de la scène', () => {
     const idsDe = (voieId) => voieParId[voieId].scene.elements.map((e) => e.id);
     for (const c of cibles) {
       expect(idsDe(c.voieId), c.id).toContain(c.ancre.elementId);
@@ -71,7 +95,8 @@ describe('intégrité des données', () => {
     }
     for (const v of voies) {
       for (const l of v.scene.liens) for (const id of l.slice(0, 2)) expect(idsDe(v.id), v.id).toContain(id);
-      for (const e of v.etapes) for (const id of e.actifs ?? []) expect(idsDe(v.id), v.id).toContain(id);
+      for (const e of v.scene.elements) if (e.type !== 'membrane') expect(e.info, v.id + ' ' + e.id).toBeTruthy();
+      expect(v.blocage, v.id).toBeTruthy();
     }
   });
 });

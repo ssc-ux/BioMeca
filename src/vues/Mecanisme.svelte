@@ -22,7 +22,7 @@
 {#if mols.length === 0}
   <section class="carte vide">
     <h2>Choisissez une ou plusieurs biothérapies</h2>
-    <p>Chaque voie s'affiche dans un schéma pas à pas : voie physiologique détaillée, fixation du médicament, puis conséquences en aval. Les molécules d'une même voie partagent le même schéma, et un tableau les compare.</p>
+    <p>Chaque voie s'affiche en entier dans un schéma, avec les molécules placées sur leur cible. Survolez ou touchez un élément pour afficher son rôle. Les molécules d'une même voie partagent le même schéma, et un tableau les compare.</p>
     <ul class="suggestions">
       {#each molecules as m (m.id)}
         <li><button class="bouton" onclick={() => ajouter(m.id)}><span class="pastille" style:background={couleur(m.id)}></span>{m.dci}</button></li>
