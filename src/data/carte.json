@@ -1,17 +1,25 @@
 {
- "viewBox": "0 0 1245 715",
+ "viewBox": "0 0 1550 1335",
  "titres": [
   {
-   "x": 130,
-   "texte": "Immunité innée"
+   "y": 40,
+   "texte": "Réponse antivirale et cytotoxicité"
   },
   {
-   "x": 675,
-   "texte": "Activation et différenciation des lymphocytes T"
+   "y": 310,
+   "texte": "Lymphocytes T auxiliaires et lymphocytes B"
   },
   {
-   "x": 1125,
-   "texte": "Effets"
+   "y": 820,
+   "texte": "Inflammation : cytokines de l'immunité innée"
+  },
+  {
+   "y": 1010,
+   "texte": "Complément"
+  },
+  {
+   "y": 1235,
+   "texte": "Hypersensibilité immédiate"
   }
  ],
  "noeuds": [
@@ -26,48 +34,85 @@
    "hw": 110
   },
   {
+   "id": "apc1",
+   "x": 130,
+   "y": 245,
+   "label": "Cellule dendritique\n(présentation par le CMH I)",
+   "type": "cellule",
+   "famille": "inne",
+   "info": "Elle présente aux lymphocytes T CD8 des peptides d'origine cytosolique (virus, tumeur) sur les molécules du CMH de classe I, exprime B7 et sécrète l'IL-12.",
+   "hw": 110
+  },
+  {
+   "id": "tcd8",
+   "x": 460,
+   "y": 245,
+   "label": "Lymphocyte T CD8\nnaïf",
+   "type": "cellule",
+   "famille": "t",
+   "info": "Il reconnaît un peptide présenté par le CMH de classe I. Comme le CD4, il a besoin du signal de co-stimulation pour s'activer, puis prolifère sous l'effet de l'IL-2."
+  },
+  {
+   "id": "nk",
+   "x": 800,
+   "y": 165,
+   "label": "Cellule NK",
+   "type": "cellule",
+   "famille": "inne",
+   "info": "Lymphocyte de l'immunité innée. Activée par les interférons α et β et par l'IL-12, elle tue les cellules infectées ou tumorales qui ont perdu leurs molécules du CMH I et sécrète l'interféron γ."
+  },
+  {
+   "id": "ctl",
+   "x": 800,
+   "y": 245,
+   "label": "Lymphocyte T\ncytotoxique",
+   "type": "cellule",
+   "famille": "t",
+   "info": "Lymphocyte T CD8 effecteur. Il reconnaît les cellules qui présentent le peptide viral sur le CMH I et les tue par contact."
+  },
+  {
+   "id": "antiviral",
+   "x": 1420,
+   "y": 85,
+   "label": "État antiviral\nde toutes les cellules",
+   "type": "effet",
+   "famille": "effet",
+   "info": "Les interférons α et β induisent, via TYK2, JAK1, STAT1 et STAT2, un état de résistance à la réplication virale.",
+   "hw": 105
+  },
+  {
+   "id": "lyse",
+   "x": 1420,
+   "y": 180,
+   "label": "Mort des cellules infectées\nou tumorales",
+   "type": "effet",
+   "famille": "effet",
+   "info": "Les granules cytotoxiques libèrent la perforine et les granzymes, qui déclenchent l'apoptose de la cellule cible.",
+   "hw": 105
+  },
+  {
    "id": "apc",
    "x": 130,
-   "y": 255,
-   "label": "Cellule dendritique\nprésentatrice d'antigène",
+   "y": 515,
+   "label": "Cellule dendritique\n(présentation par le CMH II)",
    "type": "cellule",
    "famille": "inne",
-   "info": "Elle capte l'antigène, le présente sur une molécule du CMH et, une fois activée, exprime les molécules de co-stimulation B7. Elle sécrète aussi les cytokines qui orientent la différenciation des lymphocytes T (IL-12, IL-6, IL-23).",
-   "hw": 110
-  },
-  {
-   "id": "macro",
-   "x": 130,
-   "y": 480,
-   "label": "Macrophage activé",
-   "type": "cellule",
-   "famille": "inne",
-   "info": "Activé par un agent infectieux, il sécrète les cytokines pro-inflammatoires de l'immunité innée : TNF-α, IL-1β et IL-6.",
-   "hw": 110
-  },
-  {
-   "id": "fdc",
-   "x": 130,
-   "y": 650,
-   "label": "Cellule folliculaire\ndendritique",
-   "type": "cellule",
-   "famille": "inne",
-   "info": "Cellule non hématopoïétique du follicule B. Elle produit BAFF, indispensable à la survie des lymphocytes B.",
+   "info": "Elle capte l'antigène, le présente aux lymphocytes T CD4 sur les molécules du CMH de classe II et, une fois activée, exprime B7. Les cytokines qu'elle sécrète (IL-12, IL-6, IL-23) orientent la différenciation.",
    "hw": 110
   },
   {
    "id": "tnaif",
-   "x": 520,
-   "y": 255,
+   "x": 460,
+   "y": 515,
    "label": "Lymphocyte T CD4\nnaïf",
    "type": "cellule",
    "famille": "t",
-   "info": "Son activation exige deux signaux : la reconnaissance de l'antigène par le récepteur T (signal 1) et la co-stimulation par CD28 (signal 2). Il produit alors de l'IL-2, prolifère et se différencie selon les cytokines présentes. Sans signal 2, il devient anergique."
+   "info": "Son activation exige deux signaux : reconnaissance de l'antigène par le récepteur T (signal 1) et co-stimulation par CD28 (signal 2). Il produit alors de l'IL-2, prolifère et se différencie selon les cytokines présentes. Sans signal 2, il devient anergique."
   },
   {
    "id": "th1",
-   "x": 830,
-   "y": 160,
+   "x": 800,
+   "y": 355,
    "label": "Lymphocyte Th1",
    "type": "cellule",
    "famille": "t",
@@ -75,8 +120,8 @@
   },
   {
    "id": "th17",
-   "x": 830,
-   "y": 255,
+   "x": 800,
+   "y": 435,
    "label": "Lymphocyte Th17",
    "type": "cellule",
    "famille": "t",
@@ -84,103 +129,244 @@
   },
   {
    "id": "th2",
-   "x": 830,
-   "y": 350,
+   "x": 800,
+   "y": 515,
    "label": "Lymphocyte Th2",
    "type": "cellule",
    "famille": "t",
    "info": "Induit par l'IL-4. Il sécrète l'IL-4, l'IL-5 et l'IL-13 : immunité de type 2 contre les helminthes, et allergie."
   },
   {
+   "id": "treg",
+   "x": 800,
+   "y": 595,
+   "label": "Lymphocyte T\nrégulateur",
+   "type": "cellule",
+   "famille": "t",
+   "info": "Induit en périphérie par le TGF-β en l'absence d'IL-6 ; il exprime FoxP3. Il freine les autres lymphocytes T et maintient la tolérance au soi."
+  },
+  {
+   "id": "tfh",
+   "x": 800,
+   "y": 675,
+   "label": "Lymphocyte T\nfolliculaire (Tfh)",
+   "type": "cellule",
+   "famille": "t",
+   "info": "Il migre dans le follicule B et apporte aux lymphocytes B l'aide nécessaire à la formation des centres germinatifs."
+  },
+  {
+   "id": "fdc",
+   "x": 800,
+   "y": 760,
+   "label": "Cellule folliculaire\ndendritique",
+   "type": "cellule",
+   "famille": "inne",
+   "info": "Cellule non hématopoïétique du follicule B. Elle retient les antigènes et produit BAFF, indispensable à la survie des lymphocytes B."
+  },
+  {
+   "id": "mclass",
+   "x": 1100,
+   "y": 355,
+   "label": "Macrophage",
+   "type": "cellule",
+   "famille": "inne",
+   "info": "Sous l'effet de l'interféron γ, le macrophage acquiert un pouvoir microbicide accru (activation classique)."
+  },
+  {
+   "id": "stroma",
+   "x": 1100,
+   "y": 435,
+   "label": "Fibroblastes,\ncellules épithéliales",
+   "type": "cellule",
+   "famille": "tissu",
+   "info": "Ces cellules portent le récepteur de l'IL-17. Stimulées, elles sécrètent G-CSF, chimiokines et peptides antimicrobiens."
+  },
+  {
+   "id": "eosino",
+   "x": 1100,
+   "y": 515,
+   "label": "Éosinophile",
+   "type": "cellule",
+   "famille": "inne",
+   "info": "Granulocyte de l'immunité de type 2. L'IL-5 commande sa production dans la moelle, sa sortie dans le sang et son activation."
+  },
+  {
    "id": "lb",
-   "x": 520,
-   "y": 650,
+   "x": 1100,
+   "y": 675,
    "label": "Lymphocyte B",
    "type": "cellule",
    "famille": "b",
-   "info": "Il exprime CD20 depuis les stades précoces jusqu'au stade mature. Sa survie en périphérie dépend de BAFF.",
+   "info": "Il exprime CD20 depuis les stades précoces jusqu'au stade mature. Sa survie dépend de BAFF ; l'aide des lymphocytes T folliculaires lui permet de former un centre germinatif.",
    "cibleIds": [
     "cd20"
    ]
   },
   {
-   "id": "plasmo",
-   "x": 830,
-   "y": 650,
-   "label": "Nouveaux plasmocytes",
-   "type": "cellule",
-   "famille": "b",
-   "info": "Issus de la différenciation des lymphocytes B. Ils n'expriment pas CD20 : les plasmocytes à longue durée de vie persistent après déplétion B, ceux à vie courte ne sont plus renouvelés."
-  },
-  {
-   "id": "antiviral",
-   "x": 1125,
-   "y": 85,
-   "label": "État antiviral\nde toutes les cellules",
+   "id": "intracell",
+   "x": 1420,
+   "y": 355,
+   "label": "Destruction des pathogènes\nintracellulaires",
    "type": "effet",
    "famille": "effet",
-   "info": "Les interférons α et β induisent, via TYK2, JAK1, STAT1 et STAT2, un état de résistance à la réplication virale.",
-   "hw": 100
-  },
-  {
-   "id": "mact",
-   "x": 1125,
-   "y": 160,
-   "label": "Activation\ndes macrophages",
-   "type": "effet",
-   "famille": "effet",
-   "info": "L'interféron γ renforce le pouvoir microbicide des macrophages. En cas d'échec, un granulome se forme autour du pathogène.",
-   "hw": 100
+   "info": "Le macrophage activé détruit les pathogènes qu'il héberge (mycobactéries…). En cas d'échec, un granulome se forme autour d'eux.",
+   "hw": 105
   },
   {
    "id": "neutro",
-   "x": 1125,
-   "y": 255,
-   "label": "Recrutement\ndes neutrophiles",
+   "x": 1420,
+   "y": 435,
+   "label": "Production et recrutement\ndes neutrophiles",
    "type": "effet",
    "famille": "effet",
-   "info": "L'IL-17 fait sécréter par les fibroblastes et les cellules épithéliales du G-CSF et les chimiokines CXCL8 et CXCL2, qui produisent et attirent les neutrophiles.",
-   "hw": 100
+   "info": "Le G-CSF augmente la production des neutrophiles par la moelle ; CXCL8 et CXCL2 les attirent vers le tissu.",
+   "hw": 105
   },
   {
-   "id": "eosino",
-   "x": 1125,
-   "y": 350,
-   "label": "Production et activation\ndes éosinophiles",
+   "id": "type2",
+   "x": 1420,
+   "y": 515,
+   "label": "Défense contre les helminthes,\ninflammation allergique",
    "type": "effet",
    "famille": "effet",
-   "info": "L'IL-5 stimule la production des éosinophiles par la moelle, leur sortie dans le sang et leur activation.",
-   "hw": 100
+   "info": "Les éosinophiles libèrent le contenu toxique de leurs granules : utile contre les parasites, délétère dans l'asthme ou les syndromes hyperéosinophiliques.",
+   "hw": 105
+  },
+  {
+   "id": "tol",
+   "x": 1420,
+   "y": 595,
+   "label": "Tolérance : frein\ndes réponses immunitaires",
+   "type": "effet",
+   "famille": "effet",
+   "info": "L'IL-10 et le TGF-β inhibent l'activation des lymphocytes T et des cellules présentatrices, ce qui limite l'auto-immunité.",
+   "hw": 105
+  },
+  {
+   "id": "plasmo",
+   "x": 1420,
+   "y": 675,
+   "label": "Plasmocytes :\nanticorps",
+   "type": "effet",
+   "famille": "effet",
+   "info": "Les lymphocytes B activés deviennent des plasmocytes sécréteurs d'anticorps. Les plasmocytes n'expriment pas CD20 : ceux à longue durée de vie persistent après déplétion B, ceux à vie courte ne sont plus renouvelés.",
+   "hw": 105
+  },
+  {
+   "id": "macro",
+   "x": 130,
+   "y": 895,
+   "label": "Macrophage activé",
+   "type": "cellule",
+   "famille": "inne",
+   "info": "Activé par un agent infectieux, il sécrète les cytokines pro-inflammatoires de l'immunité innée : TNF-α, IL-1β et IL-6.",
+   "hw": 110
   },
   {
    "id": "endo",
-   "x": 1125,
-   "y": 450,
+   "x": 1420,
+   "y": 865,
    "label": "Endothélium : adhésion,\nafflux de leucocytes",
    "type": "effet",
    "famille": "effet",
    "info": "Le TNF-α et l'IL-1β activent l'endothélium : molécules d'adhésion, perméabilité vasculaire, passage des monocytes et des neutrophiles dans le tissu. Le TNF-α assure aussi le confinement local de l'infection.",
-   "hw": 100
+   "hw": 105
   },
   {
    "id": "sys",
-   "x": 1125,
-   "y": 545,
+   "x": 1420,
+   "y": 950,
    "label": "Foie, hypothalamus :\nphase aiguë, fièvre",
    "type": "effet",
    "famille": "effet",
    "info": "L'IL-6 fait synthétiser par le foie les protéines de la phase aiguë (CRP, fibrinogène) et, comme le TNF-α et l'IL-1β, provoque la fièvre.",
-   "hw": 100
+   "hw": 105
   },
   {
-   "id": "anticorps",
-   "x": 1125,
-   "y": 650,
-   "label": "Anticorps",
+   "id": "comp",
+   "x": 130,
+   "y": 1125,
+   "label": "Surface du pathogène,\ncomplexes immuns",
+   "type": "cellule",
+   "famille": "tissu",
+   "info": "Trois voies activent le complément : la voie classique (C1q fixé sur des anticorps liés à l'antigène), la voie des lectines (MBL fixée sur des sucres microbiens) et la voie alterne (hydrolyse spontanée de C3).",
+   "hw": 110
+  },
+  {
+   "id": "c3",
+   "x": 460,
+   "y": 1125,
+   "label": "C3 convertase",
+   "type": "cellule",
+   "famille": "tissu",
+   "info": "Enzyme commune aux trois voies. Elle clive C3 en C3a et C3b ; le C3b se fixe de façon covalente à la surface du pathogène."
+  },
+  {
+   "id": "c5",
+   "x": 800,
+   "y": 1125,
+   "label": "C5 convertase",
+   "type": "cellule",
+   "famille": "tissu",
+   "info": "Formée par l'ajout de C3b à la C3 convertase. Elle clive C5 en C5a et C5b."
+  },
+  {
+   "id": "opson",
+   "x": 1100,
+   "y": 1060,
+   "label": "Opsonisation,\nphagocytose",
    "type": "effet",
    "famille": "effet",
-   "info": "Les plasmocytes sécrètent les anticorps. Dans les maladies auto-immunes à auto-anticorps, c'est cette production que vise la déplétion B.",
-   "hw": 100
+   "info": "Les phagocytes reconnaissent le C3b par leurs récepteurs du complément et ingèrent le pathogène ainsi marqué."
+  },
+  {
+   "id": "anaph",
+   "x": 1420,
+   "y": 1100,
+   "label": "Inflammation : recrutement\ndes phagocytes",
+   "type": "effet",
+   "famille": "effet",
+   "info": "C5a et C3a sont des anaphylatoxines : elles augmentent la perméabilité vasculaire et attirent les phagocytes.",
+   "hw": 105
+  },
+  {
+   "id": "mac",
+   "x": 1420,
+   "y": 1180,
+   "label": "Complexe d'attaque\nmembranaire : lyse",
+   "type": "effet",
+   "famille": "effet",
+   "info": "C5b assemble C6, C7, C8 et C9 en un pore qui perfore la membrane de certains pathogènes, notamment les Neisseria.",
+   "hw": 105
+  },
+  {
+   "id": "ige",
+   "x": 130,
+   "y": 1285,
+   "label": "Allergène fixé\nsur des IgE",
+   "type": "cellule",
+   "famille": "tissu",
+   "info": "Les IgE, produites après commutation de classe sous l'effet de l'IL-4, se fixent durablement sur les mastocytes.",
+   "hw": 110
+  },
+  {
+   "id": "mast",
+   "x": 460,
+   "y": 1285,
+   "label": "Mastocyte",
+   "type": "cellule",
+   "famille": "inne",
+   "info": "Cellule résidente des tissus, armée d'IgE fixées sur son récepteur de haute affinité FcεRI."
+  },
+  {
+   "id": "allergie",
+   "x": 1420,
+   "y": 1285,
+   "label": "Histamine, leucotriènes :\nhypersensibilité immédiate",
+   "type": "effet",
+   "famille": "effet",
+   "info": "Les médiateurs libérés provoquent vasodilatation, œdème et bronchoconstriction : urticaire, asthme, anaphylaxie.",
+   "hw": 105
   }
  ],
  "aretes": [
@@ -196,23 +382,106 @@
    "info": "Interférons de type I. Leur récepteur commun, IFNAR, signale par TYK2 et JAK1."
   },
   {
+   "id": "ifnnk",
+   "de": "pdc",
+   "vers": "nk",
+   "label": "IFN-α, IFN-β",
+   "cibleIds": [
+    "ifnar",
+    "jak"
+   ],
+   "info": "Les interférons de type I activent les cellules NK.",
+   "pos": 0.3
+  },
+  {
+   "id": "il12nk",
+   "de": "apc1",
+   "vers": "nk",
+   "label": "IL-12",
+   "cibleIds": [
+    "p40",
+    "jak"
+   ],
+   "info": "L'IL-12 des cellules dendritiques et des macrophages active les cellules NK et leur fait sécréter l'interféron γ.",
+   "pos": 0.72
+  },
+  {
+   "id": "sig1c",
+   "de": "apc1",
+   "vers": "tcd8",
+   "label": "CMH I–TCR",
+   "cibleIds": [],
+   "info": "Signal 1 : le récepteur T reconnaît le peptide présenté par le CMH de classe I.",
+   "dy": -14
+  },
+  {
+   "id": "sig2c",
+   "de": "apc1",
+   "vers": "tcd8",
+   "label": "B7–CD28",
+   "cibleIds": [
+    "b7"
+   ],
+   "info": "Signal 2 : les molécules B7 (CD80, CD86) se lient à CD28. Co-stimulation indispensable à l'activation.",
+   "dy": 14,
+   "requis": true
+  },
+  {
+   "id": "il2",
+   "de": "tcd8",
+   "vers": "ctl",
+   "label": "IL-2",
+   "cibleIds": [
+    "jak"
+   ],
+   "info": "L'IL-2 fait proliférer les lymphocytes T activés. Son récepteur comporte la chaîne γ commune, associée à JAK3."
+  },
+  {
+   "id": "nklyse",
+   "de": "nk",
+   "vers": "lyse",
+   "label": "Perforine, granzymes",
+   "cibleIds": [],
+   "info": "La cellule NK tue par contact les cellules qui n'expriment plus assez de molécules du CMH I."
+  },
+  {
+   "id": "ctllyse",
+   "de": "ctl",
+   "vers": "lyse",
+   "label": "Perforine, granzymes",
+   "cibleIds": [],
+   "info": "Le lymphocyte T cytotoxique tue par contact la cellule qui présente le peptide reconnu.",
+   "pos": 0.4
+  },
+  {
+   "id": "ifngnk",
+   "de": "nk",
+   "vers": "mclass",
+   "label": "IFN-γ",
+   "cibleIds": [
+    "jak"
+   ],
+   "info": "L'interféron γ des cellules NK active précocement les macrophages. Son récepteur signale par la voie JAK-STAT.",
+   "pos": 0.6
+  },
+  {
    "id": "sig1",
    "de": "apc",
    "vers": "tnaif",
-   "label": "Signal 1 : CMH–TCR",
+   "label": "CMH II–TCR",
    "cibleIds": [],
-   "info": "Le récepteur T reconnaît le peptide présenté par le CMH. Ce signal seul ne suffit pas à activer un lymphocyte T naïf.",
+   "info": "Signal 1 : le récepteur T reconnaît le peptide présenté par le CMH de classe II. Ce signal seul ne suffit pas à activer un lymphocyte T naïf.",
    "dy": -14
   },
   {
    "id": "sig2",
    "de": "apc",
    "vers": "tnaif",
-   "label": "Signal 2 : B7–CD28",
+   "label": "B7–CD28",
    "cibleIds": [
     "b7"
    ],
-   "info": "Les molécules B7 (CD80, CD86) de la cellule présentatrice se lient à CD28. Signal de co-stimulation, indispensable à l'activation.",
+   "info": "Signal 2 : les molécules B7 (CD80, CD86) de la cellule présentatrice se lient à CD28. Co-stimulation indispensable à l'activation.",
    "dy": 14,
    "requis": true
   },
@@ -225,7 +494,8 @@
     "p40",
     "jak"
    ],
-   "info": "Sécrétée par les cellules dendritiques et les macrophages, l'IL-12 oriente vers les Th1. Son récepteur signale par TYK2 et JAK2. Elle partage la sous-unité p40 avec l'IL-23."
+   "info": "Sécrétée par les cellules dendritiques et les macrophages, l'IL-12 oriente vers les Th1. Son récepteur signale par TYK2 et JAK2. Elle partage la sous-unité p40 avec l'IL-23.",
+   "pos": 0.6
   },
   {
    "id": "th17a",
@@ -238,7 +508,8 @@
     "jak"
    ],
    "info": "L'IL-6, associée au TGF-β, engage la différenciation en Th17 par l'intermédiaire de STAT3.",
-   "dy": -14
+   "dy": -14,
+   "pos": 0.6
   },
   {
    "id": "th17b",
@@ -250,7 +521,8 @@
     "jak"
    ],
    "info": "L'IL-23 assure l'expansion et le maintien des Th17. Elle partage la sous-unité p40 avec l'IL-12.",
-   "dy": 14
+   "dy": 14,
+   "pos": 0.6
   },
   {
    "id": "il4",
@@ -260,12 +532,35 @@
    "cibleIds": [
     "jak"
    ],
-   "info": "L'IL-4 oriente vers les Th2. Son récepteur comporte la chaîne γ commune, associée à JAK3."
+   "info": "L'IL-4 oriente vers les Th2. Son récepteur comporte la chaîne γ commune, associée à JAK3.",
+   "pos": 0.6
+  },
+  {
+   "id": "tgfb",
+   "de": "tnaif",
+   "vers": "treg",
+   "label": "TGF-β",
+   "cibleIds": [],
+   "info": "En l'absence d'IL-6, le TGF-β oriente le lymphocyte T naïf vers un phénotype régulateur.",
+   "pos": 0.6
+  },
+  {
+   "id": "tfh6",
+   "de": "tnaif",
+   "vers": "tfh",
+   "label": "IL-6",
+   "cibleIds": [
+    "il6",
+    "il6r",
+    "jak"
+   ],
+   "info": "L'IL-6 participe à la différenciation des lymphocytes T folliculaires.",
+   "pos": 0.6
   },
   {
    "id": "ifng",
    "de": "th1",
-   "vers": "mact",
+   "vers": "mclass",
    "label": "IFN-γ",
    "cibleIds": [
     "jak"
@@ -275,7 +570,7 @@
   {
    "id": "il17",
    "de": "th17",
-   "vers": "neutro",
+   "vers": "stroma",
    "label": "IL-17A",
    "cibleIds": [
     "il17a"
@@ -292,6 +587,78 @@
     "jak"
    ],
    "info": "Cytokine de l'immunité de type 2. Son récepteur, de la famille de l'hématopoïétine, signale par la voie JAK-STAT."
+  },
+  {
+   "id": "il4b",
+   "de": "th2",
+   "vers": "lb",
+   "label": "IL-4, IL-13",
+   "cibleIds": [
+    "jak"
+   ],
+   "info": "Ces cytokines font commuter le lymphocyte B vers la production d'IgE. Leurs récepteurs signalent par la voie JAK-STAT.",
+   "pos": 0.3
+  },
+  {
+   "id": "aide",
+   "de": "tfh",
+   "vers": "lb",
+   "label": "CD40L, IL-21",
+   "cibleIds": [],
+   "info": "Le ligand de CD40 et l'IL-21 des lymphocytes T folliculaires déclenchent la prolifération du lymphocyte B, la commutation de classe et la maturation d'affinité dans le centre germinatif.",
+   "dy": -10
+  },
+  {
+   "id": "baff",
+   "de": "fdc",
+   "vers": "lb",
+   "label": "BAFF",
+   "cibleIds": [
+    "baff"
+   ],
+   "info": "Cytokine de la famille du TNF. Par BAFF-R, elle active NF-κB et induit Bcl-2 : c'est le signal de survie du lymphocyte B.",
+   "dy": 14,
+   "requis": true
+  },
+  {
+   "id": "macrocide",
+   "de": "mclass",
+   "vers": "intracell",
+   "label": "Activation",
+   "cibleIds": [],
+   "info": "Le macrophage activé produit des dérivés de l'oxygène et de l'azote et fusionne plus efficacement ses phagosomes avec les lysosomes."
+  },
+  {
+   "id": "gcsf",
+   "de": "stroma",
+   "vers": "neutro",
+   "label": "G-CSF, CXCL8",
+   "cibleIds": [],
+   "info": "Facteur de croissance des granulocytes et chimiokines attirant les neutrophiles."
+  },
+  {
+   "id": "degr",
+   "de": "eosino",
+   "vers": "type2",
+   "label": "Dégranulation",
+   "cibleIds": [],
+   "info": "L'éosinophile activé libère des protéines toxiques et des médiateurs de l'inflammation."
+  },
+  {
+   "id": "il10",
+   "de": "treg",
+   "vers": "tol",
+   "label": "IL-10, TGF-β",
+   "cibleIds": [],
+   "info": "Cytokines inhibitrices sécrétées par les lymphocytes T régulateurs."
+  },
+  {
+   "id": "diff",
+   "de": "lb",
+   "vers": "plasmo",
+   "label": "Différenciation",
+   "cibleIds": [],
+   "info": "Activé par l'antigène et aidé par les lymphocytes T, le lymphocyte B se différencie en plasmocyte."
   },
   {
    "id": "tnf",
@@ -316,7 +683,7 @@
    ],
    "info": "Produite sous forme de précurseur, activée par la caspase 1 de l'inflammasome. Son récepteur signale par MyD88 et NF-κB.",
    "dy": 13,
-   "pos": 0.58
+   "pos": 0.55
   },
   {
    "id": "il6",
@@ -332,30 +699,60 @@
    "pos": 0.42
   },
   {
-   "id": "baff",
-   "de": "fdc",
-   "vers": "lb",
-   "label": "BAFF",
-   "cibleIds": [
-    "baff"
-   ],
-   "info": "Cytokine de la famille du TNF. Par BAFF-R, elle active NF-κB et induit Bcl-2 : c'est le signal de survie du lymphocyte B."
+   "id": "activ",
+   "de": "comp",
+   "vers": "c3",
+   "label": "C1q, MBL, C3b",
+   "cibleIds": [],
+   "info": "Chaque voie d'activation aboutit à la formation d'une C3 convertase à la surface du pathogène."
   },
   {
-   "id": "diff",
-   "de": "lb",
-   "vers": "plasmo",
-   "label": "Différenciation",
+   "id": "c3b",
+   "de": "c3",
+   "vers": "opson",
+   "label": "C3b",
    "cibleIds": [],
-   "info": "Activé par l'antigène et aidé par les lymphocytes T, le lymphocyte B se différencie en plasmocyte."
+   "info": "Le C3b déposé sur le pathogène est une opsonine."
   },
   {
-   "id": "ac",
-   "de": "plasmo",
-   "vers": "anticorps",
-   "label": "Sécrétion",
+   "id": "c3c5",
+   "de": "c3",
+   "vers": "c5",
+   "label": "+ C3b",
    "cibleIds": [],
-   "info": "Les plasmocytes sécrètent de grandes quantités d'anticorps."
+   "info": "La fixation de C3b sur la C3 convertase en fait une C5 convertase."
+  },
+  {
+   "id": "c5a",
+   "de": "c5",
+   "vers": "anaph",
+   "label": "C5a, C3a",
+   "cibleIds": [],
+   "info": "Petits fragments solubles libérés par le clivage de C5 et de C3."
+  },
+  {
+   "id": "c5b",
+   "de": "c5",
+   "vers": "mac",
+   "label": "C5b à C9",
+   "cibleIds": [],
+   "info": "C5b amorce l'assemblage des composants terminaux du complément."
+  },
+  {
+   "id": "fce",
+   "de": "ige",
+   "vers": "mast",
+   "label": "Pontage de FcεRI",
+   "cibleIds": [],
+   "info": "L'allergène ponte les IgE fixées sur FcεRI, ce qui active le mastocyte."
+  },
+  {
+   "id": "degm",
+   "de": "mast",
+   "vers": "allergie",
+   "label": "Dégranulation",
+   "cibleIds": [],
+   "info": "Le mastocyte libère en quelques minutes l'histamine de ses granules, puis synthétise leucotriènes et cytokines."
   }
  ]
 }

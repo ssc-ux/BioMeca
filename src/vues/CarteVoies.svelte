@@ -11,7 +11,7 @@
   const lignes = (t) => t.split('\n');
   const hw = (n) => n.hw ?? 92;
   const HH = 27;
-  const teinte = { inne: '#0b5c6b', t: '#1d4ed8', b: '#6d28d9' };
+  const teinte = { inne: '#0b5c6b', t: '#1d4ed8', b: '#6d28d9', tissu: '#64748b' };
   const plat = (t) => t.replace(/\n/g, ' ');
 
   const mols = $derived(etat.ids.map((id) => moleculeParId[id]));
@@ -45,7 +45,7 @@
 <div class="vue">
   <header>
     <h1>Carte des voies</h1>
-    <p>Vue d'ensemble de la réponse immunitaire : cellules, signaux qu'elles échangent, effets. Ajoutez un médicament pour voir les signaux qu'il éteint et ce qui s'arrête en aval. Les étiquettes cerclées sont des cibles thérapeutiques : cliquez pour ouvrir la cible.</p>
+    <p>Vue d'ensemble de la réponse immunitaire, de gauche à droite : cellules, signaux qu'elles échangent, effets. Ajoutez un médicament pour voir les signaux qu'il éteint et ce qui s'arrête en aval. Les étiquettes cerclées sont des cibles thérapeutiques : cliquez pour ouvrir la cible.</p>
   </header>
 
   <Recherche exclus={etat.ids} onchoisir={ajouter} />
@@ -60,10 +60,10 @@
             <marker id="c-fleche-off" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#cbd5e1" /></marker>
           </defs>
 
-          {#each carte.titres as t}
-            <text class="titre" x={t.x} y="26" text-anchor="middle">{t.texte}</text>
+          {#each carte.titres as t, k}
+            {#if k}<path class="filet" d="M24 {t.y - 22}H{largeur - 24}" />{/if}
+            <text class="titre" x="24" y={t.y}>{t.texte}</text>
           {/each}
-          <path class="filet" d="M28 40H{largeur - 28}" />
 
           {#each aretes as a (a.id)}
             <path class="arete" class:eteinte={off.aretes.has(a.id)} d={a.d} marker-end="url(#{off.aretes.has(a.id) ? 'c-fleche-off' : 'c-fleche'})" />
@@ -119,6 +119,9 @@
       <li><span class="ic coupe"></span>Signal éteint par un médicament sélectionné</li>
       <li><span class="ic cible"></span>Cible thérapeutique (cliquable)</li>
       <li><span class="ic point"></span>Médicament sélectionné agissant ici</li>
+      <li><span class="ic dot" style:background={teinte.inne}></span>Immunité innée</li>
+      <li><span class="ic dot" style:background={teinte.t}></span>Lymphocytes T</li>
+      <li><span class="ic dot" style:background={teinte.b}></span>Lymphocytes B</li>
     </ul>
   </section>
 
@@ -143,9 +146,9 @@
 
 <style>
   .defilement { overflow-x: auto; }
-  .cadre { position: relative; min-width: 980px; }
-  svg { display: block; width: 100%; height: auto; font-size: 13px; background: #fbfcfe; border: 1px solid var(--bord); border-radius: 10px; }
-  .titre { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; fill: #475569; }
+  .cadre { position: relative; min-width: 1380px; }
+  svg { display: block; width: 100%; height: auto; font-size: 13.5px; background: #fbfcfe; border: 1px solid var(--bord); border-radius: 10px; }
+  .titre { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; fill: #475569; }
   .filet { stroke: #d8e0e8; }
 
   .arete { fill: none; stroke: #475569; stroke-width: 1.8; transition: stroke 0.2s; }
@@ -184,6 +187,7 @@
   .coupe { width: 26px; border-top: 2px dashed #cbd5e1; }
   .cible { width: 30px; height: 14px; border-radius: 7px; border: 2.2px solid #0b5c6b; }
   .point { width: 10px; height: 10px; border-radius: 50%; background: #1d4ed8; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
 
   .bilan { display: flex; flex-direction: column; gap: 8px; font-size: 14.5px; }
   .bilan li { display: flex; gap: 8px; align-items: baseline; }

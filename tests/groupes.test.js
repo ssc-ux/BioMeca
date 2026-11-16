@@ -44,18 +44,25 @@ describe('carte : signaux éteints', () => {
   const off = (...ids) => eteindre(carte, sel(...ids).map((m) => m.cibleId));
   it('tocilizumab éteint les signaux de l’IL-6 sans éteindre les Th17', () => {
     const { aretes, noeuds } = off('tocilizumab');
-    expect([...aretes].sort()).toEqual(['il6', 'th17a']);
+    expect([...aretes].sort()).toEqual(['aide', 'il6', 'tfh6', 'th17a']);
+    expect(noeuds.has('tfh')).toBe(true);
+    expect(noeuds.has('lb')).toBe(false);
     expect(noeuds.has('sys')).toBe(true);
     expect(noeuds.has('th17')).toBe(false);
   });
   it('abatacept coupe le signal 2 : toute la différenciation T s’éteint', () => {
     const { noeuds } = off('abatacept');
-    for (const id of ['tnaif', 'th1', 'th17', 'th2', 'neutro', 'eosino']) expect(noeuds.has(id), id).toBe(true);
+    for (const id of ['tnaif', 'tcd8', 'ctl', 'th1', 'th17', 'th2', 'treg', 'neutro', 'eosino']) expect(noeuds.has(id), id).toBe(true);
+    expect(noeuds.has('nk')).toBe(false);
     expect(noeuds.has('endo')).toBe(false);
   });
   it('rituximab éteint le lymphocyte B et la production d’anticorps', () => {
     const { noeuds } = off('rituximab');
-    for (const id of ['lb', 'plasmo', 'anticorps']) expect(noeuds.has(id), id).toBe(true);
+    for (const id of ['lb', 'plasmo']) expect(noeuds.has(id), id).toBe(true);
+  });
+  it('aucun médicament du site n’éteint le complément ni les mastocytes', () => {
+    const { noeuds } = eteindre(carte, cibles.map((c) => c.id));
+    for (const id of ['c3', 'c5', 'mac', 'mast', 'allergie']) expect(noeuds.has(id), id).toBe(false);
   });
   it('sans sélection, rien n’est éteint', () => {
     const { aretes, noeuds } = off();
