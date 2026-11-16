@@ -16,6 +16,7 @@
 
 <header>
   <div class="barre">
+    <a class="mit" href="https://ssc-ux.github.io/MedInt-Tools/" title="Retour à MedInt Tools">‹ MedInt Tools</a>
     <a class="logo" href={hash('/mecanisme')}>BioMéca</a>
     <nav aria-label="Vues">
       {#each vues as v}
@@ -47,6 +48,8 @@
     max-width: 1280px; margin: 0 auto; padding: 0 24px;
     display: flex; flex-wrap: wrap; align-items: center; column-gap: 32px;
   }
+  .mit { font-size: 13px; font-weight: 500; color: var(--encre-2); text-decoration: none; white-space: nowrap; margin-right: -12px; }
+  .mit:hover { color: var(--encre); }
   .logo { font-weight: 700; font-size: 20px; color: var(--accent); text-decoration: none; padding: 14px 0; }
   nav { display: flex; flex-wrap: wrap; }
   nav a {
@@ -61,6 +64,9 @@
     .barre, main, footer { padding-left: 16px; padding-right: 16px; }
     nav { flex-wrap: nowrap; overflow-x: auto; max-width: 100%; }
     nav a { padding: 12px 10px 9px; white-space: nowrap; font-size: 14px; }
-    .logo { padding: 10px 0 0; flex-basis: 100%; }
+    .logo { padding: 10px 0 0; flex: 1 0 auto; }
+    .mit { padding-top: 10px; margin-right: 0; }
+    .barre { column-gap: 14px; }
+    nav { flex-basis: 100%; }
   }
 </style>
